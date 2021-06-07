@@ -1,25 +1,28 @@
-import React from 'react'; // eslint-disable-line no-unused-vars
-import { createSwitchNavigator } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+
 import defaultNavigationOptions from './navigationOptions';
 import HomeScreen from '../screens/Home';
-import LoadingScreen from '../screens/Loading';
 import ProfileScreen from '../screens/Profile';
 
-export const MainStack = createStackNavigator({
-	Home: HomeScreen,
-	Profile: ProfileScreen,
-}, {
-	initialRouteName: 'Home',
-	defaultNavigationOptions
-});
+const Stack = createStackNavigator();
 
-/**
- * Root
- */
-export const RootStack = createSwitchNavigator({
-	Loading: LoadingScreen,
-	Main: MainStack,
-}, {
-	initialRouteName: 'Main'
-});
+export function RootStack() {
+	return (
+		<Stack.Navigator
+			initialRouteName="Home"
+			screenOptions={defaultNavigationOptions}
+		>
+			<Stack.Screen
+				name="Home"
+				component={HomeScreen}
+				options={{ title: 'My app' }}
+			/>
+			<Stack.Screen
+				name="Profile"
+				component={ProfileScreen}
+				initialParams={{ user: 'me' }}
+			/>
+		</Stack.Navigator>
+	);
+}

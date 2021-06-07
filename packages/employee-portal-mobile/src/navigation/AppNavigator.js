@@ -1,6 +1,12 @@
-import { createAppContainer } from 'react-navigation';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+
 import { RootStack } from './routes';
 
-const AppContainer = createAppContainer(RootStack);
+const AppContainer = () => (
+  <NavigationContainer>
+    <RootStack />
+  </NavigationContainer>
+);
 
 export default AppContainer;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header as NavigationHeader } from 'react-navigation-stack';
+import { Header as NavigationHeader } from '@react-navigation/stack';
 import withTheme, { variant } from 'employee-portal-shared/src/styles/withTheme';
 
 class Header extends Component {

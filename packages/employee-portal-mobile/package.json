@@ -10,7 +10,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/bottom-tabs": "^5.11.11",
+    "@react-navigation/material-top-tabs": "^5.3.15",
+    "@react-navigation/native": "^5.9.4",
+    "@react-navigation/stack": "^5.14.5",
     "employee-portal-shared": "0.0.1",
     "react": "16.13.1",
     "react-native": "0.63.0",
@@ -18,11 +23,7 @@
     "react-native-reanimated": "^1.9.0",
     "react-native-safe-area-context": "^3.1.1",
     "react-native-screens": "^2.9.0",
-    "react-native-vector-icons": "^7.0.0",
-    "react-navigation": "^4.3.9",
-    "react-navigation-stack": "^2.5.1",
-    "react-navigation-tabs": "^2.8.13",
-    "@react-native-community/async-storage": "^1.12.1"
+    "react-native-vector-icons": "^7.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",

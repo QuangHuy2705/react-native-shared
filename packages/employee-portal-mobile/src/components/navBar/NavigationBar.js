@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { StatusBar, Dimensions, Platform } from 'react-native';
-import { withNavigation } from 'react-navigation';
-import { Header as NavigationHeader, HeaderStyleInterpolators } from 'react-navigation-stack';
-import { getDefaultHeaderHeight } from 'react-navigation-stack/lib/commonjs/vendor/views/Header/HeaderSegment';
+import { withNavigation } from '@react-navigation/native';
+import { Header as NavigationHeader, HeaderStyleInterpolators } from '@react-navigation/stack';
+import { getDefaultHeaderHeight } from '@react-navigation/stack/lib/commonjs/vendor/views/Header/HeaderSegment';
 import Container from 'employee-portal-shared/src/components/layout/Container';
 
 const IOS_STATUS_BAR_HEIGHT = 20;
