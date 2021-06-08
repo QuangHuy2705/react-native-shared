@@ -24,7 +24,7 @@ class Home extends Component {
   }
 
   render() {
-    const { onPressProfile, theme, changeTheme } = this.props;
+    const { onPressProfile, onPressWorkplace, theme, changeTheme } = this.props;
 
     return (
       <Container
@@ -82,6 +82,10 @@ class Home extends Component {
             <Button
               text='Profile'
               onPress={onPressProfile}
+            />
+            <Button
+              text='Workplace'
+              onPress={onPressWorkplace}
             />
           </Section>
 

@@ -5,8 +5,7 @@ import HomeScreen from '~/screens/Home';
 
 import WorkScreen from '~/screens/Work';
 
-// TODO: Workplace screen
-import WorkplaceScreen from '~/screens/Work';
+import WorkplaceScreen from '~/screens/Workplace';
 
 // TODO: Profile screen
 import ProfileScreen from '~/screens/Profile';
