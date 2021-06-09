@@ -26,10 +26,11 @@ const PRDivider = (props: PropsType) => {
 };
 const styles = StyleSheet.create({
 	divider: {
-		width: Metrics.deviceWidth - 40,
+		alignSelf:'center',
+		width: Metrics.deviceWidth - 32,
 		marginTop: 4,
-		height: 1,
-		backgroundColor: "#dbdbde"
+		height: 0.5,
+		backgroundColor: "#BDBDBD"
 	}
 });
 
