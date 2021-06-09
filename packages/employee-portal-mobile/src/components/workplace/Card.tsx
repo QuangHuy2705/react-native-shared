@@ -2,6 +2,7 @@ import {StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle} from "re
 import React from "react";
 import { IconButton } from 'react-native-paper'
 import PRDivider from "./PRDivider";
+import PRColors from "../../constants/PRColors";
 
 const Card = ({style, title, children, seemore}: { style?: StyleProp<ViewStyle>, title?, children?, seemore? }) => {
 	return <View style={
@@ -24,8 +25,8 @@ const Card = ({style, title, children, seemore}: { style?: StyleProp<ViewStyle>,
 									  height: 42
 								  }}>
 
-				<Text style={{color: '#F15A22', fontSize:13}}>See more</Text>
-				<IconButton icon='chevron-down' color={'#F15A22'} size={16} style={{ marginLeft:-2}}/>
+				<Text style={{color: PRColors.primary, fontSize:13}}>See more</Text>
+				<IconButton icon='chevron-down' color={PRColors.primary} size={16} style={{ marginLeft:-2}}/>
 			</TouchableOpacity>
 		</View>}
 

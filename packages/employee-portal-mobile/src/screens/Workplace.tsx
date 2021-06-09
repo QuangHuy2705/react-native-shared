@@ -1,19 +1,19 @@
 // @ts-ignore
-import React, {PureComponent, useState} from 'react';
+import React, {Component, PureComponent, useState} from 'react';
 // @ts-ignore
 import Container from 'employee-portal-shared/src/components/layout/Container';
-import {View, StyleSheet, ScrollView} from "react-native";
+import {View, StyleSheet, ScrollView, ImageBackground, Image, Button, TouchableOpacity} from "react-native";
 import ImageHeader from "../components/workplace/ImageHeader";
 import CategoryIconButton from "../components/workplace/CategoryIconButton";
 import SearchBlock from "../components/workplace/SearchBlock";
 import LocationBlock from "../components/workplace/LocationBlock";
 import Card from "../components/workplace/Card";
-import {available_rooms, buttons_line1, buttons_line2, current_location} from "../mock/Data";
+import {available_rooms, buttons_line1, buttons_line2, current_location, food_drinks} from "../mock/Data";
 import PRDivider from "../components/workplace/PRDivider";
 import {Metrics} from "../constants";
 
 
-export default class WorkplaceScreen extends PureComponent {
+export default class WorkplaceScreen extends Component {
 	static navigationOptions = {
 		title: 'Workplace',
 	};
@@ -45,8 +45,12 @@ export default class WorkplaceScreen extends PureComponent {
 
 			>
 				<ScrollView style={{flex: 1, width: '100%', backgroundColor: "#E5E5E5"}}>
-					<ImageHeader/>
-					<View style={{marginTop: -50, marginBottom:32}}>
+					<TouchableOpacity
+						onPress={()=>this.props.navigation.navigate('Location')}
+					>
+						<ImageHeader/>
+					</TouchableOpacity>
+					<View style={{marginTop: -50, marginBottom: 32}}>
 						<Card style={{height: 100}}><LocationBlock location={current_location}/></Card>
 						<Card style={{paddingBottom: 8}}>
 							<SearchBlock/>
@@ -60,7 +64,7 @@ export default class WorkplaceScreen extends PureComponent {
 							<PRDivider style={{width: Metrics.deviceWidth - 48}}/>
 						</Card>
 						<Card title={"FOOD & DRINK"} seemore>
-							{available_rooms.map(r => <LocationBlock
+							{food_drinks.map(r => <LocationBlock
 								key={r.name}
 								location={r} style={{paddingVertical: 10}}/>)}
 							<PRDivider style={{width: Metrics.deviceWidth - 48}}/>

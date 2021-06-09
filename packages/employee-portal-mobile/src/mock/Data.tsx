@@ -1,6 +1,21 @@
 import React from "react";
 import {LocationData} from "packages/employee-portal-shared/src/types/LocationData";
 import Icon from 'employee-portal-shared/src/components/common/Icon';
+import PRColors from "../constants/PRColors";
+
+export const food_drinks: LocationData[] = [{
+	name: "Melbourne",
+	path: "VNG Campus 1 - Floor 3",
+	desc: "9 people",
+}, {
+	name: "Rome",
+	path: "VNG Campus 1 - Floor 2",
+	desc: "12 people",
+}, {
+	name: "Beijing",
+	path: "VNG Campus 1 - Floor 1",
+	desc: "6 people",
+}]
 
 export const available_rooms: LocationData[] = [{
 	name: "Melbourne",
@@ -26,14 +41,14 @@ export const buttons_line1 = [
 		onPress: () => {
 			console.log('click')
 		},
-		icon: <Icon name='search' color='#828282' size={30}/>,
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	},
 	{
 		title: "Meeting Room",
 		onPress: () => {
 			console.log('click')
 		},
-		icon: <Icon name='search' color='#828282' size={30}/>,
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	}
 	,
 	{
@@ -41,7 +56,7 @@ export const buttons_line1 = [
 		onPress: () => {
 			console.log('click')
 		},
-		icon: <Icon name='search' color='#828282' size={30}/>,
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	}
 	,
 	{
@@ -49,7 +64,7 @@ export const buttons_line1 = [
 		onPress: () => {
 			console.log('click')
 		},
-		icon: <Icon name='search' color='#828282' size={30}/>,
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	}
 	,
 
@@ -62,7 +77,7 @@ export const buttons_line2 = [
 		onPress: () => {
 			console.log('click')
 		},
-		icon: <Icon name='search' color='#828282' size={30}/>,
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	}
 	,
 	{
@@ -70,14 +85,14 @@ export const buttons_line2 = [
 		onPress: () => {
 			console.log('click')
 		},
-		icon: <Icon name='search' color='#828282' size={30}/>,
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	},
 	{
 		title: "Library",
 		onPress: () => {
 			console.log('click')
 		},
-		icon: <Icon name='search' color='#828282' size={30}/>,
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	}
 	,
 	{
@@ -85,7 +100,7 @@ export const buttons_line2 = [
 		onPress: () => {
 			console.log('click')
 		},
-		icon: <Icon name='search' color='#828282' size={30}/>,
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	}
 ];
 

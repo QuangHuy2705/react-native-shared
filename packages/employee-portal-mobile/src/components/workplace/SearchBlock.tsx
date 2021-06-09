@@ -2,6 +2,7 @@
 import React, {useState} from "react";
 import {SearchBar} from "react-native-elements";
 import Icon from 'employee-portal-shared/src/components/common/Icon';
+import PRColors from "../../constants/PRColors";
 
 const SearchBlock = () => {
 	const [search, setSearch] = useState('')
@@ -25,7 +26,7 @@ const SearchBlock = () => {
 			height: 38,
 			backgroundColor: 'rgba(242, 242, 242, 0.6)'
 		}}
-		searchIcon={<Icon name='search' color='#828282' size={24}/>}
+		searchIcon={<Icon name='search' color={PRColors.icon} size={24}/>}
 		placeholder={"Where do you want to go?"}
 		onChangeText={updateSearch}
 		value={search}
