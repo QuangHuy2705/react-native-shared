@@ -38,32 +38,20 @@ export const current_location: LocationData = {
 export const buttons_line1 = [
 	{
 		title: "Desk",
-		onPress: () => {
-			console.log('click')
-		},
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	},
 	{
 		title: "Meeting Room",
-		onPress: () => {
-			console.log('click')
-		},
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	}
 	,
 	{
 		title: "Coffee",
-		onPress: () => {
-			console.log('click')
-		},
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	}
 	,
 	{
 		title: "Gyms",
-		onPress: () => {
-			console.log('click')
-		},
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	}
 	,
@@ -74,32 +62,20 @@ export const buttons_line2 = [
 
 	{
 		title: "Coworker",
-		onPress: () => {
-			console.log('click')
-		},
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	}
 	,
 	{
 		title: "Pharmacy",
-		onPress: () => {
-			console.log('click')
-		},
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	},
 	{
 		title: "Library",
-		onPress: () => {
-			console.log('click')
-		},
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	}
 	,
 	{
-		title: "toilet",
-		onPress: () => {
-			console.log('click')
-		},
+		title: "Toilet",
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	}
 ];

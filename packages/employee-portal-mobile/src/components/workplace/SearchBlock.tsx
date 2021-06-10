@@ -1,6 +1,7 @@
 // @ts-ignore
 import React, {useState} from "react";
 import {SearchBar} from "react-native-elements";
+// @ts-ignore
 import Icon from 'employee-portal-shared/src/components/common/Icon';
 import PRColors from "../../constants/PRColors";
 

@@ -5,15 +5,45 @@ import {LocationData} from "../../../../employee-portal-shared/src/types/Locatio
 import PRImages from "../../constants/PRImages";
 import PRColors from "../../constants/PRColors";
 
-
-const LocationBlock = ({location, style}: { location: LocationData, style?: StyleProp }) => {
+const BookButton = ({onPress}) => {
+	return <TouchableOpacity
+		onPress={onPress}
+		style=
+			{{
+				backgroundColor: 'rgba(39, 174, 96, 0.15)', borderRadius: 28
+				, padding: 8, paddingVertical: 6
+			}}>
+		<Text style={{color: PRColors.success}}>Book</Text>
+	</TouchableOpacity>
+}
+const DirectButton = ({onPress}) => {
+	return <TouchableOpacity
+		onPress={onPress}
+		style=
+			{{
+				backgroundColor: 'rgba(241, 90, 34, 0.15)', borderRadius: 28
+				, padding: 8, paddingVertical: 6
+			}}>
+		<Text style={{color: PRColors.primary}}>Direct</Text>
+	</TouchableOpacity>
+}
+const LocationBlock = ({
+						   image,
+						   location,
+						   style,
+						   onDirect,
+						   onBook
+					   }: {
+	image?, location: LocationData, // @ts-ignore
+	style?: StyleProp, onDirect?: Function, onBook?: Function
+}) => {
 	return <View style={{...styles.row, ...style}}>
 		<Image
 			style={{
 				...styles.image
 			}}
 			resizeMode='cover'
-			source={PRImages.roomExample}/>
+			source={image ? image : PRImages.roomExample}/>
 		<View style={{
 			flex: 1, marginLeft: 16, flexDirection: 'row'
 			, justifyContent: 'space-between'
@@ -24,13 +54,8 @@ const LocationBlock = ({location, style}: { location: LocationData, style?: Styl
 				<Text style={{fontSize: 12, height: 18, color: '#919191'}}>{location.desc}</Text>
 			</View>
 			<View>
-				<TouchableOpacity style=
-									  {{
-										  backgroundColor: 'rgba(241, 90, 34, 0.15)', borderRadius: 28
-										  , padding: 8, paddingVertical: 6
-									  }}>
-					<Text style={{color: PRColors.primary}}>Direct</Text>
-				</TouchableOpacity>
+				{onDirect && <DirectButton onPress={onDirect}/>}
+				{onBook && <BookButton onPress={onBook}/>}
 			</View>
 
 		</View>
