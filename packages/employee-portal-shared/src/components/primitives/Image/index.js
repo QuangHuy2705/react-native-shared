@@ -1,3 +1,8 @@
-import { Image } from 'react-native';
+import React from 'react'
+import { Image } from 'react-native'
 
-export default Image;
+function ImageNative(props) {
+  return <Image {...props} />
+}
+
+export default ImageNative
