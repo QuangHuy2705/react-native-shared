@@ -16,97 +16,107 @@ import { Actions } from '../redux/modules/app';
 const toggleThemeName = (theme) => (theme === 'light' ? 'dark' : 'light');
 
 class Home extends Component {
-	state = { value: '' }
+  state = { value: '' }
 
-	componentDidUpdate() {
-		const { theme } = this.props;
-		StatusBar.setBarStyle(theme === 'light' ? 'dark-content' : 'light-content');
-	}
+  componentDidUpdate() {
+    const { theme } = this.props;
+    StatusBar.setBarStyle(theme === 'light' ? 'dark-content' : 'light-content');
+  }
 
-	render() {
-		const { onPressProfile, theme, changeTheme } = this.props;
+  render() {
+    const { onPressProfile, theme, changeTheme, onToLogin } = this.props;
 
-		return (
-			<Container
-				flex={1}
-				justifyContent='flex-start'
-			>
-				<ScrollView
-					contentContainerStyle={{ padding: 20 }}
-				>
-					<Heading2 m={10}>
-						Welcome to Employee Portal!
+    return (
+      <Container
+        flex={1}
+        justifyContent='flex-start'
+      >
+        <ScrollView
+          contentContainerStyle={{ padding: 20 }}
+        >
+          <Heading2 m={10}>
+            Welcome to Employee Portal!
 					</Heading2>
 
-					<Section>
-						<Heading3 m={10}>
-							Theming
+          <Section>
+            <Heading3 m={10}>
+              Theming
 						</Heading3>
 
-						<Text>Current Theme: {theme}</Text>
+            <Text>Current Theme: {theme}</Text>
 
-						<Button
-							text={`Use theme ${toggleThemeName(theme)}`}
-							onPress={() => changeTheme(toggleThemeName(theme))}
-						/>
-					</Section>
+            <Button
+              text={`Use theme ${toggleThemeName(theme)}`}
+              onPress={() => changeTheme(toggleThemeName(theme))}
+            />
+          </Section>
 
-					<Section>
-						<Heading3 m={10}>Common Components</Heading3>
+          <Section>
+            <Heading3 m={10}>Common Components</Heading3>
 
-						<View flexDirection='row' justifyContent='flex-start'>
-							<Touchable flex={1}>
-								<Paper variant='red' flex={1}>
-									<Icon name='dashboard' color='white' />
-									<Text variant='white'>Dashboard</Text>
-								</Paper>
-							</Touchable>
+            <View flexDirection='row' justifyContent='flex-start'>
+              <Touchable flex={1}>
+                <Paper variant='red' flex={1}>
+                  <Icon name='dashboard' color='white' />
+                  <Text variant='white'>Dashboard</Text>
+                </Paper>
+              </Touchable>
 
-							<View flex={1}>
-								<Paper flexDirection='row' justifyContent='center' variant='green'>
-									<Icon name='bookmark' color='white' />
-									<Text variant='white'>Bookmarks</Text>
-								</Paper>
-								<Paper flexDirection='row' justifyContent='center' variant='orange'>
-									<Icon name='assessment' color='white' />
-									<Text variant='white'>Assessments</Text>
-								</Paper>
-							</View>
-						</View>
-					</Section>
+              <View flex={1}>
+                <Paper flexDirection='row' justifyContent='center' variant='green'>
+                  <Icon name='bookmark' color='white' />
+                  <Text variant='white'>Bookmarks</Text>
+                </Paper>
+                <Paper flexDirection='row' justifyContent='center' variant='orange'>
+                  <Icon name='assessment' color='white' />
+                  <Text variant='white'>Assessments</Text>
+                </Paper>
+              </View>
+            </View>
+          </Section>
 
-					<Section>
-						<Heading3 m={10}>
-							Screens
+          <Section>
+            <Heading3 m={10}>
+              Screens
 						</Heading3>
-						<Button
-							text='Profile'
-							onPress={onPressProfile}
-						/>
-					</Section>
+            <Button
+              text='Profile'
+              onPress={onPressProfile}
+            />
+          </Section>
 
-					<Section>
-						<Heading3 m={10}>
-							Text Input
+          <Section>
+            <Heading3 m={10}>
+              Login
 						</Heading3>
-						<TextInput
-							value={this.state.value}
-							onChange={value => this.setState({ value })}
-							placeholder='Type something...'
-						/>
-					</Section>
-				</ScrollView>
-			</Container>
-		);
-	}
+            <Button
+              text='Login'
+              onPress={onToLogin}
+            />
+          </Section>
+
+          <Section>
+            <Heading3 m={10}>
+              Text Input
+						</Heading3>
+            <TextInput
+              value={this.state.value}
+              onChange={value => this.setState({ value })}
+              placeholder='Type something...'
+            />
+          </Section>
+        </ScrollView>
+      </Container>
+    );
+  }
 }
 
 const mapStateToProps = (state) => ({
-	theme: state.app.theme,
+  theme: state.app.theme,
 });
 
 const mapDispatchToProps = {
-	changeTheme: Actions.changeTheme,
+  changeTheme: Actions.changeTheme,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

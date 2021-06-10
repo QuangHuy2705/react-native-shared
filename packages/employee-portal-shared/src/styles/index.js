@@ -1,24 +1,28 @@
 import { css } from 'styled-components';
 import {
-	space,
-	width,
-	lineHeight,
-	fontSize,
-	fontWeight,
-	textAlign,
-	color,
-	flex,
-	order,
-	alignSelf,
-	flexWrap,
-	flexDirection,
-	alignItems,
-	justifyContent,
-	buttonStyle as buttonStyleVariant,
-	variant,
-	borders,
-	borderColor,
-	borderRadius,
+  space,
+  width,
+  lineHeight,
+  fontSize,
+  fontWeight,
+  textAlign,
+  color,
+  flex,
+  order,
+  alignSelf,
+  flexWrap,
+  flexDirection,
+  alignItems,
+  justifyContent,
+  buttonStyle as buttonStyleVariant,
+  variant,
+  borders,
+  borderColor,
+  borderRadius,
+  margin,
+  marginTop,
+  marginBottom,
+  marginRight
 } from 'styled-system';
 
 const viewStyle = css`
@@ -37,6 +41,10 @@ const viewStyle = css`
 	${borders}
 	${borderColor}
 	${borderRadius}
+  ${margin}
+	${marginBottom}
+  ${marginTop}
+  ${marginRight}
 `;
 
 const constainerStyles = variant({ key: 'constainers' });
@@ -94,6 +102,7 @@ const buttonContainerStyle = css`
 	padding: 8px 4px;
 	border: 0;
 	border-radius: 4px;
+  justifyContent: center;
 	${buttonStyleVariant}
 `;
 
@@ -133,31 +142,31 @@ const inputStyle = css`
 	font-size: 16px;
 	line-height: 16px;
 	color: ${({ theme, error, warning, disabled }) => (
-		(error && theme.colors.error) ||
-		(warning && theme.colors.warning) ||
-		(disabled && theme.colors.dimmed) ||
-		theme.colors.text
-	)};
+    (error && theme.colors.error) ||
+    (warning && theme.colors.warning) ||
+    (disabled && theme.colors.dimmed) ||
+    theme.colors.text
+  )};
 	border-bottom-width: 1px;
 	border-bottom-color: ${({ theme, active, error, warning, disabled }) => (
-		(active && theme.colors.primary) ||
-		(error && theme.colors.error) ||
-		(warning && theme.colors.warning) ||
-		(disabled && theme.colors.dimmed) ||
-		theme.colors.primary
-	)};
+    (active && theme.colors.primary) ||
+    (error && theme.colors.error) ||
+    (warning && theme.colors.warning) ||
+    (disabled && theme.colors.dimmed) ||
+    theme.colors.primary
+  )};
 `;
 
 export {
-	viewStyle,
-	textStyle,
-	headingStyle,
-	paragraphStyle,
-	containerStyle,
-	buttonContainerStyle,
-	buttonTextStyle,
-	paperStyle,
-	mainWrapperStyle,
-	inputStyleWrapper,
-	inputStyle,
+  viewStyle,
+  textStyle,
+  headingStyle,
+  paragraphStyle,
+  containerStyle,
+  buttonContainerStyle,
+  buttonTextStyle,
+  paperStyle,
+  mainWrapperStyle,
+  inputStyleWrapper,
+  inputStyle,
 };
