@@ -1,23 +1,67 @@
 // @ts-ignore
-import React, {PureComponent, useEffect, useState} from 'react';
+import React, {PureComponent, useEffect, useRef, useState} from 'react';
 // @ts-ignore
 import Container from 'employee-portal-shared/src/components/layout/Container';
-import {View, StyleSheet, Text, TouchableOpacity, FlatList, SafeAreaView, ImageBackground} from "react-native";
+import {
+	View,
+	StyleSheet,
+	Text,
+	TouchableOpacity,
+	FlatList,
+	SafeAreaView,
+	ImageBackground,
+	ScrollView
+} from "react-native";
 import SearchBlock from "../components/workplace/SearchBlock";
 import PRColors from "../constants/PRColors";
 import {WebView} from 'react-native-webview';
 import PRImages from "../constants/PRImages";
 import {useNavigation} from "@react-navigation/native";
+import PRSelectInput, {OPTION_TYPE} from "../components/PRSelectInput";
+import {Metrics} from "../constants";
+import RBSheet from "react-native-raw-bottom-sheet";
+import {current_location} from "../mock/Data";
+import LocationBlock from "../components/workplace/LocationBlock";
 
+const ActionSheet = ({innerRef, children}) => {
+	useEffect(() => {
+	}, [])
+	return <RBSheet
+		ref={innerRef}
+		closeOnDragDown={true}
+		closeOnPressMask={true}
+		customStyles={{
+			// draggableIcon: {display: "none"},
+			container: {
+				borderTopLeftRadius: 20,
+				borderTopRightRadius: 20,
+				maxHeight: Metrics.deviceHeight / 2,
+				paddingBottom: 20
+			}
+		}}
+	>
+		<SafeAreaView>
+			{children}
 
+		</SafeAreaView>
+	</RBSheet>
+}
 const category = ['Desk', 'Meeting Room', 'Coffee', 'Gyms', 'Coworker', 'Pharmacy', 'Library', 'Toilet']
 const LocationDiscoverScreen = ({route}) => {
 	const navigation = useNavigation();
+	const refAcctionSheet = useRef();
 	const [selectedCategory, setSelectedCategory] = useState(category[0]);
+	const [relationshipSelected, setRelationshipSelected] = useState('sdfdsf');
 	useEffect(() => {
 		setSelectedCategory(route.params.category);
 		// console.log('category', route, route.params.category)
 	}, [])
+	const openActionSheet = () => {
+		if (refAcctionSheet.current) {
+			refAcctionSheet.current.open();
+		}
+	}
+
 	return (
 		<Container
 			flex={1}
@@ -26,6 +70,21 @@ const LocationDiscoverScreen = ({route}) => {
 		>
 			<SafeAreaView style={{flex: 1, width: '100%', backgroundColor: 'white'}}>
 				<SearchBlock/>
+				<ActionSheet innerRef={refAcctionSheet}>
+					<LocationBlock
+						variant={1}
+						image={PRImages.locationMarker}
+						location={current_location}
+						// onDirect={() => navigation.navigate('Location', {
+						// 	category: 'Desk',
+						// })}
+					/>
+					{/*<ScrollView>*/}
+					{/*	{*/}
+					{/*		<View style={{height: 100, backgroundColor: 'red', flex: 1}}></View>*/}
+					{/*	}*/}
+					{/*</ScrollView>*/}
+				</ActionSheet>
 				<View style={{padding: 16}}>
 					<FlatList
 						horizontal
@@ -38,7 +97,10 @@ const LocationDiscoverScreen = ({route}) => {
 						renderItem={({item}) => {
 							return <TouchableOpacity
 								style={[styles.category, item === selectedCategory ? styles.selectCategory : {}]}
-								onPress={() => setSelectedCategory(item)}
+								onPress={() => {
+									setSelectedCategory(item);
+									openActionSheet();
+								}}
 							>
 								<Text
 									style={[{fontSize: 13}, item === selectedCategory ? {color: 'white'} : {color: "#A7A7A7"}]}>
@@ -56,7 +118,7 @@ const LocationDiscoverScreen = ({route}) => {
 					{/*	resizeMode='cover'*/}
 					{/*	source={PRImages.roomExample}/>*/}
 					{/*<Leaflet/>*/}
-					<WebView source={{ uri: 'https://map.google.com/' }} />
+					<WebView source={{uri: 'https://map.google.com/'}}/>
 				</View>
 			</SafeAreaView>
 		</Container>

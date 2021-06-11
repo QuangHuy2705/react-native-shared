@@ -28,12 +28,14 @@ const DirectButton = ({onPress}) => {
 	</TouchableOpacity>
 }
 const LocationBlock = ({
+						   variant,
 						   image,
 						   location,
 						   style,
 						   onDirect,
 						   onBook
 					   }: {
+	variant: number,
 	image?, location: LocationData, // @ts-ignore
 	style?: StyleProp, onDirect?: Function, onBook?: Function
 }) => {
@@ -48,15 +50,18 @@ const LocationBlock = ({
 			flex: 1, marginLeft: 16, flexDirection: 'row'
 			, justifyContent: 'space-between'
 		}}>
+
 			<View style={{justifyContent: "center"}}>
 				<Text style={{fontSize: 13, fontWeight: '600', height: 20}}>{location.name}</Text>
 				<Text style={{fontSize: 12, height: 18, color: '#919191'}}>{location.path}</Text>
 				<Text style={{fontSize: 12, height: 18, color: '#919191'}}>{location.desc}</Text>
 			</View>
+			{variant === 1 &&
 			<View>
 				{onDirect && <DirectButton onPress={onDirect}/>}
 				{onBook && <BookButton onPress={onBook}/>}
 			</View>
+			}
 
 		</View>
 	</View>
