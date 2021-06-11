@@ -11,6 +11,7 @@ const Button = ({ onPress, text, variant, icon, ...rest }) => (
       {icon && (
         <Image style={{ position: 'absolute', zIndex: 5, left: 23 }} source={icon} />
       )}
+
       <ButtonText variant={variant}>
         {text}
       </ButtonText>

@@ -4,11 +4,10 @@ import View from '../components/primitives/View';
 import ScrollView from '../components/common/ScrollView';
 import Image from '../components/primitives/Image'
 import Background from '../../assets/images/LogInBackground.png'
-import Text, { Heading3, Heading2 } from '../components/primitives/Text';
+import Text, { Heading2 } from '../components/primitives/Text';
 import Button from '../components/common/Button';
 import Office365 from '../../assets/icons/Office365.png'
 import Icon from '../components/common/Icon';
-import { colors } from '../styles/themes/light'
 
 export default function LogIn(props) {
   const { onLogin } = props
@@ -37,7 +36,7 @@ export default function LogIn(props) {
           </View>
 
           <View marginTop={90}>
-            <Button icon={Office365} onPress={onLoginPress} variant='outrageousOrangeBig' text='Login with Office 365'
+            <Button style={{ overflow: 'hidden' }} icon={Office365} onPress={onLoginPress} variant='outrageousOrangeBig' text='Login with Office 365'
             />
           </View>
 
