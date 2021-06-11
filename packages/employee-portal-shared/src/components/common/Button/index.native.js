@@ -4,7 +4,6 @@ import Touchable from '../../primitives/Touchable';
 import Text from '../../primitives/Text';
 import { buttonContainerStyle, buttonTextStyle } from '../../../styles';
 import { Image } from 'react-native'
-import Icon from '../Icon';
 
 const Button = ({ onPress, text, variant, icon, ...rest }) => (
   <ButtonWrapper variant={variant} onPress={onPress} {...rest}>
