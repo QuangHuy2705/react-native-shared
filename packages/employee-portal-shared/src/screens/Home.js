@@ -79,10 +79,22 @@ class Home extends Component {
             <Heading3 m={10}>
               Screens
 						</Heading3>
+          </Section>
+
+          <Section>
+            <Heading3 m={10}>
+              Profile
+            </Heading3>
             <Button
               text='Profile'
               onPress={onPressProfile}
             />
+          </Section>
+
+          <Section>
+            <Heading3 m={10}>
+              Workspace
+						</Heading3>
             <Button
               text='Workplace'
               onPress={onPressWorkplace}
