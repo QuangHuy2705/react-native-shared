@@ -7,7 +7,6 @@ const AppContainer = () => (
   <NavigationContainer>
     <RootStack />
   </NavigationContainer>
-
 );
 
 export default AppContainer;

@@ -4,6 +4,8 @@ import Text from './Text';
 import { textStyle, headingStyle, paragraphStyle } from '../../../styles';
 
 export const HeadingBase = styled(Text)`${headingStyle}`;
+export const TextBase = styled(Text)`${textStyle}`;
+export const ParagraphBase = styled(Text)`${paragraphStyle}`;
 
 const Heading = ({ variant = 'h1', ...rest }) => (
 	<HeadingBase
@@ -13,6 +15,8 @@ const Heading = ({ variant = 'h1', ...rest }) => (
 		{...rest}
 	/>
 );
+
+export const Heading1 = Heading;
 
 export const Heading2 = styled(Heading).attrs({ variant: 'h2' })``;
 
@@ -24,9 +28,9 @@ export const Heading5 = styled(Heading).attrs({ variant: 'h5' })``;
 
 export const Heading6 = styled(Heading).attrs({ variant: 'h6' })``;
 
-export const Paragraph = styled(Text)`${paragraphStyle}`;
+export const Paragraph = (props) => <ParagraphBase {...props} />;
 Paragraph.defaultProps = { mb: 10 };
 
-export const DefaultText = styled(Text)`${textStyle}`;
+export const DefaultText = (props) => <TextBase {...props} />;
 
 export default DefaultText;

@@ -1,35 +1,45 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import defaultNavigationOptions from './navigationOptions';
-import HomeScreen from '../screens/Home';
-import ProfileScreen from '../screens/Profile';
-import LogIn from '../screens/LogIn'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Stack = createStackNavigator();
+// TODO: Home screen
+import HomeScreen from '~/screens/Home';
+
+import WorkScreen from '~/screens/Work';
+
+// TODO: Workplace screen
+import WorkplaceScreen from '~/screens/Work';
+
+// TODO: Profile screen
+import ProfileScreen from '~/screens/Profile';
+
+import BottomTabBar from './BottomTabBar';
+
+const Tab = createBottomTabNavigator();
 
 export function RootStack() {
-  return (
 
-    <Stack.Navigator
-      initialRouteName="Home"
-      screenOptions={defaultNavigationOptions}
-    >
-      <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{ title: 'My app' }}
-      />
-      <Stack.Screen
-        name="Login"
-        component={LogIn}
-        options={{ headerShown: false }}
-      />
-
-      <Stack.Screen
-        name="Profile"
-        component={ProfileScreen}
-        initialParams={{ user: 'me' }}
-      />
-    </Stack.Navigator>
-  );
+	return (
+		<Tab.Navigator
+			initialRouteName="Home"
+			tabBar={BottomTabBar}
+		>
+			<Tab.Screen
+				name="Home"
+				component={HomeScreen}
+			/>
+			<Tab.Screen
+				name="Work"
+				component={WorkScreen}
+			/>
+			<Tab.Screen
+				name="Workplace"
+				component={WorkplaceScreen}
+			/>
+			<Tab.Screen
+				name="Profile"
+				component={ProfileScreen}
+				initialParams={{ user: 'me' }}
+			/>
+		</Tab.Navigator>
+	);
 }

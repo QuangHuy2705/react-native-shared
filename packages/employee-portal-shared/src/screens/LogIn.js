@@ -9,12 +9,11 @@ import Button from '../components/common/Button';
 import Office365 from '../../assets/icons/Office365.png'
 import Icon from '../components/common/Icon';
 
-export default function LogIn(props) {
-  const { onLogin } = props
+export default function LogIn({ onSignedIn }) {
 
   const onLoginPress = () => {
-    onLogin && onLogin()
-  }
+    onSignedIn && onSignedIn({ id: 'user', name: 'A User' });
+  };
 
   return (
     <Container
@@ -65,5 +64,5 @@ export default function LogIn(props) {
         </View>
       </ScrollView>
     </Container>
-  )
+  );
 }
