@@ -1,33 +1,32 @@
-import {StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from "react-native";
 import React from "react";
 import { IconButton } from 'react-native-paper'
-import PRDivider from "./PRDivider";
 import PRColors from "../../constants/PRColors";
-import {PRStyles} from "../../constants/PRStyles";
+import { PRStyles } from "../../constants/PRStyles";
 
-const Card = ({style, title, children, seemore}: { style?: StyleProp<ViewStyle>, title?, children?, seemore? }) => {
+const Card = ({ style, title, children, seeMore: seeMore }: { style?: ViewStyle, title?, children?, seeMore?}) => {
 	return <View style={
 		{
 			...styles.card,
 			...PRStyles.boxShadow,
 			...style,
 		}}>
-		{title && <Text style={{...styles.cardTitle}}>{title}</Text>}
+		{title && <Text style={{ ...styles.cardTitle }}>{title}</Text>}
 		{children}
-		{seemore && <View>
+		{seeMore && <View>
 			<TouchableOpacity
-				onPress={()=> console.log("see more")}
+				onPress={() => console.log("see more")}
 				style=
-								  {{
-									  flexDirection: 'row',
-									  justifyContent: "center",
-									  alignContent: "center",
-									  alignItems: "center",
-									  height: 42
-								  }}>
+				{{
+					flexDirection: 'row',
+					justifyContent: "center",
+					alignContent: "center",
+					alignItems: "center",
+					height: 42
+				}}>
 
-				<Text style={{color: PRColors.primary, fontSize:13}}>See more</Text>
-				<IconButton icon='chevron-down' color={PRColors.primary} size={16} style={{ marginLeft:-2}}/>
+				<Text style={{ color: PRColors.primary, fontSize: 13 }}>See more</Text>
+				<IconButton icon='chevron-down' color={PRColors.primary} size={16} style={{ marginLeft: -2 }} />
 			</TouchableOpacity>
 		</View>}
 

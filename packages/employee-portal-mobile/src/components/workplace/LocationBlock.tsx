@@ -1,85 +1,86 @@
-import {ImageBackground, StyleProp, StyleSheet, Text, TouchableOpacity, View, Image} from "react-native";
+import { StyleProp, StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 // @ts-ignore
 import React from "react";
-import {LocationData} from "../../../../employee-portal-shared/src/types/LocationData";
+import { LocationData } from "../../../../employee-portal-shared/src/types/LocationData";
 import PRImages from "../../constants/PRImages";
 import PRColors from "../../constants/PRColors";
 import Icon from 'employee-portal-shared/src/components/common/Icon';
-import {PrimaryButton} from "../button/PrimaryButton";
 
-const BookButton = ({onPress}) => {
+import { PrimaryButton } from "../button/PrimaryButton";
+
+const BookButton = ({ onPress }) => {
 	return <TouchableOpacity
 		onPress={onPress}
 		style=
-			{{
-				backgroundColor: 'rgba(39, 174, 96, 0.15)', borderRadius: 28
-				, padding: 8, paddingVertical: 6
-			}}>
-		<Text style={{color: PRColors.success}}>Book</Text>
+		{{
+			backgroundColor: 'rgba(39, 174, 96, 0.15)', borderRadius: 28
+			, padding: 8, paddingVertical: 6
+		}}>
+		<Text style={{ color: PRColors.success }}>Book</Text>
 	</TouchableOpacity>
 }
-const DirectButton = ({onPress}) => {
+const DirectButton = ({ onPress }) => {
 	return <TouchableOpacity
 		onPress={onPress}
 		style=
-			{{
-				backgroundColor: 'rgba(241, 90, 34, 0.15)', borderRadius: 28
-				, padding: 8, paddingVertical: 6
-			}}>
-		<Text style={{color: PRColors.primary}}>Direct</Text>
+		{{
+			backgroundColor: 'rgba(241, 90, 34, 0.15)', borderRadius: 28
+			, padding: 8, paddingVertical: 6
+		}}>
+		<Text style={{ color: PRColors.primary }}>Direct</Text>
 	</TouchableOpacity>
 }
 
 const LocationBlock = ({
-						   variant,
-						   image,
-						   location,
-						   style,
-						   onDirect,
-						   onBook
-					   }: {
+	variant,
+	image,
+	location,
+	style,
+	onDirect,
+	onBook
+}: {
 	variant: number,
 	image?, location: LocationData, // @ts-ignore
 	style?: StyleProp, onDirect?: Function | Boolean, onBook?: Function | Boolean
 }) => {
-	return <View style={{backgroundColor: 'white', borderRadius: 10, ...style}}>
+	return <View style={{ backgroundColor: 'white', padding: 16, borderRadius: 10, ...style }}>
 		<View style={{
-			flexDirection: 'row',
-			padding: 16
+			flexDirection: 'row'
+
 		}}>
 			<Image
 				style={{
 					...styles.image
 				}}
 				resizeMode='cover'
-				source={image ? image : PRImages.roomExample}/>
+				source={image ? image : PRImages.roomExample} />
 			<View style={styles.row}>
 
 				{variant === 1 &&
-				<>
-					<View style={{justifyContent: "center"}}>
-						<Text style={{...styles.locationText1}}>{location.name}</Text>
-						<Text style={{...styles.locationText2}}>{location.path}</Text>
-						<Text style={{...styles.locationText2}}>{location.desc}</Text>
-					</View>
-					<View>
-						{onDirect && <DirectButton onPress={onDirect}/>}
-						{onBook && <BookButton onPress={onBook}/>}
-					</View>
-				</>
+					<>
+						<View style={{ justifyContent: "center" }}>
+							<Text style={{ ...styles.locationText1 }}>{location.name}</Text>
+							<Text style={{ ...styles.locationText2 }}>{location.path}</Text>
+							<Text style={{ ...styles.locationText2 }}>{location.desc}</Text>
+						</View>
+						<View>
+							{onDirect && <DirectButton onPress={onDirect} />}
+							{onBook && <BookButton onPress={onBook} />}
+						</View>
+					</>
 				}
 				{variant === 2 &&
-				<>
-					<View style={{justifyContent: "center"}}>
-						<Text style={{...styles.locationText1}}>{location.name}</Text>
-						<Text style={{...styles.locationText2}}>{location.path} | {location.desc}</Text>
-						<Text style={{...styles.locationText3}}>Available Now</Text>
-					</View>
-					<View style={{flexDirection: 'row'}}>
-						<Icon name={'directions-walk'} color={'#ABABAB'} size={22}/>
-						<Text style={{...styles.environmentInfoText, paddingTop: 3}}> 2 min</Text>
-					</View>
-				</>
+					<>
+						<View style={{ justifyContent: "center" }}>
+							<Text style={{ ...styles.locationText1 }}>{location.name}</Text>
+							<Text style={{ ...styles.locationText2 }}>{location.path} | {location.desc}</Text>
+							<Text style={{ ...styles.locationText3 }}>Available Now</Text>
+						</View>
+						<View style={{ flexDirection: 'row' }}>
+							<Icon name={'directions-walk'} color={'#ABABAB'} size={22} />
+							<Text style={{ ...styles.environmentInfoText, paddingTop: 3 }}> 2 min</Text>
+						</View>
+					</>
 				}
 			</View>
 		</View>
@@ -88,9 +89,9 @@ const LocationBlock = ({
 			paddingHorizontal: 16,
 		}}>
 			{onDirect && <>
-				<PrimaryButton title={'Directions'} onPress={onDirect}/>
-				<View style={{width: 16}}></View></>}
-			{onBook && <PrimaryButton title={'Book this room'} onPress={onBook}/>}
+				<PrimaryButton title={'Directions'} onPress={onDirect} />
+				<View style={{ width: 16 }}></View></>}
+			{onBook && <PrimaryButton title={'Book this room'} onPress={onBook} />}
 		</View>
 		}
 	</View>

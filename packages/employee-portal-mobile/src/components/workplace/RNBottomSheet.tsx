@@ -1,16 +1,15 @@
 import React from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
-import Animated from 'react-native-reanimated';
+import { StyleSheet, View } from 'react-native';
 import BottomSheet from 'reanimated-bottom-sheet';
 
-const RNBottomSheet = ({innerRef, children}) => {
+const RNBottomSheet = ({ innerRef, children }) => {
 	const renderContent = () => (
-		<View style={{height: '100%'}}>
+		<View style={{ height: '100%' }}>
 			<View style={{
-				marginTop:20,
+				marginTop: 20,
 				backgroundColor: 'white',
 				flexDirection: 'column',
-				borderRadius:20,
+				borderRadius: 20,
 				height: '100%',
 				...styles.boxShadow,
 			}}>

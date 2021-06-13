@@ -1,8 +1,8 @@
-import {PRStyles} from "../../constants/PRStyles";
+import { PRStyles } from "../../constants/PRStyles";
 import * as React from "react";
-import {View} from "react-native";
+import { View } from "react-native";
 
-export const FixedBottom = ({children}) => {
+export const FixedBottom = ({ children }) => {
 	return <View style={{
 		position: 'absolute',
 		left: 0, right: 0, bottom: 0,

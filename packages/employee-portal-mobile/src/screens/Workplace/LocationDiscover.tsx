@@ -1,5 +1,5 @@
 // @ts-ignore
-import React, {PureComponent, useEffect, useRef, useState} from 'react';
+import React, { PureComponent, useEffect, useRef, useState } from 'react';
 // @ts-ignore
 import Container from 'employee-portal-shared/src/components/layout/Container';
 import {
@@ -10,18 +10,18 @@ import {
 	FlatList,
 	SafeAreaView,
 } from "react-native";
-import SearchBlock from "../components/workplace/SearchBlock";
-import PRColors from "../constants/PRColors";
-import {WebView} from 'react-native-webview';
-import PRImages from "../constants/PRImages";
-import {useNavigation} from "@react-navigation/native";
-import {current_location} from "../mock/Data";
-import LocationBlock from "../components/workplace/LocationBlock";
-import RNBottomSheet from "../components/workplace/RNBottomSheet";
+import { useNavigation } from "@react-navigation/native";
+import { WebView } from 'react-native-webview';
+import LocationBlock from '../../components/workplace/LocationBlock';
+import SearchBlock from '../../components/workplace/SearchBlock';
+import RNBottomSheet from '../../components/workplace/RNBottomSheet';
+import PRColors from '../../constants/PRColors';
+import PRImages from '../../constants/PRImages';
+import { current_location } from '../../mock/Data';
 
 
 const category = ['Desk', 'Meeting Room', 'Coffee', 'Gyms', 'Coworker', 'Pharmacy', 'Library', 'Toilet']
-const LocationDiscoverScreen = ({route}) => {
+const LocationDiscoverScreen = ({ route }) => {
 	const navigation = useNavigation();
 	const [selectedLocation, setSelectedLocation] = useState(null);
 	const [isDirecting, setIsDirecting] = useState(false);
@@ -49,11 +49,11 @@ const LocationDiscoverScreen = ({route}) => {
 			horizontal
 			data={category}
 			getItemLayout={(data, index) => (
-				{length: 50, offset: 50 * index, index}
+				{ length: 50, offset: 50 * index, index }
 			)}
 			keyExtractor={item => item}
 			initialScrollIndex={category.findIndex(value => value === selectedCategory)}
-			renderItem={({item}) => {
+			renderItem={({ item }) => {
 				return <TouchableOpacity
 					style={[styles.category, item === selectedCategory ? styles.selectCategory : {}]}
 					onPress={() => {
@@ -64,11 +64,11 @@ const LocationDiscoverScreen = ({route}) => {
 					}}
 				>
 					<Text
-						style={[{fontSize: 13}, item === selectedCategory ? {color: 'white'} : {color: "#A7A7A7"}]}>
+						style={[{ fontSize: 13 }, item === selectedCategory ? { color: 'white' } : { color: "#A7A7A7" }]}>
 						{item}
 					</Text>
 				</TouchableOpacity>
-			}}/>
+			}} />
 	}
 
 	return (
@@ -95,14 +95,14 @@ const LocationDiscoverScreen = ({route}) => {
 					} : false}
 				/>
 			</RNBottomSheet>
-			<SafeAreaView style={{flex: 1, width: '100%', backgroundColor: 'white'}}>
+			<SafeAreaView style={{ flex: 1, width: '100%', backgroundColor: 'white' }}>
 				{/*TODO: change when directing*/}
-				<SearchBlock/>
-				<View style={{padding: 16}}>
-					<Categories/>
+				<SearchBlock />
+				<View style={{ padding: 16 }}>
+					<Categories />
 				</View>
 				<View style={styles.map}>
-					<WebView source={{uri: 'https://map.google.com/'}}/>
+					<WebView source={{ uri: 'https://map.google.com/' }} />
 				</View>
 			</SafeAreaView>
 		</Container>

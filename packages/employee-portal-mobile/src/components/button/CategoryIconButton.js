@@ -1,12 +1,12 @@
 import React from 'react';
 
-import {Image, Text, TouchableOpacity, View} from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 const CategoryIconButton = ({
-							title,
-							onPress,
-							icon
-						}) => {
+	title,
+	onPress,
+	icon
+}) => {
 	return (
 		<TouchableOpacity onPress={() => onPress()}>
 			<View style={{
@@ -17,7 +17,7 @@ const CategoryIconButton = ({
 				borderColor: '#E5E5E5',
 				borderWidth: 1,
 				height: 82,
-				width:80,
+				width: 80,
 			}}>
 
 				{icon}
