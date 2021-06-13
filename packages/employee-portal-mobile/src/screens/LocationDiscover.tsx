@@ -9,57 +9,66 @@ import {
 	TouchableOpacity,
 	FlatList,
 	SafeAreaView,
-	ImageBackground,
-	ScrollView
 } from "react-native";
 import SearchBlock from "../components/workplace/SearchBlock";
 import PRColors from "../constants/PRColors";
 import {WebView} from 'react-native-webview';
 import PRImages from "../constants/PRImages";
 import {useNavigation} from "@react-navigation/native";
-import PRSelectInput, {OPTION_TYPE} from "../components/PRSelectInput";
-import {Metrics} from "../constants";
-import RBSheet from "react-native-raw-bottom-sheet";
 import {current_location} from "../mock/Data";
 import LocationBlock from "../components/workplace/LocationBlock";
+import RNBottomSheet from "../components/workplace/RNBottomSheet";
 
-const ActionSheet = ({innerRef, children}) => {
-	useEffect(() => {
-	}, [])
-	return <RBSheet
-		ref={innerRef}
-		closeOnDragDown={true}
-		closeOnPressMask={true}
-		customStyles={{
-			// draggableIcon: {display: "none"},
-			container: {
-				borderTopLeftRadius: 20,
-				borderTopRightRadius: 20,
-				maxHeight: Metrics.deviceHeight / 2,
-				paddingBottom: 20
-			}
-		}}
-	>
-		<SafeAreaView>
-			{children}
 
-		</SafeAreaView>
-	</RBSheet>
-}
 const category = ['Desk', 'Meeting Room', 'Coffee', 'Gyms', 'Coworker', 'Pharmacy', 'Library', 'Toilet']
 const LocationDiscoverScreen = ({route}) => {
 	const navigation = useNavigation();
+	const [selectedLocation, setSelectedLocation] = useState(null);
+	const [isDirecting, setIsDirecting] = useState(false);
 	const refAcctionSheet = useRef();
 	const [selectedCategory, setSelectedCategory] = useState(category[0]);
-	const [relationshipSelected, setRelationshipSelected] = useState('sdfdsf');
 	useEffect(() => {
 		setSelectedCategory(route.params.category);
-		// console.log('category', route, route.params.category)
 	}, [])
+	useEffect(() => {
+		if (selectedLocation)
+			openActionSheet();
+	}, [selectedLocation])
 	const openActionSheet = () => {
 		if (refAcctionSheet.current) {
-			refAcctionSheet.current.open();
+			refAcctionSheet.current.snapTo(0);
 		}
+	}
+	const closeActionSheet = () => {
+		if (refAcctionSheet.current) {
+			refAcctionSheet.current.close();
+		}
+	}
+	const Categories = () => {
+		return <FlatList
+			horizontal
+			data={category}
+			getItemLayout={(data, index) => (
+				{length: 50, offset: 50 * index, index}
+			)}
+			keyExtractor={item => item}
+			initialScrollIndex={category.findIndex(value => value === selectedCategory)}
+			renderItem={({item}) => {
+				return <TouchableOpacity
+					style={[styles.category, item === selectedCategory ? styles.selectCategory : {}]}
+					onPress={() => {
+						setSelectedCategory(item);
+						setSelectedLocation(item);
+						//TODO
+						// openActionSheet();
+					}}
+				>
+					<Text
+						style={[{fontSize: 13}, item === selectedCategory ? {color: 'white'} : {color: "#A7A7A7"}]}>
+						{item}
+					</Text>
+				</TouchableOpacity>
+			}}/>
 	}
 
 	return (
@@ -68,56 +77,31 @@ const LocationDiscoverScreen = ({route}) => {
 			justifyContent='center'
 			alignItems='center'
 		>
+			<RNBottomSheet innerRef={refAcctionSheet}>
+				<LocationBlock
+					variant={2}
+					image={PRImages.locationMarker}
+					location={current_location}
+					onBook={() => {
+						console.log("onBook")
+						navigation.navigate('Booking', {
+							location: current_location
+						});
+					}}
+					onDirect={!isDirecting ? () => {
+						console.log("onDirect")
+						setIsDirecting(true)
+						// closeActionSheet();
+					} : false}
+				/>
+			</RNBottomSheet>
 			<SafeAreaView style={{flex: 1, width: '100%', backgroundColor: 'white'}}>
+				{/*TODO: change when directing*/}
 				<SearchBlock/>
-				<ActionSheet innerRef={refAcctionSheet}>
-					<LocationBlock
-						variant={1}
-						image={PRImages.locationMarker}
-						location={current_location}
-						// onDirect={() => navigation.navigate('Location', {
-						// 	category: 'Desk',
-						// })}
-					/>
-					{/*<ScrollView>*/}
-					{/*	{*/}
-					{/*		<View style={{height: 100, backgroundColor: 'red', flex: 1}}></View>*/}
-					{/*	}*/}
-					{/*</ScrollView>*/}
-				</ActionSheet>
 				<View style={{padding: 16}}>
-					<FlatList
-						horizontal
-						data={category}
-						getItemLayout={(data, index) => (
-							{length: 50, offset: 50 * index, index}
-						)}
-						keyExtractor={item => item}
-						initialScrollIndex={category.findIndex(value => value === selectedCategory)}
-						renderItem={({item}) => {
-							return <TouchableOpacity
-								style={[styles.category, item === selectedCategory ? styles.selectCategory : {}]}
-								onPress={() => {
-									setSelectedCategory(item);
-									openActionSheet();
-								}}
-							>
-								<Text
-									style={[{fontSize: 13}, item === selectedCategory ? {color: 'white'} : {color: "#A7A7A7"}]}>
-									{item}
-								</Text>
-							</TouchableOpacity>
-						}}/>
+					<Categories/>
 				</View>
 				<View style={styles.map}>
-					{/*<ImageBackground*/}
-					{/*	style={{*/}
-					{/*		height: '100%',*/}
-					{/*		justifyContent: "center"*/}
-					{/*	}}*/}
-					{/*	resizeMode='cover'*/}
-					{/*	source={PRImages.roomExample}/>*/}
-					{/*<Leaflet/>*/}
 					<WebView source={{uri: 'https://map.google.com/'}}/>
 				</View>
 			</SafeAreaView>
@@ -146,7 +130,6 @@ const styles = StyleSheet.create({
 		color: 'white',
 		borderColor: '#f15a22',
 	},
-
 });
 
 

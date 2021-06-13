@@ -3,12 +3,13 @@ import React from "react";
 import { IconButton } from 'react-native-paper'
 import PRDivider from "./PRDivider";
 import PRColors from "../../constants/PRColors";
+import {PRStyles} from "../../constants/PRStyles";
 
 const Card = ({style, title, children, seemore}: { style?: StyleProp<ViewStyle>, title?, children?, seemore? }) => {
 	return <View style={
 		{
 			...styles.card,
-			...styles.boxShadow,
+			...PRStyles.boxShadow,
 			...style,
 		}}>
 		{title && <Text style={{...styles.cardTitle}}>{title}</Text>}
@@ -45,15 +46,6 @@ const styles = StyleSheet.create({
 		paddingLeft: 16,
 		color: '#4F4F4F',
 	},
-	boxShadow: {
-		shadowColor: "#000",
-		shadowOffset: {
-			width: 0,
-			height: 4,
-		},
-		shadowOpacity: 0.27,
-		shadowRadius: 4.65,
-		elevation: 6
-	}
+
 });
 export default Card

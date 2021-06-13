@@ -2,7 +2,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from '~/screens/Home';
-import LocationDiscoverScreen from "../screens/LocationDiscover";
+import LocationDiscoverScreen from "~/screens/LocationDiscover";
+import LocationBookingScreen from "~/screens/LocationBook";
 
 import WorkScreen from '~/screens/Work';
 
@@ -42,6 +43,11 @@ export function RootStack() {
 			<Tab.Screen
 				name="Location"
 				component={LocationDiscoverScreen}
+				initialParams={{ user: 'me' }}
+			/>
+			<Tab.Screen
+				name="Booking"
+				component={LocationBookingScreen}
 				initialParams={{ user: 'me' }}
 			/>
 		</Tab.Navigator>

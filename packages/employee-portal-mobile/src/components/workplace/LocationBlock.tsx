@@ -4,6 +4,8 @@ import React from "react";
 import {LocationData} from "../../../../employee-portal-shared/src/types/LocationData";
 import PRImages from "../../constants/PRImages";
 import PRColors from "../../constants/PRColors";
+import Icon from 'employee-portal-shared/src/components/common/Icon';
+import {PrimaryButton} from "../button/PrimaryButton";
 
 const BookButton = ({onPress}) => {
 	return <TouchableOpacity
@@ -27,6 +29,7 @@ const DirectButton = ({onPress}) => {
 		<Text style={{color: PRColors.primary}}>Direct</Text>
 	</TouchableOpacity>
 }
+
 const LocationBlock = ({
 						   variant,
 						   image,
@@ -37,39 +40,74 @@ const LocationBlock = ({
 					   }: {
 	variant: number,
 	image?, location: LocationData, // @ts-ignore
-	style?: StyleProp, onDirect?: Function, onBook?: Function
+	style?: StyleProp, onDirect?: Function | Boolean, onBook?: Function | Boolean
 }) => {
-	return <View style={{...styles.row, ...style}}>
-		<Image
-			style={{
-				...styles.image
-			}}
-			resizeMode='cover'
-			source={image ? image : PRImages.roomExample}/>
+	return <View style={{backgroundColor: 'white', borderRadius: 10, ...style}}>
 		<View style={{
-			flex: 1, marginLeft: 16, flexDirection: 'row'
-			, justifyContent: 'space-between'
+			flexDirection: 'row',
+			padding: 16
 		}}>
+			<Image
+				style={{
+					...styles.image
+				}}
+				resizeMode='cover'
+				source={image ? image : PRImages.roomExample}/>
+			<View style={styles.row}>
 
-			<View style={{justifyContent: "center"}}>
-				<Text style={{fontSize: 13, fontWeight: '600', height: 20}}>{location.name}</Text>
-				<Text style={{fontSize: 12, height: 18, color: '#919191'}}>{location.path}</Text>
-				<Text style={{fontSize: 12, height: 18, color: '#919191'}}>{location.desc}</Text>
+				{variant === 1 &&
+				<>
+					<View style={{justifyContent: "center"}}>
+						<Text style={{...styles.locationText1}}>{location.name}</Text>
+						<Text style={{...styles.locationText2}}>{location.path}</Text>
+						<Text style={{...styles.locationText2}}>{location.desc}</Text>
+					</View>
+					<View>
+						{onDirect && <DirectButton onPress={onDirect}/>}
+						{onBook && <BookButton onPress={onBook}/>}
+					</View>
+				</>
+				}
+				{variant === 2 &&
+				<>
+					<View style={{justifyContent: "center"}}>
+						<Text style={{...styles.locationText1}}>{location.name}</Text>
+						<Text style={{...styles.locationText2}}>{location.path} | {location.desc}</Text>
+						<Text style={{...styles.locationText3}}>Available Now</Text>
+					</View>
+					<View style={{flexDirection: 'row'}}>
+						<Icon name={'directions-walk'} color={'#ABABAB'} size={22}/>
+						<Text style={{...styles.environmentInfoText, paddingTop: 3}}> 2 min</Text>
+					</View>
+				</>
+				}
 			</View>
-			{variant === 1 &&
-			<View>
-				{onDirect && <DirectButton onPress={onDirect}/>}
-				{onBook && <BookButton onPress={onBook}/>}
-			</View>
-			}
-
 		</View>
+		{variant === 2 && <View style={{
+			flexDirection: 'row',
+			paddingHorizontal: 16,
+		}}>
+			{onDirect && <>
+				<PrimaryButton title={'Directions'} onPress={onDirect}/>
+				<View style={{width: 16}}></View></>}
+			{onBook && <PrimaryButton title={'Book this room'} onPress={onBook}/>}
+		</View>
+		}
 	</View>
 }
 export default LocationBlock
 
 
 const styles = StyleSheet.create({
+	locationText1: {
+		fontSize: 13, fontWeight: "600", height: 20
+	},
+	locationText2: {
+		fontSize: 12, height: 18, color: '#919191'
+	},
+	locationText3: {
+		fontSize: 13, height: 18, color: PRColors.success
+	},
 	image: {
 		height: 68,
 		width: 68,
@@ -77,9 +115,13 @@ const styles = StyleSheet.create({
 		justifyContent: "center"
 	},
 	row: {
-		flexDirection: 'row',
-		padding: 16,
+		flex: 1, marginLeft: 16, flexDirection: 'row'
+		, justifyContent: 'space-between'
 	},
-
+	environmentInfoText: {
+		color: '#111111',
+		fontWeight: '600',
+		alignItems: 'center',
+	},
 });
 
