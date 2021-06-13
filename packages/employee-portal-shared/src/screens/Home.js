@@ -24,7 +24,7 @@ class Home extends Component {
   }
 
   render() {
-    const { onPressProfile, theme, changeTheme, onToLogin } = this.props;
+    const { onPressProfile, theme, changeTheme } = this.props;
 
     return (
       <Container
@@ -82,16 +82,6 @@ class Home extends Component {
             <Button
               text='Profile'
               onPress={onPressProfile}
-            />
-          </Section>
-
-          <Section>
-            <Heading3 m={10}>
-              Login
-						</Heading3>
-            <Button
-              text='Login'
-              onPress={onToLogin}
             />
           </Section>
 
