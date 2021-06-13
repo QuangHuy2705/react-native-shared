@@ -24,7 +24,7 @@ class Home extends Component {
   }
 
   render() {
-    const { onPressProfile, onPressWorkplace, theme, changeTheme } = this.props;
+    const { theme, changeTheme } = this.props;
 
     return (
       <Container
@@ -80,31 +80,19 @@ class Home extends Component {
               Screens
 						</Heading3>
           </Section>
-
           <Section>
             <Heading3 m={10}>
-              Profile
-            </Heading3>
-            <Button
-              text='Profile'
-              onPress={onPressProfile}
-            />
-          </Section>
-
-          <Section>
-            <Heading3 m={10}>
-              Workspace
+              Login
 						</Heading3>
             <Button
-              text='Workplace'
-              onPress={onPressWorkplace}
+              text='Login'
+              onPress={onToLogin}
             />
           </Section>
-
           <Section>
             <Heading3 m={10}>
               Text Input
-						</Heading3>
+             </Heading3>
             <TextInput
               value={this.state.value}
               onChange={value => this.setState({ value })}
