@@ -68,7 +68,8 @@ const WorkplaceScreen = () => {
 							<LocationBlock
 								variant={1}
 								key={r.name}
-								location={r} style={{ paddingVertical: 8 }}
+								location={r}
+								style={{ paddingVertical: 8 }}
 								onBook={() => navigation.navigate('Location')}
 							/>)}
 						<PRDivider style={{ width: PRMetrics.deviceWidth - 48 }} />
@@ -78,7 +79,8 @@ const WorkplaceScreen = () => {
 							<LocationBlock
 								variant={1}
 								key={r.name}
-								location={r} style={{ paddingVertical: 8 }}
+								location={r}
+								style={{ paddingVertical: 8 }}
 								onDirect={() => navigation.navigate('Location',
 									{ category: r.name })}
 							/>)}

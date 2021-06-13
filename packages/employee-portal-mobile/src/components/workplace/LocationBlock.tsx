@@ -31,6 +31,14 @@ const DirectButton = ({ onPress }) => {
 	</TouchableOpacity>
 }
 
+type propType = {
+	variant: number,
+	image?, location: LocationData, // @ts-ignore
+	style?: StyleProp,
+	onDirect?: Function | Boolean,
+	onBook?: Function | Boolean
+}
+
 const LocationBlock = ({
 	variant,
 	image,
@@ -38,15 +46,12 @@ const LocationBlock = ({
 	style,
 	onDirect,
 	onBook
-}: {
-	variant: number,
-	image?, location: LocationData, // @ts-ignore
-	style?: StyleProp, onDirect?: Function | Boolean, onBook?: Function | Boolean
-}) => {
-	return <View style={{ backgroundColor: 'white', padding: 16, borderRadius: 10, ...style }}>
+}: propType) => {
+	return <View style={{
+		backgroundColor: 'white', padding: 16, borderRadius: 10, ...style
+	}}>
 		<View style={{
-			flexDirection: 'row'
-
+			flexDirection: 'row',
 		}}>
 			<Image
 				style={{
@@ -55,7 +60,6 @@ const LocationBlock = ({
 				resizeMode='cover'
 				source={image ? image : PRImages.roomExample} />
 			<View style={styles.row}>
-
 				{variant === 1 &&
 					<>
 						<View style={{ justifyContent: "center" }}>
@@ -116,8 +120,10 @@ const styles = StyleSheet.create({
 		justifyContent: "center"
 	},
 	row: {
-		flex: 1, marginLeft: 16, flexDirection: 'row'
-		, justifyContent: 'space-between'
+		flex: 1,
+		marginLeft: 16,
+		flexDirection: 'row',
+		justifyContent: 'space-between'
 	},
 	environmentInfoText: {
 		color: '#111111',
