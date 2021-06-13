@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/shared/*": [
+        "../employee-portal-shared/src/*"
+      ],
+      "~/ui/*": [
+        "../employee-portal-shared/src/components/*"
+      ],
+      "~/assets/*": [
+        "../employee-portal-shared/assets/*"
+      ],
+      "~/*": [
+        "./src/*"
+      ]
+    }
+  }
+}

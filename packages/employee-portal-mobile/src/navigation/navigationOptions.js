@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
-import HeaderTitle from '../components/navBar/HeaderTitle';
-import HeaderBackImage from '../components/navBar/HeaderBackImage';
+import HeaderTitle from '~/components/common/navBar/HeaderTitle';
+import HeaderBackImage from '~/components/common/navBar/HeaderBackImage';
 
 const navigationOptions = {
 	headerStyle: {
