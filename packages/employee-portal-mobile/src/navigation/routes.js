@@ -1,7 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-// TODO: Home screen
 import HomeScreen from '~/screens/Home';
 
 import WorkScreen from '~/screens/Work';

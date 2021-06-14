@@ -12,7 +12,7 @@ const Container = styled(View)`
 	right: 0;
 	bottom: 0;
 	left: 0;
-  padding: 52px 16px;
+  padding: 0 16px 92px 16px;
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
@@ -50,7 +50,6 @@ function ApproveForm({ action, onSubmit, onCancel }) {
   const isApprove = action === 'approve';
   return (
     <Container>
-
       <Block>
         <Message>
           Are you sure you want to

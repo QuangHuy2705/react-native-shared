@@ -7,14 +7,11 @@ import View from '~/ui/primitives/View';
 import Touchable from '~/ui/primitives/Touchable';
 
 import Text, { Heading3 as Heading } from '~/ui/primitives/Text';
-
-const IOS_STATUS_BAR_HEIGHT = 20;
-const ANDROID_STATUS_BAR_HEIGHT = StatusBar.currentHeight || 24;
-const STATUS_BAR_HEIGHT = Platform.OS === 'ios' ? IOS_STATUS_BAR_HEIGHT : ANDROID_STATUS_BAR_HEIGHT;
+import SafeSpace from '~/components/common/SafeSpace';
 
 const Container = styled(View)`
     background: #fff;
-    padding: ${24 + STATUS_BAR_HEIGHT}px 16px 16px 16px;
+    padding: 8px 16px 16px 16px;
 `;
 
 const TopContainer = styled(View)`
@@ -53,6 +50,7 @@ const ActionText = styled(Text)`
 function FormHeader({ subTitle, children, leftAction, rightAction }) {
   return (
     <Container>
+      <SafeSpace />
       <TopContainer>
         <ActionContainer onPress={leftAction.onPress}>
           <leftAction.icon />
