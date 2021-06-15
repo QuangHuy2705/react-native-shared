@@ -1,10 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // @ts-ignore
 import React from 'react';
 import { ImageBackground, View } from "react-native";
 =======
+=======
+// @ts-ignore
+>>>>>>> c19aa45... update layout
 import React from 'react';
-
 import {Image, ImageBackground, Text, View} from "react-native";
 >>>>>>> d88e2ad... add screen LocationDiscover
 import PRImages from "../../constants/PRImages";
@@ -25,7 +28,7 @@ const ImageHeader = () => {
 			<ImageBackground
 				style={{
 					height: 189,
-					justifyContent: "center"
+					justifyContent: "center",
 				}}
 				resizeMode='cover'
 				source={PRImages.roomExample}/>

@@ -42,6 +42,7 @@ export const buttons_line1 = [
 	{
 		title: "Desk",
 <<<<<<< HEAD
+<<<<<<< HEAD
 		icon: <Icon name='search' color={PRColors.icon} size={30} />,
 	},
 	{
@@ -51,13 +52,12 @@ export const buttons_line1 = [
 		onPress: () => {
 			console.log('click')
 		},
+=======
+>>>>>>> c19aa45... update layout
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	},
 	{
 		title: "Meeting Room",
-		onPress: () => {
-			console.log('click')
-		},
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 >>>>>>> d88e2ad... add screen LocationDiscover
 	}
@@ -65,11 +65,14 @@ export const buttons_line1 = [
 	{
 		title: "Coffee",
 <<<<<<< HEAD
+<<<<<<< HEAD
 		icon: <Icon name='search' color={PRColors.icon} size={30} />,
 =======
 		onPress: () => {
 			console.log('click')
 		},
+=======
+>>>>>>> c19aa45... update layout
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 >>>>>>> d88e2ad... add screen LocationDiscover
 	}
@@ -77,11 +80,14 @@ export const buttons_line1 = [
 	{
 		title: "Gyms",
 <<<<<<< HEAD
+<<<<<<< HEAD
 		icon: <Icon name='search' color={PRColors.icon} size={30} />,
 =======
 		onPress: () => {
 			console.log('click')
 		},
+=======
+>>>>>>> c19aa45... update layout
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 >>>>>>> d88e2ad... add screen LocationDiscover
 	}
@@ -94,17 +100,21 @@ export const buttons_line2 = [
 	{
 		title: "Coworker",
 <<<<<<< HEAD
+<<<<<<< HEAD
 		icon: <Icon name='search' color={PRColors.icon} size={30} />,
 =======
 		onPress: () => {
 			console.log('click')
 		},
+=======
+>>>>>>> c19aa45... update layout
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 >>>>>>> d88e2ad... add screen LocationDiscover
 	}
 	,
 	{
 		title: "Pharmacy",
+<<<<<<< HEAD
 <<<<<<< HEAD
 		icon: <Icon name='search' color={PRColors.icon} size={30} />,
 	},
@@ -120,21 +130,17 @@ export const buttons_line2 = [
 		onPress: () => {
 			console.log('click')
 		},
+=======
+>>>>>>> c19aa45... update layout
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	},
 	{
 		title: "Library",
-		onPress: () => {
-			console.log('click')
-		},
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 	}
 	,
 	{
-		title: "toilet",
-		onPress: () => {
-			console.log('click')
-		},
+		title: "Toilet",
 		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
 >>>>>>> d88e2ad... add screen LocationDiscover
 	}
