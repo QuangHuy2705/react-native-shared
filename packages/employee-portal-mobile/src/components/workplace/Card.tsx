@@ -45,6 +45,5 @@ const styles = StyleSheet.create({
 		paddingLeft: 16,
 		color: '#4F4F4F',
 	},
-
 });
 export default Card
