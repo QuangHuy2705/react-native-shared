@@ -210,10 +210,14 @@ PODS:
   - react-native-safe-area-context (3.2.0):
     - React-Core
 <<<<<<< HEAD
+<<<<<<< HEAD
   - react-native-webview (11.6.3):
 =======
   - react-native-webview (11.6.2):
 >>>>>>> d88e2ad... add screen LocationDiscover
+=======
+  - react-native-webview (11.6.3):
+>>>>>>> 9f651c6... update layout
     - React-Core
   - React-RCTActionSheet (0.63.0):
     - React-Core/RCTActionSheetHeaders (= 0.63.0)
@@ -467,10 +471,14 @@ SPEC CHECKSUMS:
   React-jsinspector: cc614ec18a9ca96fd275100c16d74d62ee11f0ae
   react-native-safe-area-context: f0906bf8bc9835ac9a9d3f97e8bde2a997d8da79
 <<<<<<< HEAD
+<<<<<<< HEAD
   react-native-webview: d172aa35a17915e1ae9a1c476d20984c1efaf4f0
 =======
   react-native-webview: 193d233c29eacce1f42ca2637dab7ba79c25a6de
 >>>>>>> d88e2ad... add screen LocationDiscover
+=======
+  react-native-webview: d172aa35a17915e1ae9a1c476d20984c1efaf4f0
+>>>>>>> 9f651c6... update layout
   React-RCTActionSheet: aadd91a1d6cbfae50dd41f140004f816e9e47ade
   React-RCTAnimation: 7fa2ef6c0ef1e3f0b7d2261c827ec94412deb5e6
   React-RCTBlob: ccbbc70295aee3a76a70323b48f63fb7a7fcffd6

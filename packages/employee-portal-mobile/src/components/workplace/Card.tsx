@@ -1,14 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from "react-native";
 import React from "react";
 import { IconButton } from 'react-native-paper'
-<<<<<<< HEAD
-import PRColors from "../../constants/PRColors";
 import { PRStyles } from "../../constants/PRStyles";
-=======
 import PRDivider from "./PRDivider";
 import PRColors from "../../constants/PRColors";
->>>>>>> d88e2ad... add screen LocationDiscover
-
 const Card = ({ style, title, children, seeMore: seeMore }: { style?: ViewStyle, title?, children?, seeMore?}) => {
 	return <View style={
 		{
@@ -30,17 +25,13 @@ const Card = ({ style, title, children, seeMore: seeMore }: { style?: ViewStyle,
 					height: 42
 				}}>
 
-<<<<<<< HEAD
 				<Text style={{ color: PRColors.primary, fontSize: 13 }}>See more</Text>
 				<IconButton icon='chevron-down' color={PRColors.primary} size={16} style={{ marginLeft: -2 }} />
-=======
-				<Text style={{color: PRColors.primary, fontSize:13}}>See more</Text>
-				<IconButton icon='chevron-down' color={PRColors.primary} size={16} style={{ marginLeft:-2}}/>
->>>>>>> d88e2ad... add screen LocationDiscover
 			</TouchableOpacity>
-		</View>}
+		</View>
+		}
 
-	</View>
+	</View >
 }
 const styles = StyleSheet.create({
 	card: {
@@ -55,5 +46,9 @@ const styles = StyleSheet.create({
 		paddingLeft: 16,
 		color: '#4F4F4F',
 	},
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9f651c6... update layout
 });
 export default Card

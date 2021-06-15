@@ -39,15 +39,11 @@ const WorkplaceScreen = () => {
 			</View>
 		})
 	}
-	const changeCategory = () => {
-		console.log('changeCategory')
-	}
 	return (
 		<Container
 			flex={1}
 			justifyContent='center'
 			alignItems='center'
-
 		>
 			<ScrollView style={{flex: 1, width: '100%', backgroundColor: "#E5E5E5"}}>
 				<ImageHeader/>
@@ -59,7 +55,6 @@ const WorkplaceScreen = () => {
 							location={current_location}
 							onDirect={() => navigation.navigate('Location', {
 								category: 'Desk',
-								changeCategory: changeCategory
 							})}
 						/>
 					</Card>
