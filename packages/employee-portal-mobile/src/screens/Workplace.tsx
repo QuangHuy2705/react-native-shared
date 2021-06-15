@@ -54,7 +54,7 @@ const WorkplaceScreen = () => {
 				<EnvironmentBlock style={{marginTop: -129}}/>
 				<View style={{marginTop: -40, marginBottom: 32}}>
 					<Card style={{height: 100}}>
-						<LocationBlock
+						<LocationBlock variant={1}
 							image={PRImages.locationMarker}
 							location={current_location}
 							onDirect={() => navigation.navigate('Location', {
@@ -71,7 +71,7 @@ const WorkplaceScreen = () => {
 					<Card title={"AVAILABLE ROOMS"} seemore>
 						{available_rooms.map(r =>
 							<LocationBlock
-
+								variant={1}
 								key={r.name}
 								location={r} style={{paddingVertical: 10}}
 								onBook={() => navigation.navigate('Location')}
@@ -81,6 +81,7 @@ const WorkplaceScreen = () => {
 					<Card title={"FOOD & DRINK"} seemore>
 						{food_drinks.map(r =>
 							<LocationBlock
+								variant={1}
 								key={r.name}
 								location={r} style={{paddingVertical: 10}}
 								onDirect={() => navigation.navigate('Location',
