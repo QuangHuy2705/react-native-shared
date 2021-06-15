@@ -50,6 +50,6 @@ export function RootStack() {
 				component={LocationBookingScreen}
 				initialParams={{ user: 'me' }}
 			/>
-		</Tab.Navigator>
+		</Tab.Navigator >
 	);
 }

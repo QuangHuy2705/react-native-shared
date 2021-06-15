@@ -2,6 +2,23 @@ import React from "react";
 import { LocationData } from "packages/employee-portal-shared/src/types/LocationData";
 import Icon from 'employee-portal-shared/src/components/common/Icon';
 import PRColors from "../constants/PRColors";
+<<<<<<< HEAD
+=======
+
+export const food_drinks: LocationData[] = [{
+	name: "Melbourne",
+	path: "VNG Campus 1 - Floor 3",
+	desc: "9 people",
+}, {
+	name: "Rome",
+	path: "VNG Campus 1 - Floor 2",
+	desc: "12 people",
+}, {
+	name: "Beijing",
+	path: "VNG Campus 1 - Floor 1",
+	desc: "6 people",
+}]
+>>>>>>> d88e2ad... add screen LocationDiscover
 
 export const available_rooms: LocationData[] = [{
 	name: "Melbourne",
@@ -24,21 +41,49 @@ export const current_location: LocationData = {
 export const buttons_line1 = [
 	{
 		title: "Desk",
+<<<<<<< HEAD
 		icon: <Icon name='search' color={PRColors.icon} size={30} />,
 	},
 	{
 		title: "Meeting Room",
 		icon: <Icon name='search' color={PRColors.icon} size={30} />,
+=======
+		onPress: () => {
+			console.log('click')
+		},
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
+	},
+	{
+		title: "Meeting Room",
+		onPress: () => {
+			console.log('click')
+		},
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
+>>>>>>> d88e2ad... add screen LocationDiscover
 	}
 	,
 	{
 		title: "Coffee",
+<<<<<<< HEAD
 		icon: <Icon name='search' color={PRColors.icon} size={30} />,
+=======
+		onPress: () => {
+			console.log('click')
+		},
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
+>>>>>>> d88e2ad... add screen LocationDiscover
 	}
 	,
 	{
 		title: "Gyms",
+<<<<<<< HEAD
 		icon: <Icon name='search' color={PRColors.icon} size={30} />,
+=======
+		onPress: () => {
+			console.log('click')
+		},
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
+>>>>>>> d88e2ad... add screen LocationDiscover
 	}
 	,
 
@@ -48,11 +93,19 @@ export const buttons_line2 = [
 
 	{
 		title: "Coworker",
+<<<<<<< HEAD
 		icon: <Icon name='search' color={PRColors.icon} size={30} />,
+=======
+		onPress: () => {
+			console.log('click')
+		},
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
+>>>>>>> d88e2ad... add screen LocationDiscover
 	}
 	,
 	{
 		title: "Pharmacy",
+<<<<<<< HEAD
 		icon: <Icon name='search' color={PRColors.icon} size={30} />,
 	},
 	{
@@ -63,6 +116,27 @@ export const buttons_line2 = [
 	{
 		title: "Toilet",
 		icon: <Icon name='search' color={PRColors.icon} size={30} />,
+=======
+		onPress: () => {
+			console.log('click')
+		},
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
+	},
+	{
+		title: "Library",
+		onPress: () => {
+			console.log('click')
+		},
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
+	}
+	,
+	{
+		title: "toilet",
+		onPress: () => {
+			console.log('click')
+		},
+		icon: <Icon name='search' color={PRColors.icon} size={30}/>,
+>>>>>>> d88e2ad... add screen LocationDiscover
 	}
 ];
 

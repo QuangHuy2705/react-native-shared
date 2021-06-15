@@ -46,12 +46,15 @@ const LocationBlock = ({
 	style,
 	onDirect,
 	onBook
-}: propType) => {
-	return <View style={{
-		backgroundColor: 'white', padding: 16, borderRadius: 10, ...style
-	}}>
+}: {
+	variant: number,
+	image?, location: LocationData, // @ts-ignore
+	style?: StyleProp, onDirect?: Function | Boolean, onBook?: Function | Boolean
+}) => {
+	return <View style={{ backgroundColor: 'white', padding: 16, borderRadius: 10, ...style }}>
 		<View style={{
-			flexDirection: 'row',
+			flexDirection: 'row'
+
 		}}>
 			<Image
 				style={{
@@ -131,4 +134,3 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 });
-

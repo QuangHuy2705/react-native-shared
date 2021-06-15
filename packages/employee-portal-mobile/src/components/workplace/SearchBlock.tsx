@@ -27,7 +27,11 @@ const SearchBlock = () => {
 			height: 38,
 			backgroundColor: 'rgba(242, 242, 242, 0.6)'
 		}}
+<<<<<<< HEAD
 		searchIcon={<Icon name='search' color={PRColors.icon} size={24} />}
+=======
+		searchIcon={<Icon name='search' color={PRColors.icon} size={24}/>}
+>>>>>>> d88e2ad... add screen LocationDiscover
 		placeholder={"Where do you want to go?"}
 		onChangeText={updateSearch}
 		value={search}
