@@ -27,7 +27,7 @@ const RNBottomSheet = ({ innerRef, children }) => {
 		<BottomSheet
 			initialSnap={1}
 			ref={innerRef}
-			snapPoints={[400, 0]}
+			snapPoints={[350, 0]}
 			renderContent={renderContent}
 		/>
 	);

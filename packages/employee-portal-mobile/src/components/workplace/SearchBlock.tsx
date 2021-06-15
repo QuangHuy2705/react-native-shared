@@ -1,11 +1,6 @@
 // @ts-ignore
-<<<<<<< HEAD
 import React, { useState } from "react";
 import { SearchBar } from "react-native-elements";
-=======
-import React, {useState} from "react";
-import {SearchBar} from "react-native-elements";
->>>>>>> c19aa45... update layout
 // @ts-ignore
 import Icon from 'employee-portal-shared/src/components/common/Icon';
 import PRColors from "../../constants/PRColors";
@@ -32,11 +27,7 @@ const SearchBlock = () => {
 			height: 38,
 			backgroundColor: 'rgba(242, 242, 242, 0.6)'
 		}}
-<<<<<<< HEAD
 		searchIcon={<Icon name='search' color={PRColors.icon} size={24} />}
-=======
-		searchIcon={<Icon name='search' color={PRColors.icon} size={24}/>}
->>>>>>> d88e2ad... add screen LocationDiscover
 		placeholder={"Where do you want to go?"}
 		onChangeText={updateSearch}
 		value={search}

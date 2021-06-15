@@ -2,7 +2,6 @@ import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from "react-nativ
 import React from "react";
 import { IconButton } from 'react-native-paper'
 import { PRStyles } from "../../constants/PRStyles";
-import PRDivider from "./PRDivider";
 import PRColors from "../../constants/PRColors";
 const Card = ({ style, title, children, seeMore: seeMore }: { style?: ViewStyle, title?, children?, seeMore?}) => {
 	return <View style={
@@ -46,9 +45,5 @@ const styles = StyleSheet.create({
 		paddingLeft: 16,
 		color: '#4F4F4F',
 	},
-<<<<<<< HEAD
-=======
-
->>>>>>> 9f651c6... update layout
 });
 export default Card
