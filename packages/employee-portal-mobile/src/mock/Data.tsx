@@ -44,7 +44,7 @@ export const buttons_line1 = [
 		icon: <Icon name='search' color={PRColors.icon} size={30} />,
 	},
 	{
-		title: "Meeting Room",
+		title: "Meeting Room ",
 		icon: <Icon name='search' color={PRColors.icon} size={30} />,
 	}
 	,
