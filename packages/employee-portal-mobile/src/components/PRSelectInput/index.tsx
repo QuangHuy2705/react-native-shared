@@ -1,6 +1,6 @@
 import {
   Metrics,
-} from "../../constants";
+} from "~/constants";
 import RBSheet from "react-native-raw-bottom-sheet";
 
 // @ts-ignore
@@ -13,10 +13,10 @@ import {
 } from "react-native";
 // import { OPTION_TYPE } from "../../shared/types";
 import { IconButton } from "react-native-paper";
-import PRColors from "../../constants/PRColors";
+import PRColors from "~/constants/PRColors";
 export type OPTION_TYPE = {
-	label: string,
-	value: number,
+  label: string,
+  value: number,
 }
 
 type PropType = {
@@ -53,7 +53,7 @@ const PRSelectInput = (props: PropType) => {
         icon={"close"}
         onPress={() => refRBSheet.current.close()} />
       <View style={{ flex: 1 }}>
-        <Text   style={{
+        <Text style={{
           alignSelf: "center"
         }}>{title}</Text>
 
@@ -69,17 +69,17 @@ const PRSelectInput = (props: PropType) => {
     <SafeAreaView
     >
       <TouchableOpacity style={styles.container}
-                        onPress={() => {
-                          !disabled && refRBSheet.current.open();
-                        }}>
+        onPress={() => {
+          !disabled && refRBSheet.current.open();
+        }}>
         <View style={{ opacity: disabled ? 0.5 : 1 }}>
           <Text
             style={styles.label}>{title}</Text>
           <Text
-                  style={styles.input}>{_label}</Text>
+            style={styles.input}>{_label}</Text>
         </View>
         <IconButton icon={"chevron-down"}
-                    color={PRColors.icon} />
+          color={PRColors.icon} />
       </TouchableOpacity>
       <RBSheet
         // ref={refRBSheet}
@@ -113,25 +113,25 @@ const PRSelectInput = (props: PropType) => {
                     }}>
                     <View
                       style={[{
-						  height: 60,
-						  borderBottomWidth: 0.5,
-						  borderBottomColor: "#dbdbde",
-						  alignItems: "center",
-						  justifyContent: "center",
-						  flexDirection: "column"
-					  }
+                        height: 60,
+                        borderBottomWidth: 0.5,
+                        borderBottomColor: "#dbdbde",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexDirection: "column"
+                      }
                         , styles.option]}>
                       <Text
                         style={{
-							color: "#2b2b2b",
-							fontSize: 15,
-						}}>{item.label} </Text>
+                          color: "#2b2b2b",
+                          fontSize: 15,
+                        }}>{item.label} </Text>
                       {item.value === _selected &&
-                      <IconButton
-                        style={{backgroundColor: PRColors.success}}
-                        icon="check"
-                        color={'white'}
-                        size={20} />
+                        <IconButton
+                          style={{ backgroundColor: PRColors.success }}
+                          icon="check"
+                          color={'white'}
+                          size={20} />
                         // <Image style={{
                         //     width: 24,
                         //     height: 24,
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
-    borderBottomWidth:.5,
+    borderBottomWidth: .5,
     // backgroundColor: "red"
   },
   input: {

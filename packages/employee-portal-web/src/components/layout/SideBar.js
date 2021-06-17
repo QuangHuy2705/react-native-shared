@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import { withRouter } from 'react-router';
 import styled from 'styled-components';
-import View from 'employee-portal-shared/src/components/primitives/View';
-import Text from 'employee-portal-shared/src/components/primitives/Text';
-import Touchable from 'employee-portal-shared/src/components/primitives/Touchable';
+import View from '~/ui/primitives/View';
+import Text from '~/ui/primitives/Text';
+import Touchable from '~/ui/primitives/Touchable';
 import Icon from 'employee-portal-shared/src//components/common/Icon';
 
 const Wrapper = styled(View)`

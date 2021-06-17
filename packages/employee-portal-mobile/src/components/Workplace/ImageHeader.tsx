@@ -1,7 +1,7 @@
 // @ts-ignore
 import React from 'react';
 import { ImageBackground, View } from "react-native";
-import PRImages from "../../constants/PRImages";
+import PRImages from "~/constants/PRImages";
 
 const ImageHeader = () => {
 	return (

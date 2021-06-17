@@ -1,10 +1,10 @@
 // @ts-ignore
 import React from "react";
 import { FlatList, ImageBackground, View, ViewStyle } from "react-native";
-import { CircleButton } from "../button/PrimaryButton";
 import PRColors from "../../constants/PRColors";
 // @ts-ignore
-import Icon from 'employee-portal-shared/src/components/common/Icon';
+import Icon from '~/ui/common/Icon';
+import { CircleButton } from "../common/Button/PrimaryButton";
 
 const UserList = ({ users: users, onSelected, canAdd, style }: {
 	users, onSelected: Function, canAdd?: Boolean, style?: ViewStyle

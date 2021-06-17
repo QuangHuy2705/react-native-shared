@@ -1,8 +1,8 @@
 import React from 'react';
 import { createBrowserHistory as createHistory } from 'history';
 import { Router } from 'react-router';
-import MainWrapper from 'employee-portal-shared/src/components/layout/MainWrapper';
-import View from 'employee-portal-shared/src/components/primitives/View';
+import MainWrapper from '~/ui/layout/MainWrapper';
+import View from '~/ui/primitives/View';
 import Routes from './routes';
 import SideBar from '../components/layout/SideBar';
 

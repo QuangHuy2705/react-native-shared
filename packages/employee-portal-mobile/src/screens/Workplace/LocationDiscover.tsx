@@ -1,7 +1,7 @@
 // @ts-ignore
 import React, { PureComponent, useEffect, useRef, useState } from 'react';
 // @ts-ignore
-import Container from 'employee-portal-shared/src/components/layout/Container';
+import Container from '~/ui/layout/Container';
 import {
 	View,
 	StyleSheet,
@@ -12,12 +12,12 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { WebView } from 'react-native-webview';
-import LocationBlock from '../../components/workplace/LocationBlock';
-import SearchBlock from '../../components/workplace/SearchBlock';
-import RNBottomSheet from '../../components/workplace/RNBottomSheet';
-import PRColors from '../../constants/PRColors';
-import PRImages from '../../constants/PRImages';
-import { current_location } from '../../mock/Data';
+import LocationBlock from '~/components/Workplace/LocationBlock';
+import SearchBlock from '~/components/Workplace/SearchBlock';
+import RNBottomSheet from '~/components/Workplace/RNBottomSheet';
+import PRColors from '~/constants/PRColors';
+import PRImages from '~/constants/PRImages';
+import { current_location } from '~/mock/Data';
 
 
 const category = ['Desk', 'Meeting Room', 'Coffee', 'Gyms', 'Coworker', 'Pharmacy', 'Library', 'Toilet']
@@ -36,11 +36,13 @@ const LocationDiscoverScreen = ({ route }) => {
 	}, [selectedLocation])
 	const openActionSheet = () => {
 		if (refAcctionSheet.current) {
+			// @ts-ignore
 			refAcctionSheet.current.snapTo(0);
 		}
 	}
 	const closeActionSheet = () => {
 		if (refAcctionSheet.current) {
+			// @ts-ignore
 			refAcctionSheet.current.close();
 		}
 	}

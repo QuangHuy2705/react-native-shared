@@ -3,7 +3,7 @@ import { StatusBar, Dimensions, Platform } from 'react-native';
 import { withNavigation } from '@react-navigation/native';
 import { Header as NavigationHeader, HeaderStyleInterpolators } from '@react-navigation/stack';
 import { getDefaultHeaderHeight } from '@react-navigation/stack/lib/commonjs/vendor/views/Header/HeaderSegment';
-import Container from 'employee-portal-shared/src/components/layout/Container';
+import Container from '~/ui/layout/Container';
 
 const IOS_STATUS_BAR_HEIGHT = 20;
 const ANDROID_STATUS_BAR_HEIGHT = StatusBar.currentHeight || 24;

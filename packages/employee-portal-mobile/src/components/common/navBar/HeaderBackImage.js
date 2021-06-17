@@ -4,7 +4,7 @@ import {
 	Platform,
 	StyleSheet,
 } from 'react-native';
-import Icon from 'employee-portal-shared/src/components/common/Icon';
+import Icon from '~/ui/common/Icon';
 
 class HeaderBackImage extends PureComponent {
 	render() {

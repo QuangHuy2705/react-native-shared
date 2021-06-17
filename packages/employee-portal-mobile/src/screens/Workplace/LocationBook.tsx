@@ -1,7 +1,7 @@
 // @ts-ignore
 import React, { useEffect, useState } from 'react';
 // @ts-ignore
-import Container from 'employee-portal-shared/src/components/layout/Container';
+import Container from '~/ui/layout/Container';
 import {
 	View,
 	StyleSheet,
@@ -10,17 +10,17 @@ import {
 	FlatList,
 	ScrollView,
 } from "react-native";
-import Icon from 'employee-portal-shared/src/components/common/Icon';
+import Icon from '~/ui/common/Icon/index.native';
 import { useNavigation } from '@react-navigation/native';
-import { PrimaryButton2 } from '../../components/button/PrimaryButton';
-import EnvironmentBlock from '../../components/workplace/EnvironmentBlock';
-import { FixedBottom } from '../../components/workplace/FixedBottom';
-import ImageHeader from '../../components/workplace/ImageHeader';
-import LocationBlock from '../../components/workplace/LocationBlock';
-import PRColors from '../../constants/PRColors';
-import PRImages from '../../constants/PRImages';
-import Card from '../../components/workplace/Card';
-import UserList from '../../components/workplace/UserList';
+import EnvironmentBlock from '~/components/Workplace/EnvironmentBlock';
+import { FixedBottom } from '~/components/Workplace/FixedBottom';
+import ImageHeader from '~/components/Workplace/ImageHeader';
+import LocationBlock from '~/components/Workplace/LocationBlock';
+import PRColors from '~/constants/PRColors';
+import PRImages from '~/constants/PRImages';
+import Card from '~/components/Workplace/Card';
+import UserList from '~/components/Workplace/UserList';
+import { PrimaryButton2 } from '~/components/common/Button/PrimaryButton';
 
 const LocationBookingScreen = ({ route }) => {
 

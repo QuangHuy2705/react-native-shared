@@ -2,11 +2,11 @@ import { StyleProp, StyleSheet, Text, TouchableOpacity, View, Image } from "reac
 // @ts-ignore
 import React from "react";
 import { LocationData } from "../../../../employee-portal-shared/src/types/LocationData";
-import PRImages from "../../constants/PRImages";
-import PRColors from "../../constants/PRColors";
-import Icon from 'employee-portal-shared/src/components/common/Icon';
+import PRImages from "~/constants/PRImages";
+import Icon from '~/ui/common/Icon/index.native';
+import { PrimaryButton } from "~/components/common/Button/PrimaryButton";
+import PRColors from "~/constants/PRColors";
 
-import { PrimaryButton } from "../button/PrimaryButton";
 
 const BookButton = ({ onPress }) => {
 	return <TouchableOpacity

@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import View from 'employee-portal-shared/src/components/primitives/View';
+import View from '~/ui/primitives/View';
 
 import Header, { Tabs } from '~/components/Work/Header';
 import Task from '~/components/Work/Task';

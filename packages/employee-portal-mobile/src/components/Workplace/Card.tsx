@@ -1,8 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from "react-native";
 import React from "react";
 import { IconButton } from 'react-native-paper'
-import { PRStyles } from "../../constants/PRStyles";
-import PRColors from "../../constants/PRColors";
+import { PRStyles } from "~/constants/PRStyles";
+import PRColors from "~/constants/PRColors";
 const Card = ({ style, title, children, seeMore: seeMore }: { style?: ViewStyle, title?, children?, seeMore?}) => {
 	return <View style={
 		{

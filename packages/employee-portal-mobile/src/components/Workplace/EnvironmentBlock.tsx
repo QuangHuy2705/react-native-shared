@@ -1,11 +1,11 @@
 import { StyleProp, StyleSheet, Text, View, ViewStyle } from "react-native";
-import { current_location } from "../../mock/Data";
 // @ts-ignore
 import React from "react";
 // @ts-ignore
-import Icon from 'employee-portal-shared/src/components/common/Icon';
+import Icon from '~/ui/common/Icon';
 import LinearGradient from 'react-native-linear-gradient';
-import PRColors from "../../constants/PRColors";
+import PRColors from "~/constants/PRColors";
+import { current_location } from "~/mock/Data";
 
 const EnvironmentBlock = ({ style }: { style?: StyleProp<ViewStyle> }) => {
 	return <LinearGradient start={{ x: 0, y: 0 }}

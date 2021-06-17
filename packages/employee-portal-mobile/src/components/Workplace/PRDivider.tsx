@@ -5,7 +5,7 @@ import {
 } from "react-native";
 
 import Dash from "react-native-dash";
-import PRMetrics from "../../constants/PRMetrics";
+import PRMetrics from "~/constants/PRMetrics";
 
 type PropsType = {
 	dash?: boolean;

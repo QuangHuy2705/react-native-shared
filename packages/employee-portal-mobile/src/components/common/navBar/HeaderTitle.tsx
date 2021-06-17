@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import Text from 'employee-portal-shared/src/components/primitives/Text';
+import Text from '~/ui/primitives/Text';
 
 class HeaderTitle extends PureComponent {
 	render() {

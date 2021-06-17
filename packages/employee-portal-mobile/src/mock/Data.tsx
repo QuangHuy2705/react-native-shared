@@ -1,6 +1,6 @@
 import React from "react";
 import { LocationData } from "packages/employee-portal-shared/src/types/LocationData";
-import Icon from 'employee-portal-shared/src/components/common/Icon';
+import Icon from '~/ui/common/Icon';
 import PRColors from "../constants/PRColors";
 
 export const available_rooms: LocationData[] = [{

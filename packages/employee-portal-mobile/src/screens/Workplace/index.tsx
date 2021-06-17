@@ -1,23 +1,23 @@
 // @ts-ignore
 import React, { Component, PureComponent, useState } from 'react';
 // @ts-ignore
-import Container from 'employee-portal-shared/src/components/layout/Container';
+import Container from '~/ui/layout/Container';
 import {
 	View,
 	StyleSheet,
 	ScrollView,
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
-import CategoryIconButton from '../../components/button/CategoryIconButton';
-import EnvironmentBlock from '../../components/workplace/EnvironmentBlock';
-import ImageHeader from '../../components/workplace/ImageHeader';
-import LocationBlock from '../../components/workplace/LocationBlock';
-import SearchBlock from '../../components/workplace/SearchBlock';
-import PRImages from '../../constants/PRImages';
-import PRMetrics from '../../constants/PRMetrics';
-import { buttons_line1, buttons_line2, current_location, available_rooms, food_drinks } from '../../mock/Data';
-import Card from '../../components/workplace/Card';
-import PRDivider from '../../components/workplace/PRDivider';
+import EnvironmentBlock from '~/components/Workplace/EnvironmentBlock';
+import ImageHeader from '~/components/Workplace/ImageHeader';
+import LocationBlock from '~/components/Workplace/LocationBlock';
+import SearchBlock from '~/components/Workplace/SearchBlock';
+import PRImages from '~/constants/PRImages';
+import PRMetrics from '~/constants/PRMetrics';
+import Card from '~/components/Workplace/Card';
+import PRDivider from '~/components/Workplace/PRDivider';
+import CategoryIconButton from '~/components/Workplace/CategoryIconButton';
+import { buttons_line1, buttons_line2, current_location, available_rooms, food_drinks } from '~/mock/Data';
 
 const WorkplaceScreen = () => {
 	const navigation = useNavigation();
