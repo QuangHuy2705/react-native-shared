@@ -19,13 +19,11 @@ export default function Setting({navigation}) {
 		const refRBSheet = useRef();
 	  const options = [
     {
-      name: 'Take photo',
-      icon: <Icon style={{marginRight: 15}} size={21} name="photo-camera" />,
+      name: 'Vietnamese',
       onPress: () => {},
 		},
     {
-      name: 'Choose from Gallery',
-      icon: <Icon style={{marginRight: 15}} name="image"  size={21} />,
+      name: 'English',
       onPress: () => {}
     },
   ];
