@@ -7,13 +7,16 @@
 	},
 	"parser": "babel-eslint",
 	"parserOptions": {
+		"ecmaVersion": 6,
 		"ecmaFeatures": {
-			"jsx": true,
-			"modules": true,
-			"classes": true
+		"jsx": true,
+		"modules": true,
+		"classes": true,
+    "experimentalObjectRestSpread": true
 		}
 	},
 	"rules": {
+    "jsx-a11y/label-has-for": "off",
 		"react/sort-comp": [1, {
 			"order": [
 				"static-methods",
