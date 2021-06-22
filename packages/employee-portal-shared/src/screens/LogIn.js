@@ -29,17 +29,22 @@ export default function LogIn({ onSignedIn }) {
               Hello there
               {"\n"}<Heading2 fontWeight='bold' m={10}>
                 Wellcome back!
-						</Heading2>
+              </Heading2>
             </Heading2>
             <Text>Build technologies and grow people. For a better life.</Text>
           </View>
 
-          <View marginTop={90}>
-            <Button style={{ overflow: 'hidden' }} icon={Office365} onPress={onLoginPress} variant='outrageousOrangeBig' text='Login with Office 365'
+          <View marginTop={70}>
+            <Button
+              style={{ overflow: 'hidden' }}
+              icon={Office365}
+              variant='outrageousOrangeBig'
+              onPress={onLoginPress}
+              text='Login with Office 365'
             />
           </View>
 
-          <View marginTop={25} justifyContent='center' alignItems='center' flexDirection='row'>
+          <View marginTop={100} justifyContent='center' alignItems='center' flexDirection='row'>
             <Text fontWeight='bold'>English</Text>
             <View
               style={{
@@ -51,7 +56,7 @@ export default function LogIn({ onSignedIn }) {
             />
             <Text variant='dimmed' >Vietnamese</Text>
           </View>
-          <View marginTop={100} marginBottom={30} flexDirection='row' justifyContent='center'>
+          {/* <View marginTop={80} marginBottom={30} flexDirection='row' justifyContent='center'>
             <View marginRight={60} alignItems='center' justifyContent='center'>
               <Icon name='info-outline' color='black' />
               <Text style={{ marginTop: 5 }}>About</Text>
@@ -60,7 +65,7 @@ export default function LogIn({ onSignedIn }) {
               <Icon name='phone-in-talk' color='black' />
               <Text style={{ marginTop: 5 }}>Help</Text>
             </View>
-          </View>
+          </View> */}
         </View>
       </ScrollView>
     </Container>

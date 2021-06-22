@@ -7,15 +7,15 @@ import Text from '~/ui/primitives/Text';
 
 const Container = styled(View)`
     background: #FFF;
-    margin-top: 16px;
+    margin-top: 8px;
     flex-direction: column;
 `;
 
 const Title = styled(Text)`
   color: #000;
   font-weight: bold;
-  font-size: 18px;
-  padding: 16px;
+  font-size: 16px;
+  padding: 8px 16px;
 `;
 
 function Panel({ title, children }) {

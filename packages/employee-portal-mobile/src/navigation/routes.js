@@ -8,10 +8,8 @@ import WorkScreen from '~/screens/Work';
 
 import Notification from '~/screens/Notification';
 
-// TODO: Workplace screen
 import WorkplaceScreen from '~/screens/Workplace';
 
-// TODO: Profile screen
 import ProfileScreen from '~/screens/Profile';
 
 import BottomTabBar from './BottomTabBar';
@@ -32,7 +30,6 @@ function WorkplaceScreenStackScreen() {
 }
 
 export function RootStack() {
-
 	return (
 		<Tab.Navigator
 			initialRouteName="Home"

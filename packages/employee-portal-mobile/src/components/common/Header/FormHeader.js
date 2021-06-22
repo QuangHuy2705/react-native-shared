@@ -22,13 +22,17 @@ const ActionContainer = styled(Touchable)`
     margin: 0 4px;
 `;
 
-const Title = styled(Heading)`
+const TitleContainer = styled(View)`
   flex: 1;
+  flex-direction: column;
+`;
+
+const Title = styled(Heading)`
   text-align: center;
-  font-weight: 500;
-  font-size: 20px;
+  font-weight: bold;
+  font-size: 17px;
   padding: 0;
-  margin: 0 0 4px 0;
+  margin: 0;
 `;
 
 const SubTitle = styled(Text)`
@@ -55,14 +59,18 @@ function FormHeader({ subTitle, children, leftAction, rightAction }) {
         <ActionContainer onPress={leftAction.onPress}>
           <leftAction.icon />
         </ActionContainer>
-        <Title>{children}</Title>
+        <TitleContainer>
+          <Title>
+            {children}
+          </Title>
+          <SubTitle>{subTitle}</SubTitle>
+        </TitleContainer>
         <ActionContainer onPress={() => rightAction.isActive && rightAction.onPress}>
           <ActionText isActive={rightAction.isActive}>
             {rightAction.text}
           </ActionText>
         </ActionContainer>
       </TopContainer>
-      <SubTitle>{subTitle}</SubTitle>
     </Container>
   );
 }
