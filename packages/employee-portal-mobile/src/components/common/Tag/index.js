@@ -16,9 +16,9 @@ const Variants = {
 }
 
 const Container = styled(View)`
-    padding: 4px 12px;
+    padding: 2px 10px;
     background: #F2F2F2;
-    border-radius: 24px;
+    border-radius: 30px;
     justify-content: center;
     align-items: center;
 
@@ -27,6 +27,7 @@ const Container = styled(View)`
 
 const TextContainer = styled(Text)`
   font-size: 14px;
+  font-weight: bold;
   ${({ variant }) => `color: ${Variants[variant].color}`}
 `;
 

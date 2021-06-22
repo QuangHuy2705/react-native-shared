@@ -27,8 +27,8 @@ const ActionContainer = styled(Touchable)`
 
 const Title = styled(Heading)`
   flex: 1;
-  font-weight: 500;
-  font-size: 26px;
+  font-weight: bold;
+  font-size: 24px;
   padding: 0;
   margin: 0 0 8px 0;
 `;

@@ -18,13 +18,13 @@ const Content = styled(View)`
 
 const Name = styled(Text)`
   font-weight: 500;
-  font-size: 18px;
+  font-size: 13px;
   color: #000;
 `;
 
 const Description = styled(Text)`
   color: #828282;
-  font-size: 16px;
+  font-size: 12px;
   height: 40px;
 `;
 

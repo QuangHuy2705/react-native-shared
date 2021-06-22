@@ -9,7 +9,7 @@ import Panel from './Panel';
 
 const Item = styled(View)`
     flex-direction: row;
-    padding: 16px;
+    padding: 8px 16px;
     align-items: center;
     justify-content: space-between;
 
@@ -21,7 +21,7 @@ const Item = styled(View)`
 
 const ItemText = styled(Text)`
   color: #000;
-  font-size: 16px;
+  font-size: 14px;
   
   ${({ isLast }) => isLast && `
     font-weight: 500;

@@ -84,7 +84,7 @@ export default {
       color: colors.white,
       backgroundColor: colors.outrageousOrange,
       borderRadius: 56,
-      paddingVertical: 17,
+      paddingVertical: 10,
     }
   },
 
