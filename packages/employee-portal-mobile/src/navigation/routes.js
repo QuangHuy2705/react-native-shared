@@ -49,9 +49,11 @@ export function RootStack() {
 				component={WorkplaceScreenStackScreen}
 			/>
 			<Tab.Screen
+				options={{
+					headerShown: false
+				}}
 				name="Profile"
 				component={ProfileScreen}
-				initialParams={{ user: 'me' }}
 			/>
 		</Tab.Navigator>
 	);

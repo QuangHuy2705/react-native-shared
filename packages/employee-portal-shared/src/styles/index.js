@@ -22,7 +22,10 @@ import {
   margin,
   marginTop,
   marginBottom,
-  marginRight
+  marginRight,
+  border,
+  background,
+	height
 } from 'styled-system';
 
 const viewStyle = css`
@@ -61,6 +64,8 @@ const containerStyle = css`
 	${flexDirection}
 	${alignItems}
 	${justifyContent}
+  ${border}
+  ${background}
 `;
 
 const mainWrapperStyle = css`
