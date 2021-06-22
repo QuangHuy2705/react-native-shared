@@ -43,7 +43,7 @@ const ActionContainer = styled(View)`
   border-color: #A7A7A77A;
   border-top-width: 0.2px;
   padding: 16px 0 4px 0;
-  margin-top: 8px;
+  margin-top: 16px;
 `;
 
 const ActionGroup = styled(View)`
@@ -55,7 +55,7 @@ function TaskItem({ item, onComment, onApprove, onReject }) {
   const { owner, task } = item;
   const { category, descriptions, sums } = task;
   return (<Container>
-    <RowContainer marginBottom={16}>
+    <RowContainer marginBottom={12}>
       <ProfileBox profile={owner} />
       <Tag variant='warn'>{category}</Tag>
     </RowContainer>

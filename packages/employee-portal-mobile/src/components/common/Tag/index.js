@@ -16,9 +16,10 @@ const Variants = {
 }
 
 const Container = styled(View)`
-    padding: 2px 10px;
+    padding: 0px 10px;
     background: #F2F2F2;
     border-radius: 30px;
+    height: 30px;
     justify-content: center;
     align-items: center;
 

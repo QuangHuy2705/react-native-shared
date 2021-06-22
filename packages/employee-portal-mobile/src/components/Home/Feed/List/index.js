@@ -1,15 +1,9 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
-import View from '~/ui/primitives/View';
+import ScrollView from '~/components/common/ScrollView';
 
 import PostStatusBox from './PostStatusBox';
 import FeedItem from './Item';
-
-const Container = styled(View)`
-	background: transparent;
-`;
 
 function List({ onViewFeed }) {
   const items = [
@@ -91,7 +85,7 @@ Chương trình ưu đãi nội bộ của Unilever dành cho VNG, khi Starter m
   ];
 
   return (
-    <Container>
+    <ScrollView>
       <PostStatusBox owner={{ name: 'Lực', photo: 'https://i.pravatar.cc/50' }} />
       {items.map(i => (
         <FeedItem
@@ -100,7 +94,7 @@ Chương trình ưu đãi nội bộ của Unilever dành cho VNG, khi Starter m
           onViewFeed={onViewFeed}
         />
       ))}
-    </Container>
+    </ScrollView>
   )
 }
 

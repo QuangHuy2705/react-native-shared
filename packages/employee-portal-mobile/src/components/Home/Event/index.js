@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import ScrollView from '~/components/common/ScrollView';
 
 import View from '~/ui/primitives/View';
 import Calendar from './Calendar';
@@ -69,10 +70,12 @@ function EventList() {
 
   return (
     <Container>
-      <Calendar />
-      <Content>
-        {groups.map(g => <EventGroup key={g.id} name={g.name} events={g.events} />)}
-      </Content>
+      <ScrollView>
+        <Calendar />
+        <Content>
+          {groups.map(g => <EventGroup key={g.id} name={g.name} events={g.events} />)}
+        </Content>
+      </ScrollView>
     </Container>
   );
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import View from '~/ui/primitives/View';
+import ScrollView from '~/components/common/ScrollView';
 
 import CreateRequestPanel from '~/components/Work/Request/CreateRequestPanel';
 import MyRequestPanel from '~/components/Work/Request/MyRequestPanel';
@@ -38,10 +39,12 @@ function Request() {
 
   return (
     <Container>
-      <CreateRequestPanel
-        onCreateRequest={({ id, category }) => showCreateForm({ isOpen: true, id, category })}
-      />
-      <MyRequestPanel />
+      <ScrollView>
+        <CreateRequestPanel
+          onCreateRequest={({ id, category }) => showCreateForm({ isOpen: true, id, category })}
+        />
+        <MyRequestPanel />
+      </ScrollView>
     </Container>
   )
 }

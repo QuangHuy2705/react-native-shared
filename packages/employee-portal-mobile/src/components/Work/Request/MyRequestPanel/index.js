@@ -12,11 +12,12 @@ import Item from './Item';
 const Container = styled(View)`
     padding: 12px 16px;
     background: #FFF;
-    margin-top: 16px;
+    margin-top: 8px;
 `;
 
 const Title = styled(Heading)`
-  font-weight: 500;
+  font-weight: bold;
+  font-size: 17px;
   padding: 0;
   margin: 0 0 16px 0;
 `;

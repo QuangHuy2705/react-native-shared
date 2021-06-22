@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styled from 'styled-components';
-
+import ScrollView from '~/components/common/ScrollView';
 import View from '~/ui/primitives/View';
 import ApproveForm from '~/components/Work/Task/ApproveForm';
 
@@ -13,15 +13,16 @@ const Container = styled(View)`
 
 function Task() {
   const [form, showApprovalForm] = React.useState({});
-
   return (
     <>
       <Container>
-        <Feed
-          onApprove={() => showApprovalForm({ action: 'approve', isOpen: true })}
-          onReject={() => showApprovalForm({ action: 'reject', isOpen: true })}
-          onComment={() => { }}
-        />
+        <ScrollView>
+          <Feed
+            onApprove={() => showApprovalForm({ action: 'approve', isOpen: true })}
+            onReject={() => showApprovalForm({ action: 'reject', isOpen: true })}
+            onComment={() => { }}
+          />
+        </ScrollView>
       </Container>
       {form.isOpen && (
         <ApproveForm

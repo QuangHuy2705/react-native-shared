@@ -9,6 +9,7 @@ import Avatar from './Avatar';
 const Container = styled(View)`
   flex: 1;
   flex-direction: row;
+  height: 40px;
 `;
 
 const Content = styled(View)`
@@ -17,7 +18,7 @@ const Content = styled(View)`
 `;
 
 const Name = styled(Text)`
-  font-weight: 500;
+  font-weight: bold;
   font-size: 13px;
   color: #000;
 `;
@@ -25,7 +26,6 @@ const Name = styled(Text)`
 const Description = styled(Text)`
   color: #828282;
   font-size: 12px;
-  height: 40px;
 `;
 
 function ProfileBox({ profile }) {
@@ -33,7 +33,7 @@ function ProfileBox({ profile }) {
   function showProfile() { }
 
   return (
-    <Touchable height={60} flex={1} onPress={showProfile}>
+    <Touchable flex={1} onPress={showProfile}>
       <Container>
         <Avatar width="40" height="40" source={{ uri: photo }} />
         <Content>
