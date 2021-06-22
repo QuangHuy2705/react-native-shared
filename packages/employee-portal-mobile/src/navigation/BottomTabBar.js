@@ -63,9 +63,8 @@ function BottomTab({ state, descriptors, navigation }) {
           });
         };
 
-        const Icon = Icons[route.name] || HomeIcon;
-
-        return (
+        const Icon = Icons[route.name];
+        return Icon && (
           <Touchable
             key={route.name}
             onPress={onPress}
