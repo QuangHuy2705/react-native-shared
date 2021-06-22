@@ -6,6 +6,8 @@ import HomeScreen from '~/screens/Home';
 
 import WorkScreen from '~/screens/Work';
 
+import Notification from '~/screens/Notification';
+
 // TODO: Workplace screen
 import WorkplaceScreen from '~/screens/Workplace';
 
@@ -54,6 +56,13 @@ export function RootStack() {
 				}}
 				name="Profile"
 				component={ProfileScreen}
+			/>
+			<Tab.Screen
+				options={{
+					headerShown: false
+				}}
+				name="Notification"
+				component={Notification}
 			/>
 		</Tab.Navigator>
 	);
