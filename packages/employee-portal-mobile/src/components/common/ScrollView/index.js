@@ -4,8 +4,8 @@ import { Dimensions } from 'react-native';
 
 import { ScrollView } from 'react-native';
 
-function AppScrollView({ children }) {
-  const height = Dimensions.get('window').height - 232;
+function AppScrollView({ spacing = 232, children }) {
+  const height = Dimensions.get('window').height - spacing;
   return (
     <ScrollView style={{ width: '100%', height }}>
       {children}

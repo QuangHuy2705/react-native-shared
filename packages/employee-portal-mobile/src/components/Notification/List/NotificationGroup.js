@@ -12,6 +12,9 @@ import RequestNotification from './RequestNotification';
 
 const Container = styled(View)`
 	background: #fff;
+  ${({ isLast }) => isLast && `
+    margin-bottom: 70px;
+  `}
 `;
 
 const Line = styled(View)`
@@ -38,7 +41,7 @@ const TEMPLATES = {
 
 export default function NotificationGroup({ isLast, name, notifications }) {
   return (
-    <Container>
+    <Container isLast={isLast}>
       <Bold>{name}</Bold>
       {notifications.map(n => {
         const Template = TEMPLATES[n.templateId];

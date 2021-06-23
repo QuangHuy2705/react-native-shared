@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 import View from '~/ui/primitives/View';
+import ScrollView from '~/components/common/ScrollView';
+
 import NotificationGroup from './NotificationGroup';
 
 const Container = styled(View)`
-	background: #FFF;
+  margin-top: 10px;
 `;
 
 export default function List() {
@@ -67,15 +69,17 @@ export default function List() {
   ];
 
   return (
-    <Container>
-      {groups.map((g, idx) => (
-        <NotificationGroup
-          key={g.id}
-          name={g.name}
-          notifications={g.notifications}
-          isLast={idx === groups.length - 1}
-        />
-      ))}
-    </Container>
+    <ScrollView spacing={250} style={{ background: '#fff' }}>
+      <Container>
+        {groups.map((g, idx) => (
+          <NotificationGroup
+            key={g.id}
+            name={g.name}
+            notifications={g.notifications}
+            isLast={idx === groups.length - 1}
+          />
+        ))}
+      </Container>
+    </ScrollView>
   );
 }

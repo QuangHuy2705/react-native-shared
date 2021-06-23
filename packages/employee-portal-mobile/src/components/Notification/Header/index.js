@@ -11,11 +11,10 @@ import SafeSpace from '~/components/common/SafeSpace';
 import BackIcon from '~/ui/common/Icon/Svg/BackIcon';
 
 const Container = styled(View)`
-	padding: 8px 16px;
+	padding: 8px 16px 4px 16px;
 	align-items: center;
   flex-direction: row;
   background: #FFF;
-  margin-bottom: 8px;
 `;
 
 const Title = styled(Text)`
