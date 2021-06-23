@@ -24,11 +24,8 @@ function List({ onViewFeed }) {
         liked: true,
         comments: 10,
         likes: 200,
-        content: `
-VNG x UNILEVER | ƯU ĐÃI MUA HÀNG KHỦNG DÀNH CHO STARTER
-
-Chương trình ưu đãi nội bộ của Unilever dành cho VNG, khi Starter mua sắm trên U-shop.vn sẽ được nhận thêm cho mình những ưu đãi hấp dẫn
-        `,
+        content: `VNG x UNILEVER | ƯU ĐÃI MUA HÀNG KHỦNG DÀNH CHO STARTER
+Chương trình ưu đãi nội bộ của Unilever dành cho VNG, khi Starter mua sắm trên U-shop.vn sẽ được nhận thêm cho mình những ưu đãi hấp dẫn`,
         photo: 'https://picsum.photos/400/200'
       }
     },
@@ -49,11 +46,9 @@ Chương trình ưu đãi nội bộ của Unilever dành cho VNG, khi Starter m
         liked: false,
         comments: 100,
         likes: 200,
-        content: `
-VNG x UNILEVER | ƯU ĐÃI MUA HÀNG KHỦNG DÀNH CHO STARTER
+        content: `VNG x UNILEVER | ƯU ĐÃI MUA HÀNG KHỦNG DÀNH CHO STARTER
 
-Chương trình ưu đãi nội bộ của Unilever dành cho VNG, khi Starter mua sắm trên U-shop.vn sẽ được nhận thêm cho mình những ưu đãi hấp dẫn
-        `,
+Chương trình ưu đãi nội bộ của Unilever dành cho VNG, khi Starter mua sắm trên U-shop.vn sẽ được nhận thêm cho mình những ưu đãi hấp dẫn`,
         photo: 'https://picsum.photos/400/200'
       }
     },
@@ -74,11 +69,9 @@ Chương trình ưu đãi nội bộ của Unilever dành cho VNG, khi Starter m
         liked: true,
         comments: 10,
         likes: 200,
-        content: `
-VNG x UNILEVER | ƯU ĐÃI MUA HÀNG KHỦNG DÀNH CHO STARTER
+        content: `VNG x UNILEVER | ƯU ĐÃI MUA HÀNG KHỦNG DÀNH CHO STARTER
 
-Chương trình ưu đãi nội bộ của Unilever dành cho VNG, khi Starter mua sắm trên U-shop.vn sẽ được nhận thêm cho mình những ưu đãi hấp dẫn
-        `,
+Chương trình ưu đãi nội bộ của Unilever dành cho VNG, khi Starter mua sắm trên U-shop.vn sẽ được nhận thêm cho mình những ưu đãi hấp dẫn`,
         photo: 'https://picsum.photos/400/200'
       }
     },

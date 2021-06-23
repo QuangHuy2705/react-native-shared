@@ -34,7 +34,7 @@ const RegularText = styled(Text)`
 const Paragraph = styled(Text)`
   color: #000;
   font-size: 14px;
-  padding: 0 16px;
+  padding: 4px 16px 8px 16px;
 `;
 
 const RowContainer = styled(View)`
