@@ -5,6 +5,7 @@ import produce from 'immer';
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators: Actions } = createActions({
 	logIn: ['uname', 'password'],
+	logInByAzure: ['azureToken'],
 	logInSuccess: ['uname', 'token'],
 	logInFailure: ['error'],
 	logOut: null,
@@ -20,6 +21,10 @@ export const INITIAL_STATE = {
 /* ------------- Hookup Reducers To Types ------------- */
 export default createReducer(INITIAL_STATE, {
 	[Types.LOG_IN]: (state) => produce(state, draft => {
+		draft.loading = true;
+	}),
+
+	[Types.LOG_IN_BY_AZURE]: (state) => produce(state, draft => {
 		draft.loading = true;
 	}),
 

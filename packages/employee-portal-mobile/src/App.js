@@ -16,7 +16,6 @@ import CodePush from '../node_modules/react-native-code-push';
 
 function App({ auth, logIn }) {
 	const { isSignedIn } = auth;
-	console.log(auth);
 
 	return (
 		<SafeAreaProvider initialMetrics={initialWindowMetrics}>
@@ -40,7 +39,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-	logIn: Actions.logIn
+	logIn: Actions.logInByAzure
 };
 
 const ConnectedApp = connect(

@@ -14,6 +14,17 @@ function* logIn({ uname, password }) {
   }
 }
 
+function* logInByAzure({ azureToken }) {
+  try {
+    const { tokenId } = yield call(Auth.logInByAzure, azureToken);
+    yield call(Api.saveToken, tokenId);
+    yield put(Actions.logInSuccess());
+  } catch (error) {
+    yield put(Actions.logInFailure(error.message));
+  }
+}
+
 export default function* watchAuth() {
   yield takeEvery(Types.LOG_IN, logIn);
+  yield takeEvery(Types.LOG_IN_BY_AZURE, logInByAzure);
 }
