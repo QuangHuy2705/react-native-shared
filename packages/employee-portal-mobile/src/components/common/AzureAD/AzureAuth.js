@@ -49,7 +49,6 @@ export default class AzureAuth {
     };
 
     try {
-      console.log('endpoint', endpoint);
       const rs = await fetch(endpoint, payload);
       const { expires_in, access_token, refresh_token } = await rs.json();
       return { expiresIn: expires_in, accessToken: access_token, refreshToken: refresh_token };

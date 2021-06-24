@@ -14,4 +14,16 @@ export default class Auth {
     }
     return data;
   }
+  static async logInByAzure(azureToken) {
+    const uri = `/passport/login-by-office`;
+    const { error, data } = await Api.fetch(uri, {
+      authorized: false,
+      method: 'POST',
+      body: JSON.stringify({ azureToken })
+    });
+    if (error) {
+      throw new Error(error.message);
+    }
+    return data;
+  }
 }

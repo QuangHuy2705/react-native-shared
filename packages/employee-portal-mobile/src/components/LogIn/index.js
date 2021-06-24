@@ -26,9 +26,8 @@ export default class Login extends React.Component {
     this.setState({ mode: null });
     try {
       const { onSignedIn } = this.props;
-      const { mail } = await this.azureInstance.getUserInfo();
-      const [domain] = mail.split('@');
-      onSignedIn(domain, `${domain}@123456`);
+      const { accessToken } = this.azureInstance.getToken();
+      onSignedIn(accessToken);
     } catch (err) {
       console.log(err);
     }
