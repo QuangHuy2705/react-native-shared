@@ -11,6 +11,9 @@ import LogInScreen from '~/screens/LogIn'
 
 import AppNavigator from '~/navigation/AppNavigator';
 
+// Module CodePush use for release test version on Microsoft AppCenter 
+import CodePush from '../node_modules/react-native-code-push';
+
 function App({ auth, logIn }) {
 	const { isSignedIn } = auth;
 	console.log(auth);
@@ -45,4 +48,9 @@ const ConnectedApp = connect(
 	mapDispatchToProps
 )(App);
 
-export default ConnectedApp;
+let codePushOptions = {
+	checkFrequency: CodePush.CheckFrequency.ON_APP_START,
+	installMode: CodePush.InstallMode.IMMEDIATE
+};
+
+export default CodePush(codePushOptions)(ConnectedApp);

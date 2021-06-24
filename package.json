@@ -10,5 +10,11 @@
   },
   "devDependencies": {
     "lerna": "^3.22.1"
+  },
+  "dependencies": {
+    "appcenter": "4.1.0",
+    "appcenter-analytics": "4.1.0",
+    "appcenter-crashes": "4.1.0",
+    "react-native-code-push": "^7.0.1"
   }
 }
