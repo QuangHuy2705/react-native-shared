@@ -11,6 +11,7 @@ import ItemContainer from './ItemContainer';
 
 const IconContainer = styled(View)`
 	position: relative;
+  padding-right: 2px;
 `;
 
 const Marker = styled(View)`

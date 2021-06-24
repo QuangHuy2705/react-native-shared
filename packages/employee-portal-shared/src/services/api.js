@@ -1,6 +1,6 @@
 import Storage from './storage';
 
-const API_URL = 'https://my-dev.vng.com.vn/v1';
+const API_URL = 'https://my-dev.vng.com.vn';
 const TOKEN_KEY = '@authToken';
 
 export default class Api {
@@ -20,11 +20,10 @@ export default class Api {
         ...headers,
       },
       ...options,
-
     });
     if (response.ok) {
       return response.json();
     }
-    throw new Error(response.statusText);
+    throw new Error(response.statusText || response.status);
   }
 }

@@ -24,7 +24,7 @@ const Marker = styled(View)`
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   width: 5px;
-  height: 104px;
+  height: 110px;
   margin-right: 8px;
 `;
 
