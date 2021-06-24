@@ -19,6 +19,7 @@ const Container = styled(View)`
 
 const TopContainer = styled(View)`
     flex-direction: row;
+    padding: 0 4px;
 `;
 
 const ActionContainer = styled(Touchable)`
@@ -28,9 +29,9 @@ const ActionContainer = styled(Touchable)`
 const Title = styled(Heading)`
   flex: 1;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
   padding: 0;
-  margin: 0 0 8px 0;
+  margin: 0 0 4px 0;
 `;
 
 function Header({ title, children, actions }) {

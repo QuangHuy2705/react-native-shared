@@ -1,3 +1,3 @@
-import SharedLogIn from '~/shared/screens/LogIn';
+import LogIn from '~/components/LogIn';
 
-export default SharedLogIn;
+export default LogIn;
