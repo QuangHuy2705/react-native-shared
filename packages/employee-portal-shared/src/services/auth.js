@@ -19,7 +19,7 @@ export default class Auth {
     const { error, data } = await Api.fetch(uri, {
       authorized: false,
       method: 'POST',
-      body: JSON.stringify({ azureToken })
+      body: JSON.stringify({ accessToken: azureToken })
     });
     if (error) {
       throw new Error(error.message);
