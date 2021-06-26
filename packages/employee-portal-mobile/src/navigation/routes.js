@@ -10,7 +10,12 @@ import Notification from '~/screens/Notification';
 
 import WorkplaceScreen from '~/screens/Workplace';
 
+<<<<<<< HEAD
 import ProfileScreen from '~/screens/Profile';
+=======
+// TODO: Profile screen
+import ProfileScreen from '~/screens/Profile/Profile';
+>>>>>>> 9c4c8b9 (refstructure profile screen)
 
 import BottomTabBar from './BottomTabBar';
 import LocationDiscoverScreen from '~/screens/Workplace/LocationDiscover';

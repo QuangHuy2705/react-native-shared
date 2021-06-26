@@ -2,8 +2,8 @@ import React, { PureComponent, useState } from 'react';
 import View from '~/ui/primitives/View';
 import ScrollView from '~/ui/common/ScrollView';
 import styled from 'styled-components';
-import Detail from '../components/Profile/Detail';
-import Header from '../components/Profile/Header';
+import Detail from '../../components/Profile/Detail';
+import Header from '../../components/Profile/Header';
 import { createStackNavigator } from '@react-navigation/stack';
 import ContactEdit from './ContactEdit'
 import Setting from './Setting'
