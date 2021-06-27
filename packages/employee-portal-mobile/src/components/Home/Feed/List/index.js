@@ -2,7 +2,8 @@ import React from 'react';
 
 import ScrollView from '~/components/common/ScrollView';
 
-import PostStatusBox from './PostStatusBox';
+import PostStatusBox from '~/containers/Home/Feed/List/PostStatusBox';
+
 import FeedItem from './Item';
 
 function List({ onViewFeed }) {

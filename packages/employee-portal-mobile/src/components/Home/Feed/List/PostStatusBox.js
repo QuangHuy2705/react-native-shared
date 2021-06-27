@@ -25,16 +25,18 @@ const PlaceHolderText = styled(Text)`
   flex: 1;
 `;
 
-function PostStatusBox({ owner }) {
-  const { photo, name } = owner;
+function PostStatusBox({ owner, profile }) {
+  const { displayName } = profile;
+  const name = displayName.split(/\s/)[0];
+
   return (<Container>
     <Avatar
-      source={{ uri: photo }}
+      source={{ text: displayName }}
       width={36}
       height={36}
     />
     <PlaceHolderText>
-      What's on your mind, {name}?
+      What's on your {name ? `mind, ${name}?` : 'mind?'}
     </PlaceHolderText>
     <PictureIcon />
   </Container>);

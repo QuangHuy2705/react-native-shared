@@ -10,8 +10,7 @@ import Notification from '~/screens/Notification';
 
 import WorkplaceScreen from '~/screens/Workplace';
 
-// TODO: Profile screen
-import ProfileScreen from '~/screens/Profile/Profile';
+import ProfileScreen from '~/screens/Profile';
 
 import BottomTabBar from './BottomTabBar';
 import LocationDiscoverScreen from '~/screens/Workplace/LocationDiscover';
