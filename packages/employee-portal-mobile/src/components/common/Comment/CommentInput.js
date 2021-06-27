@@ -31,7 +31,7 @@ const MultiLineTextInput = styled(TextInput)`
 	border-bottom-width: 0;
 	font-size: 14px;
 	line-height: 19px;
-	/* ${({ height }) => `height: ${height}px`} */
+	${({ height }) => `height: ${height}px`}
 `;
 
 const IconButton = styled(TouchableOpacity)`
@@ -47,6 +47,7 @@ const MinInputHeight = 20;
 
 function CommentInput({ user, onSubmit }) {
 	const [text, setText] = useState('');
+	const [inputHeight, setInputHeight] = useState(MinInputHeight);
 	const { photo } = user;
 
 	const onSend = function (text) {
@@ -65,6 +66,10 @@ function CommentInput({ user, onSubmit }) {
 					value={text}
 					onChange={setText}
 					multiline
+					onContentSizeChange={
+						(event) => setInputHeight(event.nativeEvent.contentSize.height)
+					}
+					height={inputHeight}
 					wrapperStyle={{ height: inputHeight, width: '100%' }}
 					placeholder='Write a comment'
 				/>
