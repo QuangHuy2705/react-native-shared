@@ -19,12 +19,19 @@ const UserAvatar = styled(View)`
 	width: 45px;
 `;
 
-const MultiLineTextInput = styled(TextInput)`
+const MultiLineInputContainer = styled(View)`
 	background: #f2f2f2;
 	border-radius: 24px;
+	padding: 10px 12px;
+	flex: 1;
+	align-items: center;
+`;
+
+const MultiLineTextInput = styled(TextInput)`
 	border-bottom-width: 0;
-	padding: 12px 12px;
-	${({ height }) => `height: ${height}px`}
+	font-size: 14px;
+	line-height: 19px;
+	/* ${({ height }) => `height: ${height}px`} */
 `;
 
 const IconButton = styled(TouchableOpacity)`
@@ -36,12 +43,13 @@ const IconButton = styled(TouchableOpacity)`
 	flex-direction: column;
 `;
 
+const MinInputHeight = 20;
+
 function CommentInput({ user, onSubmit }) {
 	const [text, setText] = useState('');
-	const [inputHeight, setInputHeight] = useState(38);
 	const { photo } = user;
 
-	const onSend = function(text) {
+	const onSend = function (text) {
 		setText('');
 		Keyboard.dismiss();
 		onSubmit(text);
@@ -52,15 +60,15 @@ function CommentInput({ user, onSubmit }) {
 			<UserAvatar>
 				<Avatar width="40" height="40" source={{ uri: photo }} />
 			</UserAvatar>
-			<MultiLineTextInput
-				value={text}
-				onChange={setText}
-				onContentSizeChange={(event) => setInputHeight(Math.max(38, event.nativeEvent.contentSize.height))}
-				multiline={true}
-				height={inputHeight}
-				wrapperStyle={{ height: inputHeight, width: text === '' ? ('88%') : ('80%')}}
-				placeholder='Write a comment'
-			/>
+			<MultiLineInputContainer>
+				<MultiLineTextInput
+					value={text}
+					onChange={setText}
+					multiline
+					wrapperStyle={{ height: inputHeight, width: '100%' }}
+					placeholder='Write a comment'
+				/>
+			</MultiLineInputContainer>
 			{(text !== '') &&
 				(<IconButton
 					onPress={() => onSend(text)}>

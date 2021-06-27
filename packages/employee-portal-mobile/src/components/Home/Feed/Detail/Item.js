@@ -67,6 +67,7 @@ const ActionGroup = styled(View)`
 
 const _listComments = [
 	{
+		id: 1,
 		commenter: {
 			name: 'Phúc. Trần Quang',
 			photo: 'https://i.pravatar.cc/50'
@@ -77,6 +78,7 @@ const _listComments = [
 		}
 	},
 	{
+		id: 2,
 		commenter: {
 			name: 'Phúc. Trần Quang',
 			photo: 'https://i.pravatar.cc/50'
@@ -87,6 +89,7 @@ const _listComments = [
 		}
 	},
 	{
+		id: 3,
 		commenter: {
 			name: 'Phúc. Trần Quang',
 			photo: 'https://i.pravatar.cc/50'
@@ -109,11 +112,11 @@ function Item({ item, onBack }) {
 	const [_liked, setLiked] = useState(liked);
 	const [listComments, setListComments] = useState(_listComments);
 
-	const onLike = function() {
+	const onLike = function () {
 		setLiked(!_liked);
 	}
 
-	const onComment = function(text) {
+	const onComment = function (text) {
 		const newComment = {
 			commenter: user,
 			value: {
@@ -160,7 +163,7 @@ function Item({ item, onBack }) {
 				<CommentList comments={listComments} />
 			</ScrollView>
 		</ScrollViewContainer>
-		<CommentInput user={user} onSubmit={onComment}/>
+		<CommentInput user={user} onSubmit={onComment} />
 	</Container>);
 }
 

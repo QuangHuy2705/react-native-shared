@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import View from '~/ui/primitives/View';
 import Avatar from '../Profile/Avatar';
 import Text from '~/ui/primitives/Text';
-import { convertTimeSince } from '~/shared/utils/function';
+// import { convertTimeSince } from '~/shared/utils/function';
 
 const Container = styled(View)`
 	flex: 1;
@@ -40,7 +40,8 @@ export function CommentItem({ comment, index }) {
 			<ColBlock>
 				<UserName>{comment.commenter.name}</UserName>
 				<CommentText>{comment.value.textValue}</CommentText>
-				<Timer>{convertTimeSince(comment.value.timer)}</Timer>
+				<Timer>1 hour ago</Timer>
+				{/* <Timer>{convertTimeSince(comment.value.timer)}</Timer> */}
 			</ColBlock>
 		</Container>
 	)
@@ -51,7 +52,7 @@ function CommentList({ comments }) {
 		<>
 			{comments.map((comment, index) => {
 				return (
-					<CommentItem comment={comment} index={index} />
+					<CommentItem key={comment.id} comment={comment} index={index} />
 				);
 			})}
 		</>
