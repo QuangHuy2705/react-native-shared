@@ -5,7 +5,7 @@ import RowsWithText from '~/ui/utils/RowsWithText';
 import Icon from '~/ui/common/Icon';
 
 export default function Detail(props) {
-	const {onToContactEdit} = props
+  const { onToContactEdit, profile } = props
 
   const infoData = {
     titleStyle: {},
@@ -13,23 +13,23 @@ export default function Detail(props) {
     texts: [
       {
         title: 'Display name',
-        content: 'Luc. Mai Van'
+        content: profile.displayName
       },
       {
         title: 'Job title',
-        content: 'Designer'
+        content: profile.title || 'N/A'
       },
       {
         title: 'Department',
-        content: 'Luc. Mai Van'
+        content: profile.department || 'N/A'
       },
       {
         title: 'Office',
-        content: 'VNG Campus'
+        content: profile.office || 'N/A'
       },
       {
         title: 'Seat',
-        content: 'G-119'
+        content: profile.seat || 'N/A'
       },
     ]
   }
@@ -40,16 +40,16 @@ export default function Detail(props) {
     texts: [
       {
         title: 'Phone number',
-        content: '+84 383 708 182'
+        content: profile.phone || 'N/A'
       },
       {
         title: 'Zalo number',
-        content: '+84 383 708 182'
+        content: profile.zalo || 'N/A'
       },
-			{
-				title: 'Email',
-				content: 'maivanluc1597@gmail.com'
-			}
+      {
+        title: 'Email',
+        content: profile.personalEmail || 'N/A'
+      }
     ]
   }
 

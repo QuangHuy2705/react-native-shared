@@ -29,13 +29,20 @@ const Description = styled(Text)`
 `;
 
 function ProfileBox({ profile }) {
-  const { name, photo, description } = profile;
+  const { name, photo, description, loading, error } = profile;
   function showProfile() { }
+  if (loading || error) {
+    return null;
+  }
 
   return (
     <Touchable flex={1} onPress={showProfile}>
       <Container>
-        <Avatar width="40" height="40" source={{ uri: photo }} />
+        <Avatar
+          width="40"
+          height="40"
+          source={{ uri: photo, text: name }}
+        />
         <Content>
           <Name>{name}</Name>
           <Description>{description}</Description>

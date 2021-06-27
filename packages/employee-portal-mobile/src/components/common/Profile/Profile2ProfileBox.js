@@ -43,7 +43,7 @@ function Profile2ProfileBox({ from, to }) {
   return (
     <Container>
       <Touchable onPress={() => showProfile(from)}>
-        <Avatar width={36} height={36} source={{ uri: photo }} />
+        <Avatar size={36} source={{ uri: photo }} />
       </Touchable>
       <Content>
         <RowContainer>
