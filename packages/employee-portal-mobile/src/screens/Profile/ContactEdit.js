@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Container from '~/ui/layout/Container';
 import Icon from '~/ui/common/Icon';
 import Input from '~/ui/common/Form/TextInput';
+import DatePicker from '~/components/common/DatePicker'
 
 const CView = styled(View)`
 	background: transparent;
@@ -43,9 +44,6 @@ const ContactEdit = ({navigation}) => {
 										onChangeText={(text) => {
 											setPhoneNumber(text);
 										}}
-										// onChangeFormattedText={(text) => {
-										// 	setFormattedValue(text);
-										// }}
 									/>
 							</Container>
 							
@@ -65,7 +63,6 @@ const ContactEdit = ({navigation}) => {
 					</SectionContainer>
 
 				</Container>
-			
 			</CView>
 		)
 }
