@@ -25,8 +25,12 @@ const PlaceHolderText = styled(Text)`
   flex: 1;
 `;
 
-function PostStatusBox({ owner, profile }) {
-  const { displayName } = profile;
+function PostStatusBox({ profile }) {
+  if (!profile) {
+    return null;
+  }
+
+  const { displayName = '' } = profile;
   const name = displayName.split(/\s/)[0];
 
   return (<Container>
