@@ -63,8 +63,7 @@ export default function EventItem({ event: { title, time, location, members } })
         {members.map(m => (
           <Avatar
             key={m.id}
-            width="24"
-            height="24"
+            size={24}
             style={{ marginRight: 6 }}
             source={{ uri: m.photo }}
           />
