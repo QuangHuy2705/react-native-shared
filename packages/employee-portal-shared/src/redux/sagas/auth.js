@@ -5,11 +5,11 @@ import { Actions as UserActions } from '../modules/user';
 import Api from '../../services/api';
 import Auth from '../../services/auth';
 
-function* logIn({ uname, password, azureToken }) {
+function* logIn({ uname, password, azureToken, azureRefreshToken }) {
   try {
     // Request Log In
     const { tokenId, tokenItem } = azureToken
-      ? yield call(Auth.logInByAzure, azureToken)
+      ? yield call(Auth.logInByAzure, azureToken, azureRefreshToken)
       : yield call(Auth.logIn, uname, password);
     // After Log In
     yield call(Api.saveToken, tokenId);

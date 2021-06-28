@@ -26,8 +26,8 @@ export default class Login extends React.Component {
     this.setState({ mode: null });
     try {
       const { onSignedIn } = this.props;
-      const { accessToken } = this.azureInstance.getToken();
-      onSignedIn(accessToken);
+      const { accessToken, refreshToken } = this.azureInstance.getToken();
+      onSignedIn(accessToken, refreshToken);
     } catch (err) {
       console.log(err);
     }

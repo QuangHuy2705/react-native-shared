@@ -5,7 +5,7 @@ import produce from 'immer';
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators: Actions } = createActions({
 	logIn: ['uname', 'password'],
-	logInByAzure: ['azureToken'],
+	logInByAzure: ['azureToken', 'azureRefreshToken'],
 	logInSuccess: ['token'],
 	logInFailure: ['error'],
 	logOut: null,
