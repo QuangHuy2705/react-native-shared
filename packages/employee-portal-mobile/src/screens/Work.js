@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import View from '~/ui/primitives/View';
 
 import Header, { Tabs } from '~/components/Work/Header';
-import Task from '~/components/Work/Task';
+import Task from '~/containers/Work/Task';
 import Request from '~/components/Work/Request';
 
 const Container = styled(View)`
