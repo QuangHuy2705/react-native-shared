@@ -10,62 +10,54 @@ const Container = styled(View)`
 	background: transparent;
 `;
 
-function Feed({ onApprove, onReject, onComment }) {
-  const items = [
-    {
-      id: '1',
-      owner: {
-        id: '1',
-        name: 'Doanh. Vo Thi My',
-        photo: 'https://i.pravatar.cc/50',
-        description: '2 hours'
-      },
-      task: {
-        id: '1',
-        category: 'Payment',
-        descriptions: [
-          { id: 'dsc', label: 'Description', text: 'VNG Office Phone charge in Jan 2021.' },
-          { id: 'telco', label: 'Telco', text: 'VNPT. Subcription number. 0283 6221 468.' }
-        ],
-        sums: [{ id: '1', text: '15.000.000 VND' }, { id: '2', text: 'October , 2021 Expires' }]
-      }
+function getDesc(text) {
+  if (!text || text.trim() === '') {
+    return null;
+  }
+
+  const parts = text.split(':');
+  if (parts.length > 1) {
+    const label = parts[0].trim();
+    const content = text.replace(`${parts[0]}:`, '').trim();
+    return { id: label, label, text: content };
+  }
+  return { id: text, label: null, text };
+}
+
+function getCategory(type) {
+  switch (type) {
+    case 1:
+      return 'Payment';
+    case 2:
+    case 4:
+    default:
+      return 'Annual Leave';
+  }
+}
+
+function getItems({ items }) {
+  return items.map((i, idx) => ({
+    id: `${idx}-${i.taskId}`,
+    ownerDomain: i.createdDomain,
+    task: {
+      id: i.taskId,
+      type: i.type,
+      category: getCategory(i.type),
+      descriptions: [
+        getDesc(i.message),
+        getDesc(i.content)
+      ].filter(m => !!m),
+      sums: [
+        i.optionValue1,
+        i.optionValue2,
+      ].filter(s => !!s)
+        .map(s => ({ id: s, text: s }))
     },
-    {
-      id: '2',
-      owner: {
-        id: '2',
-        name: 'Doanh. Vo Thi My',
-        photo: 'https://i.pravatar.cc/100',
-        description: '2 hours'
-      },
-      task: {
-        id: '2',
-        category: 'Annual Leave',
-        descriptions: [
-          { id: 'dsc', label: 'Description', text: 'Description: Taking care of a sick child.' },
-        ],
-        sums: [{ id: '1', text: 'Jan 23, 2021  >  Jan 27,2021' }, { id: '2', text: 'Total: 3 days' }]
-      }
-    },
-    {
-      id: '3',
-      owner: {
-        id: '3',
-        name: 'Doanh. Vo Thi My',
-        photo: 'https://i.pravatar.cc/100',
-        description: '2 hours'
-      },
-      task: {
-        id: '3',
-        category: 'Purchase',
-        descriptions: [
-          { id: 'dsc', label: 'Description', text: 'VNG Office Phone charge in Jan 2021.' },
-          { id: 'telco', label: 'Telco', text: 'VNPT. Subcription number. 0283 6221 468.' }
-        ],
-        sums: [{ id: '1', text: '15.000.000 VND' }, { id: '2', text: 'October , 2021 Expires' }]
-      }
-    },
-  ];
+  }));
+}
+
+function Feed({ tasks, onApprove, onReject, onComment }) {
+  const items = getItems(tasks);
 
   return (
     <Container>
@@ -73,9 +65,9 @@ function Feed({ onApprove, onReject, onComment }) {
         <TaskItem
           key={i.id}
           item={i}
-          onApprove={onApprove}
-          onReject={onReject}
-          onComment={onComment}
+          onApprove={() => onApprove(i)}
+          onReject={() => onReject(i)}
+          onComment={() => onComment(i)}
         />
       ))}
     </Container>

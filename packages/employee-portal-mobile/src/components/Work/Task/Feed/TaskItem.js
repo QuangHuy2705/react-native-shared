@@ -9,7 +9,7 @@ import ApproveIcon from '~/ui/common/Icon/Svg/ApproveIcon';
 import RejectIcon from '~/ui/common/Icon/Svg/RejectIcon';
 // import CommentIcon from '~/ui/common/Icon/Svg/CommentIcon';
 
-import ProfileBox from '~/components/common/Profile/ProfileBox'
+import ProfileBox from '~/containers/common/Profile/ProfileBox'
 import Tag from '~/components/common/Tag'
 
 const Container = styled(View)`
@@ -52,16 +52,16 @@ const ActionGroup = styled(View)`
 `;
 
 function TaskItem({ item, onComment, onApprove, onReject }) {
-  const { owner, task } = item;
+  const { ownerDomain, task } = item;
   const { category, descriptions, sums } = task;
   return (<Container>
     <RowContainer marginBottom={12}>
-      <ProfileBox profile={owner} />
+      <ProfileBox userDomain={ownerDomain} />
       <Tag variant='warn'>{category}</Tag>
     </RowContainer>
     {descriptions.map(d => (
       <RowContainer key={d.id}>
-        <Label>{d.label}: </Label>
+        {d.label && (<Label>{d.label}: </Label>)}
         <RegularText>
           {d.text}
         </RegularText>

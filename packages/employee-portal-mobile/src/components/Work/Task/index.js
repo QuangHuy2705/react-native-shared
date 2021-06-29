@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import { ActivityIndicator } from 'react-native';
 import ScrollView from '~/components/common/ScrollView';
 import View from '~/ui/primitives/View';
 import ApproveForm from '~/components/Work/Task/ApproveForm';
@@ -11,29 +12,50 @@ const Container = styled(View)`
 	background: transparent;
 `;
 
-function Task() {
+function Task({ tasks, getTasks, submitTaskReview }) {
   const [form, showApprovalForm] = React.useState({});
+  function fetchTasks() {
+    if (!tasks.loading) {
+      getTasks(tasks.offset);
+    }
+  }
+
+  React.useEffect(() => {
+    getTasks(0);
+  }, []);
+
   return (
     <>
       <Container>
-        <ScrollView>
+        <ScrollView onBottomScrolled={fetchTasks}>
           <Feed
-            onApprove={() => showApprovalForm({ action: 'approve', isOpen: true })}
-            onReject={() => showApprovalForm({ action: 'reject', isOpen: true })}
+            tasks={tasks}
+            onApprove={(item) => showApprovalForm({ item, action: 'approve', isOpen: true })}
+            onReject={(item) => showApprovalForm({ item, action: 'reject', isOpen: true })}
             onComment={() => { }}
           />
+          {tasks.loading && (
+            <ActivityIndicator
+              size="large"
+              color="#929292"
+              style={{ alignSelf: 'center', marginTop: 16 }}
+            />
+          )}
         </ScrollView>
       </Container>
       {form.isOpen && (
         <ApproveForm
           action={form.action}
-          onApprove={() => showApprovalForm({ isOpen: false })}
-          onReject={() => showApprovalForm({ isOpen: false })}
-          onCancel={() => showApprovalForm({ isOpen: false })}
+          onSubmit={() => {
+            const { item, action } = form;
+            showApprovalForm({});
+            submitTaskReview(item.id, item.type, action)
+          }}
+          onCancel={() => showApprovalForm({})}
         />
       )}
     </>
-  )
+  );
 }
 
 export default Task;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Profiler } from 'react';
 import styled from 'styled-components';
 
 import View from '~/ui/primitives/View';
@@ -28,24 +28,36 @@ const Description = styled(Text)`
   font-size: 12px;
 `;
 
-function ProfileBox({ profile }) {
-  const { name, photo, description, loading, error } = profile;
+function formatDomain(domain) {
+  return domain && `${domain}@vng.com.vn`;
+}
+
+function ProfileBox({ profile, userDomain, fetchProfile }) {
+  const { name, photo, title, description, domain, error } = profile || {};
+  React.useEffect(() => {
+    if (!profile) {
+      fetchProfile();
+    }
+  }, [profile]);
+
   function showProfile() { }
-  if (loading || error) {
+
+  if ((error && !userDomain) || !profile || !profile.userId && !userDomain) {
     return null;
   }
 
+  const displayDomain = formatDomain(domain || userDomain);
   return (
     <Touchable flex={1} onPress={showProfile}>
       <Container>
         <Avatar
           width="40"
           height="40"
-          source={{ uri: photo, text: name }}
+          source={{ uri: photo, text: name || displayDomain }}
         />
         <Content>
-          <Name>{name}</Name>
-          <Description>{description}</Description>
+          <Name>{name || userDomain}</Name>
+          <Description>{description || title || displayDomain}</Description>
         </Content>
       </Container>
     </Touchable>
