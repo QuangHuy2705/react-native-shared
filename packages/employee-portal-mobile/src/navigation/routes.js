@@ -15,6 +15,7 @@ import ProfileScreen from '~/screens/Profile';
 import BottomTabBar from './BottomTabBar';
 import LocationDiscoverScreen from '~/screens/Workplace/LocationDiscover';
 import LocationBookingScreen from '~/screens/Workplace/LocationBook';
+import PostFormModal from '~/components/common/PostForm/FormModal';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
@@ -29,11 +30,15 @@ function WorkplaceScreenStackScreen() {
 	);
 }
 
-export function RootStack() {
+const AppStack = createStackNavigator()
+
+const App = () => {
+
 	return (
-		<Tab.Navigator
+				<Tab.Navigator
 			initialRouteName="Home"
 			tabBar={BottomTabBar}
+			mode="modal"
 		>
 			<Tab.Screen
 				name="Home"
@@ -61,6 +66,16 @@ export function RootStack() {
 				name="Notification"
 				component={Notification}
 			/>
+
 		</Tab.Navigator>
-	);
+	)
+}
+
+export function RootStack() {
+	return (
+		<AppStack.Navigator mode='modal'>
+			<AppStack.Screen options={{headerShown: false}} name={'App'} component={App} />
+			<AppStack.Screen name='PostFormModal' component={PostFormModal} />
+		</AppStack.Navigator>
+	)
 }
