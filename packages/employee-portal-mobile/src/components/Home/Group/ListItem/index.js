@@ -16,26 +16,30 @@ const CImage = styled(Image)`
 export default function ListItem(props) {
 	const {groupData, navigate = true} = props
 	const navigation = useNavigation()
-
+	const {name} = groupData
 	const onToGroupDetail = groupData => {
 		navigate && navigation.push('GroupDetail', {groupData})
 	}
 
 	return (
-		<TouchableOpacity onPress={() => onToGroupDetail(groupData)}>
-			<Container flexDirection='row' justifyContent='space-between' alignItems='center' >
-				<Container p={'16px 0'} flexDirection='row' alignItems='center'>
-					<CImage source={{uri: 'https://i.pravatar.cc/50'}} />
+		<Container mb='20px'>
+			<Text mb='12px' fontSize='17px' fontWeight={700}>{name}</Text>
+			<TouchableOpacity onPress={() => onToGroupDetail(groupData)}>
+				<Container flexDirection='row' justifyContent='space-between' alignItems='center' >
+					<Container  flexDirection='row' alignItems='center'>
+						<CImage source={{uri: 'https://i.pravatar.cc/50'}} />
 
-					<Container ml='11px' >
-						<Text fontWeight={600}>{groupData.name}</Text>
-						<Text color='#828282' fontWeight={400}>{groupData.description}</Text>
+						<Container ml='11px' >
+							<Text fontWeight={600}>{name}</Text>
+							<Text color='#828282' fontWeight={400}>{'Active 2 hours ago'}</Text>
+						</Container>
 					</Container>
+					{navigate && (
+						<Icon  color='#828282' name='chevron-right' />
+					)}
 				</Container>
-				{navigate && (
-					<Icon  color='#828282' name='chevron-right' />
-				)}
-			</Container>
-		</TouchableOpacity>
+			</TouchableOpacity>
+		</Container>
+
 	)
 }

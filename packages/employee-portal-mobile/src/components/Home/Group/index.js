@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Text from '~/ui/primitives/Text'
 import Container from '~/ui/layout/Container'
 import {ScrollView } from 'react-native'
@@ -15,27 +15,15 @@ const CContainer = styled(Container)`
 	padding: 12px 16px;
 `
 
-const groups = [
-	{category: 'All Groups', groups: [
-		{name: 'Life at VNG', description: 'Last active 2 hours ago'},
-		{name: 'VNG Upfit gym', description: 'Last active 2 hours ago'}
-	]},
-	{category: 'Support Groups', groups: [
-		{name: 'AF Helpdesk', description: 'Last active 2 hours ago'},
-		{name: 'IT Helpdesk', description: 'Last active 2 hours ago'}
-	]}
-]
-
-export default function Group (props) {
-
+export default function Group ({getGroupList, groupList}) {
+	useEffect(() => {
+		getGroupList()
+	}, [])
 	return (
 		<CScrollView >
-			{groups.map((gr, idx) => (
-				<CContainer key={idx}>
-					<Text fontSize='17px' fontWeight={700}>{gr.category}</Text>
-					<GroupList groupsData={gr.groups} />
-				</CContainer>
-			))}
+			<CContainer>
+				<GroupList groupList={groupList} />
+			</CContainer>
 		</CScrollView>
 	)
 }
