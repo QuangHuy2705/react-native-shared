@@ -19,12 +19,6 @@ const Container = styled(View)`
   padding: 16px 0 4px 0;
 `;
 
-const PhotoRatio = 400 / 200;
-const Photo = styled(Image)`
-  width: ${Dimensions.get('window').width}px;
-  min-height: ${Dimensions.get('window').width / PhotoRatio}px;
-`;
-
 const RegularText = styled(Text)`
   font-size: 14px;
   padding-top: 1px;
@@ -89,11 +83,12 @@ function Item({ item }) {
 		</RowContainer>
 		{item.attachment && item.attachment.link &&
 		<RowContainer>
-			<ExternalLink link={item.attachment.link}/>
+			<ExternalLink link={item.attachment.link}
+				viewFullHeight={!Boolean(item.attachment.image.length > 0)}/>
 		</RowContainer>}
 		{item.attachment && item.attachment.image &&
 		<RowContainer>
-			<ThumbnailsGrid thumbnails={item.attachment.image} numOfImgs={5} />
+			<ThumbnailsGrid thumbnails={item.attachment.image} numOfImgs={3} />
 		</RowContainer>}
 		<ActionContainer>
 			<Touchable onPress={() => onViewFeed(item)}>
