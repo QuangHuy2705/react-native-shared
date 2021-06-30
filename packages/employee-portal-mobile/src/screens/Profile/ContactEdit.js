@@ -31,7 +31,7 @@ const ContactEdit = ({navigation}) => {
 	
 			return (
 			<CView flex={1}>
-				<Container mt='10px' style={{height: '100%'}} flex-={1}>
+				<Container mt='10px' style={{height: '100%'}} flex={1}>
 
 					<SectionContainer borderColor='#A7A7A7' borderBottomWidth={0.2} >
 						<Text fontSize='17px' fontWeight='bold'>Phone number</Text>

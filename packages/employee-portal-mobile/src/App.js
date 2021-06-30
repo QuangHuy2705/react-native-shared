@@ -15,7 +15,8 @@ import AppNavigator from '~/navigation/AppNavigator';
 import CodePush from '../node_modules/react-native-code-push';
 
 function App({ auth, logIn }) {
-	const { isSignedIn } = auth;
+	// const { isSignedIn } = auth;
+	const isSignedIn = true
 
 	return (
 		<SafeAreaProvider initialMetrics={initialWindowMetrics}>
