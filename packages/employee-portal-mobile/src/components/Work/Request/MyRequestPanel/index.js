@@ -22,27 +22,31 @@ const Title = styled(Heading)`
   margin: 0 0 16px 0;
 `;
 
-function ItemList() {
-  const items = [
-    {
-      id: 'annual-leave',
-      title: 'Annual Leave',
-      descriptions: [
-        { id: 'action', text: 'Waiting' },
-        { id: 'user', text: ' Tu. Le Thanh ', style: { fontWeight: 'bold', color: '#F15A22' } },
-        { id: 'detail', text: 'for approval.' }
-      ],
-    },
-    {
-      id: 'wfh',
-      title: 'Work from home',
-      descriptions: [
-        { id: 'action', text: 'Waiting' },
-        { id: 'user', text: ' Tu. Le Thanh ', style: { fontWeight: 'bold', color: '#F15A22' } },
-        { id: 'detail', text: 'For approval.' }
-      ],
-    }
+function getDescriptions(request, users) {
+  const hlStyle = { fontWeight: 'bold', color: '#F15A22' };
+  const owner = users[request.createdDomain] || {};
+  const manager = owner.lineManagerName || 'CEO';
+  if (request.status === 1) {
+    return [
+      { id: 'action', text: 'Waiting' },
+      { id: 'user', text: ` ${manager} `, style: hlStyle },
+      { id: 'detail', text: 'for approval.' }
+    ];
+  }
+  return [
+    { id: 'action', text: request.status === 2 ? 'Approved by' : 'Rejected by' },
+    { id: 'user', text: ` ${manager} `, style: hlStyle }
   ];
+}
+
+function ItemList({ requests: { requests, users }, onViewDetails }) {
+  const items = requests.map(r => {
+    const title = r.type === 'LEAVE'
+      ? 'Annual Leave'
+      : 'Work from home';
+    const descriptions = getDescriptions(request, users);
+    return { ...r, id: r.requestId, title, descriptions };
+  });
 
   return (
     <Container>
@@ -54,10 +58,10 @@ function ItemList() {
           item={{
             ...i,
             icon: () => (
-              <RequestCircleIcon isActive={idx === 0} />
+              <RequestCircleIcon isActive={i.status === 1} />
             )
           }}
-          onPress={() => { }}
+          onPress={() => onViewDetails(i)}
         />
       ))}
     </Container>
