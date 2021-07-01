@@ -51,7 +51,7 @@ const ImageAvatar = styled(Image)`
 `;
 
 function Avatar(props) {
-  const { source: { uri, text }, size } = props;
+  const { source: { uri, text = '' }, size } = props;
   if (uri) {
     return (<ImageAvatar size={size} source={{ uri }} />);
   }
