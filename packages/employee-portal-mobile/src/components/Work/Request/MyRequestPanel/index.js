@@ -39,8 +39,8 @@ function getDescriptions(request, users) {
   ];
 }
 
-function ItemList({ requests: { requests, users }, onViewDetails }) {
-  const items = requests.map(r => {
+function ItemList({ requests: { items: rqItems, users }, onViewDetails }) {
+  const items = rqItems.map(r => {
     const title = r.type === 'LEAVE'
       ? 'Annual Leave'
       : 'Work from home';
@@ -48,7 +48,7 @@ function ItemList({ requests: { requests, users }, onViewDetails }) {
     return { ...r, id: r.requestId, title, descriptions };
   });
 
-  return (
+  return items.length > 0 ? (
     <Container>
       <Title>My Request</Title>
       {items.map((i, idx) => (
@@ -65,7 +65,7 @@ function ItemList({ requests: { requests, users }, onViewDetails }) {
         />
       ))}
     </Container>
-  );
+  ) : null;
 }
 
 export default ItemList;

@@ -40,7 +40,7 @@ export default class Work {
       method: 'POST',
       body: JSON.stringify({ startDate, endDate, description, registrationType })
     });
-
+    console.log('error===>', error, data);
     if (error) {
       throw new Error(error.message);
     }

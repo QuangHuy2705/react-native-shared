@@ -47,6 +47,7 @@ function Request({ requests, getRequests, submitLeave }) {
               description,
               registrationType
             );
+            showCreateForm({ isOpen: false });
           }}
           onClose={() => showCreateForm({ isOpen: false })}
         />

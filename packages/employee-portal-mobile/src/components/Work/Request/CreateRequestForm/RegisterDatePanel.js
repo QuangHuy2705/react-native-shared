@@ -53,8 +53,6 @@ function RegisterDatePanel({ dates, totalDays, onChange }) {
     onChange(mergedDates);
   }
 
-  console.log(dates);
-
   return (
     <Panel title="Register date">
       {items.map((i, idx) => {

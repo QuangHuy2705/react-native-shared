@@ -35,7 +35,7 @@ function* getRequests({ offset }) {
 
 function* submitLeave({ type, startDate, endDate, description, registrationType }) {
   try {
-    yield call(Work.submitLeave, type, startDate, endDate, description, registrationType);
+    const data = yield call(Work.submitLeave, type, startDate, endDate, description, registrationType);
     yield put(RqActions.submitLeaveSuccess());
     yield put(RqActions.getRequests(0));
   } catch (error) {
