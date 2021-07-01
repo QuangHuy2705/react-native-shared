@@ -6,7 +6,7 @@ import View from '~/ui/primitives/View';
 
 import Header, { Tabs } from '~/components/Work/Header';
 import Task from '~/containers/Work/Task';
-import Request from '~/components/Work/Request';
+import Request from '~/containers/Work/Request';
 
 const Container = styled(View)`
 	background: transparent;

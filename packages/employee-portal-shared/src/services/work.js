@@ -23,4 +23,27 @@ export default class Work {
     }
     return data;
   }
+  static async getRequests(offset) {
+    const uri = `/v1/work/request/list-leave?offset=${offset}&limit=100`;
+    const { error, data } = await Api.fetch(uri, {
+      method: 'GET'
+    });
+    console.log(data, error);
+    if (error) {
+      throw new Error(error.message);
+    }
+    return data;
+  }
+  static async submitLeave(type, startDate, endDate, description, registrationType) {
+    const uri = `/v1/work/request/${type.toLowerCase()}`;
+    const { error, data } = await Api.fetch(uri, {
+      method: 'POST',
+      body: JSON.stringify({ startDate, endDate, description, registrationType: JSON.parse(registrationType) })
+    });
+    console.log('error===>', error, data);
+    if (error) {
+      throw new Error(error.message);
+    }
+    return data;
+  }
 }

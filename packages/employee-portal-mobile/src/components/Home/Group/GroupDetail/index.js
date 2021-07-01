@@ -4,10 +4,10 @@ import Background from '~/assets/images/group_background.png'
 import styled from 'styled-components'
 import Text from '~/ui/primitives/Text'
 import Icon from '~/ui/common/Icon'
-import PostList from '~/components/Home/Feed/List'
+// import PostList from '~/components/Home/Feed/List'
 import {useNavigation} from '@react-navigation/native'
 import PostForm from '~/components/common/PostForm'
-import Post from '~/components/Home/Feed/List/Item'
+// import Post from '~/components/Home/Feed/List/Item'
 
 const CImageBackground = styled(ImageBackground)`
 	height: 112px;
@@ -104,12 +104,12 @@ export default function GroupDetail(props) {
 			</TouchableOpacity>
 			<ScrollView>
 				<PostForm to={groupData.name} owner={{ name: 'Lực', photo: 'https://i.pravatar.cc/50' }} />
-				{items.map(i => (
+        {/* {items.map(i => (
 					<Post
 						key={i.id}
 						item={i}
 					/>
-				))}
+				))} */}
 			</ScrollView>
 		</>
 	)

@@ -1,9 +1,14 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import moment from 'moment';
+
+import { ActivityIndicator, Dimensions } from 'react-native';
 import ScrollView from '~/components/common/ScrollView';
 
 import View from '~/ui/primitives/View';
+import Blank from '~/components/Blank';
+
 import Calendar from './Calendar';
 import EventGroup from './EventGroup';
 
@@ -16,64 +21,48 @@ const Container = styled(View)`
 const Content = styled(View)`
 	background: #FFF;
   margin-top: 16px;
+  min-height: ${Dimensions.get('window').height - 360}px;
 `;
 
-function EventList() {
-  const members = [
-    { id: 1, photo: 'https://i.pravatar.cc/50' },
-    { id: 2, photo: 'https://i.pravatar.cc/50' },
-    { id: 3, photo: 'https://i.pravatar.cc/50' },
-    { id: 4, photo: 'https://i.pravatar.cc/50' },
-    { id: 5, photo: 'https://i.pravatar.cc/50' },
-  ];
+function getGroupName(date) {
+  const format = 'dddd, MMM DD';
+  const name = moment(date).format(format);
+  return moment().format(format) === name ? 'TODAY' : name;
+}
 
-  const groups = [
-    {
-      id: 1,
-      name: 'TODAY',
-      events: [
-        {
-          id: 1,
-          title: 'Meeting with TS team',
-          members: members,
-          time: '09:00 - 10:00',
-          location: 'Beijing Room - V1 - F1 - Green Zone'
-        }, {
-          id: 2,
-          title: 'Review Design',
-          time: '13:00 - 14:00',
-          members: members,
-          location: 'Beijing Room - V1 - F1 - Green Zone'
-        }
-      ]
-    },
-    {
-      id: 2,
-      name: 'Wednesday, OCT 9',
-      events: [
-        {
-          id: 1,
-          title: 'Meeting with TS team',
-          time: '09:00 - 10:00',
-          members: members,
-          location: 'Beijing Room - V1 - F1 - Green Zone'
-        }, {
-          id: 2,
-          title: 'Review Design',
-          members: members,
-          time: '13:00 - 14:00',
-          location: 'Beijing Room - V1 - F1 - Green Zone'
-        }
-      ]
-    },
-  ];
+function EventList({ events, getEvents }) {
+  const [date, setDate] = React.useState(new Date(Date.now() + 24 * 60 * 60000));
+  const key = moment(date).format('YYYY-MM-DD');
+  React.useEffect(() => {
+    getEvents(key);
+  }, [key]);
+
+  const groups = events[key] && [{
+    id: key,
+    name: getGroupName(date),
+    events: events[key].map(e => ({
+      ...e,
+      title: e.subject,
+      time: `${moment(e.startEvent).format('hh:mm')} - ${moment(e.endEvent).format('hh:mm')}`,
+    }))
+  }];
 
   return (
     <Container>
       <ScrollView>
-        <Calendar />
+        <Calendar date={date} onChange={setDate} />
         <Content>
-          {groups.map(g => <EventGroup key={g.id} name={g.name} events={g.events} />)}
+          {groups
+            ? groups.map(g => <EventGroup key={g.id} name={g.name} events={g.events} />)
+            : (<ActivityIndicator
+              size="large"
+              color="#909090"
+              style={{ alignSelf: 'center', marginTop: 32 }}
+            />)
+          }
+          {events[key] && events[key].length === 0 && (
+            <Blank style={{ marginTop: 50 }} title="No Upcoming Event" />
+          )}
         </Content>
       </ScrollView>
     </Container>

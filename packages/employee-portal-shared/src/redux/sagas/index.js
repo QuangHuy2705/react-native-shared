@@ -5,6 +5,8 @@ import app from './app';
 import auth from './auth';
 import user from './user';
 import work from './work';
+import home from './home';
+import group from './group'
 
 /* ------------- Watchers ------------- */
 export default function* root() {
@@ -13,5 +15,7 @@ export default function* root() {
 		yield fork(auth),
 		yield fork(user),
 		yield fork(work),
+		yield fork(home),
+		yield fork(group),
 	]);
 }
