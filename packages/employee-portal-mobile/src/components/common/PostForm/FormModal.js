@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import MIcon from '~/ui/common/Icon'
 import Text from '~/ui/primitives/Text'
 import Image from '~/ui/primitives/Image'
+import ImageListPicker from '~/components/common/ImageListPicker'
 
 const CImage = styled(Image)`
 	width: 36px;
@@ -74,11 +75,10 @@ export default function PostFormModal({route, navigation}) {
 			<Container p='12px 16px'>
 				<Text fontSize='14px' fontWeight={700}>Choose Photo</Text>
 				<Text color='#BDBDBD' fontSize='14px' >Maximum <Text fontWeight={700} fontSize='13'>3 images</Text> are allowed</Text>
-				<Container mt='10px' flexDirection='row'>
-					<SelectedImage source={{uri: 'https://i.pravatar.cc/50'}}></SelectedImage>
-					<SelectedImage source={{uri: 'https://i.pravatar.cc/50'}}></SelectedImage>
-					<SelectedImage source={{uri: 'https://i.pravatar.cc/50'}}></SelectedImage>
-				</Container>
+				
+			</Container>
+			<Container pl='16px'>
+				<ImageListPicker />
 			</Container>
 		</Container>
 	)

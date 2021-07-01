@@ -23,7 +23,6 @@ export default function ListItem(props) {
 
 	return (
 		<Container mb='20px'>
-			<Text mb='12px' fontSize='17px' fontWeight={700}>{name}</Text>
 			<TouchableOpacity onPress={() => onToGroupDetail(groupData)}>
 				<Container flexDirection='row' justifyContent='space-between' alignItems='center' >
 					<Container  flexDirection='row' alignItems='center'>

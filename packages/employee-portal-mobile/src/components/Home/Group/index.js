@@ -22,6 +22,7 @@ export default function Group ({getGroupList, groupList}) {
 	return (
 		<CScrollView >
 			<CContainer>
+				<Text mb='12px' fontSize='17px' fontWeight={700}>All company</Text>
 				<GroupList groupList={groupList} />
 			</CContainer>
 		</CScrollView>
