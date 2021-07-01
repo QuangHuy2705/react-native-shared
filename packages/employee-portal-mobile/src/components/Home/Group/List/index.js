@@ -3,10 +3,10 @@ import Container from '~/ui/layout/Container'
 import ListItem from '../ListItem/index'
  
 export default function GroupList(props) {
-	const {groupsData = []} = props
+	const {groupList = []} = props
 	return (
 		<Container>
-			{groupsData.length > 0 && groupsData.map((item, idx) => (
+			{groupList.length > 0 && groupList.map((item, idx) => (
 				<ListItem key={idx} groupData={item} />
 			))}
 		</Container>

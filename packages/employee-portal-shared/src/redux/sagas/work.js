@@ -3,10 +3,10 @@ import { Actions, Types } from '../modules/work/tasks';
 
 import Work from '../../services/work';
 
-function* getTasks({ offset }) {
+function* getTasks() {
   try {
-    const { tasks } = yield call(Work.getTasks, offset);
-    yield put(Actions.getTasksSuccess(offset, tasks));
+    const { tasks } = yield call(Work.getTasks);
+    yield put(Actions.getTasksSuccess(tasks));
   } catch (error) {
     yield put(Actions.getTasksFailure(error.message));
   }

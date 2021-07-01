@@ -64,12 +64,12 @@ export default function PostFormModal({route, navigation}) {
 					<Text fontSize='12px' fontWeight={700}>{user.name}</Text>
 					<CContainer >
 						<Icon color='#BDBDBD' name='group' />
-						<Text ml='5px' color='#BDBDBD'>IT Helpdesk</Text>
+						<Text ml='5px' color='#BDBDBD'>{title}</Text>
 					</CContainer>
 				</Container>
 			</Container>
 			<ContainerBotBorder >
-				<TextInput value={text} onChange={setText} style={{ height:150, textAlignVertical: 'top'}} numberOfLines={10} multiline={true} placeholder={`What's on your mind, ${user.name}?`} />
+				<TextInput value={text} onChangeText={setText} style={{ height:150, textAlignVertical: 'top'}} numberOfLines={10} multiline={true} placeholder={`What's on your mind, ${user.name}?`} />
 			</ContainerBotBorder>
 			<Container p='12px 16px'>
 				<Text fontSize='14px' fontWeight={700}>Choose Photo</Text>
