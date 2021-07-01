@@ -47,7 +47,7 @@ export default class Home {
 		if (error) {
 			throw new Error(error.message);
 		}
-		const feedItems = data.feedIds.map((item) => ({
+		const feedItems = (data.feedIds || []).map((item) => ({
 			feedId: item,
 			fromUserId: data.feeds[item].fromUserId,
 			fromUser: data.users[data.feeds[item].fromUserId],
