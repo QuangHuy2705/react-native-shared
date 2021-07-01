@@ -3,6 +3,7 @@ import appReducer from './app';
 import authReducer from './auth';
 import userReducer from './user';
 import tasksReducer from './work/tasks';
+import feedReducer from './home/feed';
 import groupReducer from './group/group'
 import requestsReducer from './work/requests';
 
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
 	auth: authReducer,
 	user: userReducer,
 	tasks: tasksReducer,
+	feed: feedReducer,
 	groups: groupReducer,
 	requests: requestsReducer,
 });

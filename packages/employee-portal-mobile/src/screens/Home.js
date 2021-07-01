@@ -1,4 +1,16 @@
 import React from 'react';
+
+import styled from 'styled-components';
+
+import View from '~/ui/primitives/View';
+
+import Header, { Tabs } from '~/components/Home/Header';
+import Feed from '~/containers/Home/Feed';
+import Event from '~/components/Home/Event';
+
+const Container = styled(View)`
+	background: transparent;
+`;
 import { createStackNavigator } from '@react-navigation/stack';
 import Main from '~/components/Home/Main'
 import GroupDetail from '~/components/Home/Group/GroupDetail'
