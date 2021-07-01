@@ -65,7 +65,7 @@ function FormHeader({ subTitle, children, leftAction, rightAction }) {
           </Title>
           <SubTitle>{subTitle}</SubTitle>
         </TitleContainer>
-        <ActionContainer onPress={() => rightAction.isActive && rightAction.onPress}>
+        <ActionContainer onPress={() => rightAction.isActive && rightAction.onPress()}>
           <ActionText isActive={rightAction.isActive}>
             {rightAction.text}
           </ActionText>
