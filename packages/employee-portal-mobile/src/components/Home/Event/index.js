@@ -56,7 +56,7 @@ function EventList({ events, getEvents }) {
             ? groups.map(g => <EventGroup key={g.id} name={g.name} events={g.events} />)
             : (<ActivityIndicator
               size="large"
-              color="#0000ff"
+              color="#909090"
               style={{ alignSelf: 'center', marginTop: 32 }}
             />)
           }
