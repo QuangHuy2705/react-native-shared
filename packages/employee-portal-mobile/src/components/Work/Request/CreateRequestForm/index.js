@@ -19,6 +19,7 @@ const Container = styled(View)`
 
 function getDetails({ startDate, endDate }) {
   const items = [];
+
   for (let date = startDate; date <= endDate; date += (24 * 60 * 60000)) {
     const item = moment(date);
     const id = item.format('YYYY-MM-DD');
@@ -28,9 +29,19 @@ function getDetails({ startDate, endDate }) {
   return items;
 }
 
+function getDefaultDates() {
+  const now = new Date();
+  now.setUTCHours(0, 0, 0, 0);
+  const startDate = now.getTime();
+  now.setUTCHours(23, 0, 0, 0);
+  const endDate = now.getTime();
+  return { startDate, endDate };
+}
+
 function CreateRequestForm({ category, onSubmit, onClose }) {
   const [description, setDesc] = React.useState('');
-  const [dates, setDates] = React.useState({ startDate: moment().valueOf(), endDate: moment().valueOf() });
+
+  const [dates, setDates] = React.useState(getDefaultDates());
   let days = moment(dates.endDate).diff(moment(dates.startDate), 'days') + 1;
 
   const [types, setTypes] = React.useState({});

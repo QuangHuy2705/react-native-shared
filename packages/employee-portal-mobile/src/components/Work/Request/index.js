@@ -45,7 +45,7 @@ function Request({ requests, getRequests, submitLeave }) {
               moment(startDate).format('YYYY-MM-DD'),
               moment(endDate).format('YYYY-MM-DD'),
               description,
-              registrationType
+              JSON.stringify(registrationType)
             );
             showCreateForm({ isOpen: false });
           }}

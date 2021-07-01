@@ -38,7 +38,7 @@ export default class Work {
     const uri = `/v1/work/request/${type.toLowerCase()}`;
     const { error, data } = await Api.fetch(uri, {
       method: 'POST',
-      body: JSON.stringify({ startDate, endDate, description, registrationType })
+      body: JSON.stringify({ startDate, endDate, description, registrationType: JSON.parse(registrationType) })
     });
     console.log('error===>', error, data);
     if (error) {
