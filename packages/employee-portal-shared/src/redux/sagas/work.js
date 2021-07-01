@@ -4,10 +4,10 @@ import { Actions as RqActions, Types as RqTypes } from '../modules/work/requests
 
 import Work from '../../services/work';
 
-function* getTasks() {
+function* getTasks({ offset }) {
   try {
-    const { tasks } = yield call(Work.getTasks);
-    yield put(Actions.getTasksSuccess(tasks));
+    const { tasks } = yield call(Work.getTasks, offset);
+    yield put(Actions.getTasksSuccess(offset, tasks));
   } catch (error) {
     yield put(Actions.getTasksFailure(error.message));
   }
