@@ -20,10 +20,10 @@ import PostFormModal from '~/components/common/PostForm/FormModal';
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
 
-function WorkplaceScreenStackScreen() {
+function WorkplaceStackScreen() {
 	return (
 		<HomeStack.Navigator>
-			<HomeStack.Screen name="Workplace" component={WorkplaceScreen} />
+			<HomeStack.Screen name="Workplace" component={WorkplaceScreen} options={{ headerMode: 'none', headerShown: false }} />
 			<HomeStack.Screen name="Location" component={LocationDiscoverScreen} />
 			<HomeStack.Screen name="Booking" component={LocationBookingScreen} />
 		</HomeStack.Navigator>
@@ -35,7 +35,7 @@ const AppStack = createStackNavigator()
 const App = () => {
 
 	return (
-				<Tab.Navigator
+		<Tab.Navigator
 			initialRouteName="Home"
 			tabBar={BottomTabBar}
 			mode="modal"
@@ -50,7 +50,7 @@ const App = () => {
 			/>
 			<Tab.Screen
 				name="Workplace"
-				component={WorkplaceScreenStackScreen}
+				component={WorkplaceStackScreen}
 			/>
 			<Tab.Screen
 				options={{
@@ -74,7 +74,7 @@ const App = () => {
 export function RootStack() {
 	return (
 		<AppStack.Navigator mode='modal'>
-			<AppStack.Screen options={{headerShown: false}} name={'App'} component={App} />
+			<AppStack.Screen options={{ headerShown: false }} name={'App'} component={App} />
 			<AppStack.Screen name='PostFormModal' component={PostFormModal} />
 		</AppStack.Navigator>
 	)

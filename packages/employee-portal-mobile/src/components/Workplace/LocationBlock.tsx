@@ -33,7 +33,8 @@ const DirectButton = ({ onPress }) => {
 
 type propType = {
 	variant: number,
-	image?, location: LocationData, // @ts-ignore
+	image?,
+	location: LocationData, // @ts-ignore
 	style?: StyleProp,
 	onDirect?: Function | Boolean,
 	onBook?: Function | Boolean
@@ -46,11 +47,7 @@ const LocationBlock = ({
 	style,
 	onDirect,
 	onBook
-}: {
-	variant: number,
-	image?, location: LocationData, // @ts-ignore
-	style?: StyleProp, onDirect?: Function | Boolean, onBook?: Function | Boolean
-}) => {
+}: propType) => {
 	return <View style={{ backgroundColor: 'white', padding: 16, borderRadius: 10, ...style }}>
 		<View style={{
 			flexDirection: 'row'

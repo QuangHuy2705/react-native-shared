@@ -65,7 +65,7 @@ export default function EventItem({ event: { title, time, location, members } })
             key={m.id}
             size={24}
             style={{ marginRight: 6 }}
-            source={{ uri: m.photo }}
+				source={{ uri: m.photo }}
           />
         ))}
       </Row>
