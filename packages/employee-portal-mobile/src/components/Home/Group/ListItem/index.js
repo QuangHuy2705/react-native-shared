@@ -17,6 +17,7 @@ export default function ListItem(props) {
 	const {groupData, navigate = true} = props
 	const navigation = useNavigation()
 	const {name} = groupData
+	console.log(groupData)
 	const onToGroupDetail = groupData => {
 		navigate && navigation.push('GroupDetail', {groupData})
 	}

@@ -16,7 +16,7 @@ import CodePush from '../node_modules/react-native-code-push';
 
 function App({ auth, logIn }) {
 	const { isSignedIn } = auth;
-
+	
 	return (
 		<SafeAreaProvider initialMetrics={initialWindowMetrics}>
 			{isSignedIn
