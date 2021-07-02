@@ -13,7 +13,7 @@ function Header({ title }) {
 			title={title}
 			actions={[{
 				id: "notification",
-				icon: () => <NotificationIcon dot />,
+				icon: () => <NotificationIcon />,
 				onPress: () => navigation.navigate('Notification')
 			}]}
 		>
