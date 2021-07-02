@@ -31,7 +31,7 @@ function getGroupName(date) {
 }
 
 function EventList({ events, getEvents }) {
-  const [date, setDate] = React.useState(new Date(Date.now() + 24 * 60 * 60000));
+  const [date, setDate] = React.useState(new Date());
   const key = moment(date).format('YYYY-MM-DD');
   React.useEffect(() => {
     getEvents(key);

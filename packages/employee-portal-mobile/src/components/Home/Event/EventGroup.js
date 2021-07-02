@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import View from '~/ui/primitives/View';
 import Text from '~/ui/primitives/Text';
 import EventItem from './EventItem';
-import { Dimensions } from 'react-native';
 
 const Container = styled(View)`
   ${'' /* width: ${Dimensions.get('window').width}px; */}
@@ -20,8 +19,8 @@ const Title = styled(Text)`
 `;
 
 export default function EventGroup({ name, events }) {
-	return (<Container>
-		<Title>{name}</Title>
-		{events.map(e => <EventItem key={e.id} event={e} />)}
-	</Container>);
+  return (<Container>
+    <Title>{name}</Title>
+    {events.map(e => <EventItem key={e.id} event={e} />)}
+  </Container>);
 }

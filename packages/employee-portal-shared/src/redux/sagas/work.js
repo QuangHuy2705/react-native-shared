@@ -26,7 +26,6 @@ function* submitTaskReview({ taskId, taskType, status }) {
 function* getRequests({ offset }) {
   try {
     const { requests, users } = yield call(Work.getRequests, offset);
-    console.log(requests, users);
     yield put(RqActions.getRequestsSuccess(offset, requests, users));
   } catch (error) {
     yield put(RqActions.getRequestsFailure(error.message));
