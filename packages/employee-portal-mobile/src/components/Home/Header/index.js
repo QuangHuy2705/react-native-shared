@@ -23,7 +23,7 @@ function Header({ title, tab, onTabChange }) {
 			title={title}
 			actions={[{
 				id: "notification",
-				icon: () => <NotificationIcon dot />,
+				icon: () => <NotificationIcon />,
 				onPress: () => navigation.navigate('Notification')
 			}]}
 		>
