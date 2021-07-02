@@ -24,12 +24,10 @@ const mockAttachment = {
 			thumbnail: "https://i.imgflip.com/2knj8b.jpg",
 			big: "https://i.imgflip.com/2knj8b.jpg"
 		},
-		,
 		{
 			thumbnail: "https://i.imgflip.com/2knj8b.jpg",
 			big: "https://i.imgflip.com/2knj8b.jpg"
 		},
-		,
 		{
 			thumbnail: "https://i.imgflip.com/2knj8b.jpg",
 			big: "https://i.imgflip.com/2knj8b.jpg"

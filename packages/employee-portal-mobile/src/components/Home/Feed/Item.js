@@ -61,7 +61,7 @@ const getLocation = (item) => {
 	}
 }
 
-function Item({ item }) {
+function Item({ item, showCommentBS }) {
 	const fromUser = {
 		name: item.fromUser.displayName,
 		photo: item.fromUser.avatar,
@@ -88,7 +88,7 @@ function Item({ item }) {
 		</RowContainer>}
 		{item.attachment && item.attachment.image &&
 		<RowContainer>
-			<ThumbnailsGrid thumbnails={item.attachment.image} numOfImgs={3} />
+			<ThumbnailsGrid thumbnails={item.attachment.image} numOfImgs={5} />
 		</RowContainer>}
 		<ActionContainer>
 			<Touchable onPress={() => onViewFeed(item)}>
@@ -97,7 +97,7 @@ function Item({ item }) {
 					<RegularText> {item.likes_number} Like</RegularText>
 				</ActionGroup>
 			</Touchable>
-			<Touchable onPress={() => onViewFeed(item)}>
+			<Touchable onPress={() => showCommentBS(item)}>
 				<ActionGroup>
 					<ChatIcon />
 					<RegularText> {item.comments_number} Comment</RegularText>

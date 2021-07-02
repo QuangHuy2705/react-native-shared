@@ -8,7 +8,6 @@ import Text from '~/ui/primitives/Text';
 const Container = styled(View)`
   flex: 1
   flex-direction: column;
-  height: 250px;
   width: 100%;
   padding: 0 12px;
 `;
@@ -20,7 +19,7 @@ const Row = styled(View)`
 
 const ImageContainer = styled(View)`
   flex: 1;
-  align-items: stretch
+  align-items: stretch;
 `;
 
 const ImageThumnail = styled(Image)`
@@ -42,28 +41,37 @@ const ImageLeft = styled(View)`
   justify-content: center;
 `;
 
-function ThumbnailsGrid({ thumbnails, numOfImgs }) {
+function ThumbnailsGrid({ thumbnails, numOfImgs, oneRow }) {
 
 	let firstRow = [];
 	let secondRow = [];
 	numOfImgs = numOfImgs || 3;
-	thumbnails.slice(0, numOfImgs).map((item, index) => {
-		if (index < 2) {
-			if ((index % 2) == 0) firstRow.push(item);
-			else secondRow.push(item);
-		} else {
-			if ((index % 2) == 0) secondRow.push(item);
-			else firstRow.push(item);
-		}
-	});
-	const leftPlus = thumbnails.length - numOfImgs;
+	const _numOfImgs = (thumbnails.length < numOfImgs) ? thumbnails.length : (numOfImgs);
+	if (!!oneRow) {
+		firstRow = thumbnails.slice(0, _numOfImgs);
+	} else {
+		thumbnails.slice(0, _numOfImgs).map((item, index) => {
+			if (index < 2) {
+				if ((index % 2) == 0) firstRow.push(item);
+				else secondRow.push(item);
+			} else {
+				if ((index % 2) == 0) secondRow.push(item);
+				else firstRow.push(item);
+			}
+		});
+	}
+	const leftPlus = thumbnails.length - _numOfImgs + 1;
 
 	return (
-		<Container>
+		<Container height={(!!oneRow) ? (150) : 250}>
 			{firstRow.length > 0 &&
 			<Row>
-				{firstRow.map((item) => {
-					return (<ImageContainer key={item.thumbnail}>
+				{firstRow.map((item, index) => {
+					return (<ImageContainer key={item.thumbnail + index}>
+						{(!!oneRow) && (leftPlus > 0) && (index == firstRow.length - 1) &&
+						<ImageLeft>
+							<Text color={'white'} fontSize={'32'}>+{leftPlus}</Text>
+						</ImageLeft>}
 						<ImageThumnail source={{ uri: item.thumbnail }} />
 					</ImageContainer>)
 				})}
@@ -71,7 +79,7 @@ function ThumbnailsGrid({ thumbnails, numOfImgs }) {
 			{secondRow.length > 0 &&
 			<Row>
 				{secondRow.map((item, index) => {
-					return (<ImageContainer key={item.thumbnail}>
+					return (<ImageContainer key={item.thumbnail + index}>
 						{(leftPlus > 0) && (index == secondRow.length - 1) &&
 						<ImageLeft>
 							<Text color={'white'} fontSize={'32'}>+{leftPlus}</Text>

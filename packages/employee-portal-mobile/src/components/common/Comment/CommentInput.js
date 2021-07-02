@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, Keyboard } from 'react-native';
+import connect from '~/shared/redux/connect';
 import styled from 'styled-components';
 
 import View from '~/ui/primitives/View';
@@ -12,6 +13,8 @@ const Container = styled(View)`
 	min-height: 42px;
 	padding: 8px;
 	align-items: center;
+	border-color: #F2F2F2;
+	border-top-width: 0.5px;
 `;
 
 const UserAvatar = styled(View)`
@@ -48,18 +51,23 @@ const MinInputHeight = 20;
 function CommentInput({ user, onSubmit }) {
 	const [text, setText] = useState('');
 	const [inputHeight, setInputHeight] = useState(MinInputHeight);
-	const { photo } = user;
+	const { avatar, displayName } = user;
 
 	const onSend = function (text) {
 		setText('');
 		Keyboard.dismiss();
-		onSubmit(text);
+		onSubmit({
+			value: text,
+			user: user
+		});
 	}
 
 	return (
 		<Container>
 			<UserAvatar>
-				<Avatar width="40" height="40" source={{ uri: photo }} />
+				<Avatar size={40} source={{
+				uri: avatar ? avatar : '',
+				text: displayName ? displayName : '' }} />
 			</UserAvatar>
 			<MultiLineInputContainer>
 				<MultiLineTextInput
@@ -83,4 +91,15 @@ function CommentInput({ user, onSubmit }) {
 	);
 }
 
-export default CommentInput;
+const mapStateToProps = (state) => ({
+	user: state.user[state.auth.token.userId]
+});
+
+const mapDispatchToProps = null;
+
+const ConnectedCommentInput = connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(CommentInput);
+
+export default ConnectedCommentInput;
