@@ -64,12 +64,12 @@ export default function EventItem({ event: { title, time, location, attendees = 
         <LocationText>{location || 'Online meeting'}</LocationText>
       </Row>
       <Row>
-        {attendees.map(m => (
+        {attendees.filter(m => m).slice(0, attendees.length - 1 > 10 ? 10 : attendees.length - 1).map(m => (
           <Avatar
-            key={m.id}
+            key={m.domain}
             size={24}
             style={{ marginRight: 6 }}
-				source={{ uri: m.photo }}
+            source={{ uri: m.photo }}
           />
         ))}
       </Row>
