@@ -18,7 +18,6 @@ export default function GroupList(props) {
 	return (
 		<CScrollView >
 			<CContainer>
-				<Text fontSize='17px' fontWeight={700}>All company</Text>
 				<List />
 			</CContainer>
 		</CScrollView>

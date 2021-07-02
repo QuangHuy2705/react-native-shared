@@ -28,7 +28,8 @@ const LocationDiscoverScreen = ({ route }) => {
 	const refAcctionSheet = useRef();
 	const [selectedCategory, setSelectedCategory] = useState(category[0]);
 	useEffect(() => {
-		setSelectedCategory(route.params.category);
+		if (route.params && route.params.category)
+			setSelectedCategory(route.params.category);
 	}, [])
 	useEffect(() => {
 		if (selectedLocation)

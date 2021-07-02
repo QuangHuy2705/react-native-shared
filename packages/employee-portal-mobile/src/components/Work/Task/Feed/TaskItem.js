@@ -42,7 +42,7 @@ const ActionContainer = styled(View)`
   align-items: center;
   border-color: #A7A7A77A;
   border-top-width: 0.2px;
-  padding: 16px 0 4px 0;
+  padding: 16px 0 0 0;
   margin-top: 16px;
 `;
 

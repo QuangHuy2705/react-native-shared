@@ -13,10 +13,13 @@ const Container = styled(View)`
   border-radius: 10px;
   flex-direction: row;
   margin: 0 8px 16px 8px;
+  position: relative;
 `;
 
 const Content = styled(View)`
   flex: 1;
+  padding-left: 14px;
+  padding-right: 8px;
 `;
 
 const Marker = styled(View)`
@@ -24,8 +27,9 @@ const Marker = styled(View)`
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   width: 5px;
-  height: 110px;
-  margin-right: 8px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
 `;
 
 const Title = styled(Text)`
@@ -47,25 +51,25 @@ const Row = styled(View)`
   margin-bottom: 0px;
 `;
 
-export default function EventItem({ event: { title, time, location, members } }) {
+export default function EventItem({ event: { title, time, location, attendees = [] } }) {
   return (<Container>
     <Marker />
     <Content>
       <Row style={{ justifyContent: 'space-between' }}>
-        <Title>{title}</Title>
+        <Title numberOfLines={1} style={{ flex: 1, marginRight: 16 }}>{title}</Title>
         <Title>{time}</Title>
       </Row>
       <Row>
         <LocationIcon />
-        <LocationText>{location}</LocationText>
+        <LocationText>{location || 'Online meeting'}</LocationText>
       </Row>
       <Row>
-        {members.map(m => (
+        {attendees.map(m => (
           <Avatar
             key={m.id}
             size={24}
             style={{ marginRight: 6 }}
-            source={{ uri: m.photo }}
+				source={{ uri: m.photo }}
           />
         ))}
       </Row>

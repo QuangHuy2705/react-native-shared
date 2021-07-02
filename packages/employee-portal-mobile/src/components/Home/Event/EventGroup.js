@@ -5,10 +5,9 @@ import styled from 'styled-components';
 import View from '~/ui/primitives/View';
 import Text from '~/ui/primitives/Text';
 import EventItem from './EventItem';
-import { Dimensions } from 'react-native';
 
 const Container = styled(View)`
-  width: ${Dimensions.get('window').width}px;
+  ${'' /* width: ${Dimensions.get('window').width}px; */}
   margin-bottom: 16px;
 `;
 

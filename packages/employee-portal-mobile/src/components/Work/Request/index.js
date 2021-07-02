@@ -28,8 +28,6 @@ function Request({ requests, getRequests, submitLeave }) {
   const [form, showCreateForm] = React.useState({});
   const [details, showDetails] = React.useState({});
 
-  console.log(requests);
-
   React.useEffect(() => {
     getRequests(0);
   }, []);

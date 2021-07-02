@@ -4,10 +4,10 @@ import { Actions as RqActions, Types as RqTypes } from '../modules/work/requests
 
 import Work from '../../services/work';
 
-function* getTasks() {
+function* getTasks({ offset }) {
   try {
-    const { tasks } = yield call(Work.getTasks);
-    yield put(Actions.getTasksSuccess(tasks));
+    const { tasks } = yield call(Work.getTasks, offset);
+    yield put(Actions.getTasksSuccess(offset, tasks));
   } catch (error) {
     yield put(Actions.getTasksFailure(error.message));
   }
@@ -26,7 +26,6 @@ function* submitTaskReview({ taskId, taskType, status }) {
 function* getRequests({ offset }) {
   try {
     const { requests, users } = yield call(Work.getRequests, offset);
-    console.log(requests, users);
     yield put(RqActions.getRequestsSuccess(offset, requests, users));
   } catch (error) {
     yield put(RqActions.getRequestsFailure(error.message));

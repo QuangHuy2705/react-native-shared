@@ -2,7 +2,6 @@ import React, { useRef } from 'react'
 import { TouchableOpacity } from 'react-native';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import ImagePickerCropper from 'react-native-image-crop-picker';
-import Image from '~/ui/primitives/Image';
 import Icon from '~/ui/common/Icon';
 import Text from '~/ui/primitives/Text';
 import Container from '~/ui/layout/Container';
@@ -35,7 +34,6 @@ const ImagePicker = React.forwardRef(({ onSelectImage, avatar }, ref) => {
       name: 'Choose from Gallery',
       icon: <Icon style={{ marginRight: 15 }} name="image" size={21} />,
       onPress: () => {
-        console.log('press')
         ImagePickerCropper.openPicker({
           width: 300,
           height: 300,
