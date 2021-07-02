@@ -29,7 +29,7 @@ const Description = styled(Text)`
   font-size: 14px;
 `;
 
-export default function Notification({ notification: { owner, time, postTitle } }) {
+export default function Notification({ notification: { from, owner, isMine, time, message: postTitle } }) {
   return (
     <ItemContainer
       onPress={() => { }}
@@ -37,15 +37,15 @@ export default function Notification({ notification: { owner, time, postTitle } 
       iconRender={
         () => (
           <IconContainer>
-            <Avatar width="40" height="40" source={{ uri: owner.photo }} />
+            <Avatar width="40" height="40" source={{ uri: from.photo }} />
             <Marker><Icon /></Marker>
           </IconContainer>
         )
       }
     >
-      <Bold>{owner.name} </Bold>
+      <Bold>{from.name} </Bold>
       <Description>
-        commented on your posts: “{postTitle}”.
+        commented on {isMine ? 'your' : <><Description style={{ fontWeight: 'bold' }}>{owner.name}</Description>'s</>} post: {postTitle}.
       </Description>
     </ItemContainer>
   )

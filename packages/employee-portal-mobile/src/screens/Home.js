@@ -1,13 +1,8 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
-import View from '~/ui/primitives/View';
-
 import { createStackNavigator } from '@react-navigation/stack';
 import Main from '~/components/Home/Main'
 import GroupDetail from '~/components/Home/Group/GroupDetail'
-import Notification from '~/screens/Notification';
 
 function Home() {
 	const Stack = createStackNavigator()
