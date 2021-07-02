@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import View from '~/ui/primitives/View';
 import Avatar from '../Profile/Avatar';
 import Text from '~/ui/primitives/Text';
-// import { convertTimeSince } from '~/shared/utils/function';
+import ExternalLink from '~/components/common/ExternalLink';
+import ThumbnailsGrid from '~/components/common/ThumbnailsGrid';
+import { convertTimeSince } from '~/shared/utils/function';
 
 const Container = styled(View)`
 	flex: 1;
@@ -16,6 +18,7 @@ const ColBlock = styled(View)`
 	flex-direction: column;
 	padding: 0 12px;
 	flex-shrink: 1;
+	width: 100%;
 `;
 
 const UserName = styled(Text)`
@@ -33,15 +36,20 @@ const Timer = styled(Text)`
 	color: #919191;
 `;
 
-export function CommentItem({ comment, index }) {
+export function CommentItem({ comment }) {
 	return (
 		<Container>
-			<Avatar width="40" height="40" source={{ uri: comment.commenter.photo }} />
+			<Avatar size={40} source={{
+				uri: comment.fromUser ? comment.fromUser.avatar : '',
+				text: comment.fromUser ? comment.fromUser.displayName : '' }} />
 			<ColBlock>
-				<UserName>{comment.commenter.name}</UserName>
-				<CommentText>{comment.value.textValue}</CommentText>
-				<Timer>1 hour ago</Timer>
-				{/* <Timer>{convertTimeSince(comment.value.timer)}</Timer> */}
+				<UserName>{comment.fromUser ? comment.fromUser.displayName : 'Unknown User'}</UserName>
+				<CommentText>{comment.message}</CommentText>
+				{comment.attachment && comment.attachment.link &&
+				<ExternalLink link={comment.attachment.link} viewFullHeight={false} />}
+				{comment.attachment && comment.attachment.image &&
+				<ThumbnailsGrid thumbnails={comment.attachment.image} numOfImgs={3} oneRow={true} />}
+				<Timer>{convertTimeSince(comment.createdDate)}</Timer>
 			</ColBlock>
 		</Container>
 	)
@@ -52,7 +60,7 @@ function CommentList({ comments }) {
 		<>
 			{comments.map((comment, index) => {
 				return (
-					<CommentItem key={comment.id} comment={comment} index={index} />
+					<CommentItem key={comment.commentId + index} comment={comment} />
 				);
 			})}
 		</>
