@@ -5,6 +5,7 @@ import moment from 'moment';
 import { convertTimeSince } from '~/shared/utils/function';
 import View from '~/ui/primitives/View';
 import ScrollView from '~/components/common/ScrollView';
+import Blank from '~/components/Blank';
 
 import NotificationGroup from './NotificationGroup';
 
@@ -47,6 +48,7 @@ export default function List({ items }) {
             isLast={idx === groups.length - 1}
           />
         ))}
+        {groups.length === 0 && (<Blank style={{ padding: 32 }} title="You Have No Notification" />)}
       </Container>
     </ScrollView>
   );

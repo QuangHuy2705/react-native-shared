@@ -14,6 +14,8 @@ const Container = styled(View)`
 `
 
 function Notification({ notification, userId, getNotifications }) {
+  console.log(notification);
+
   React.useEffect(() => {
     getNotifications(userId, 0);
   }, []);
