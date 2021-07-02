@@ -47,7 +47,6 @@ export default class AzureAuth {
       headers,
       body: data
     };
-
     try {
       const rs = await fetch(endpoint, payload);
       const { expires_in, access_token, refresh_token } = await rs.json();

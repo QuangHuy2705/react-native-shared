@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import MIcon from '~/ui/common/Icon'
 import Text from '~/ui/primitives/Text'
 import Image from '~/ui/primitives/Image'
+import ImageListPicker from '~/components/common/ImageListPicker'
 
 const CImage = styled(Image)`
 	width: 36px;
@@ -26,24 +27,24 @@ const ContainerBotBorder = styled(Container)`
 	border-bottom-color: rgba(189, 189, 189, 0.5);
 	padding: 16px
 `
-const SelectedImage = styled(Image)`
-	height: 111px;
-	width: 111px;
-	border-radius: 10px;
-	margin-right: 5px;
-`
 
-export default function PostFormModal({route, navigation}) {
+export default function PostFormModal({route, navigation, onSubmit}) {
 	const [text, setText] = useState('')
+	const [images, setImages] = useState([])
 	const {name, params} = route
 	const title = params?.title ? params?.title : name
 	const user = params?.user || {name: 'Lực. Mai Văn', photo: 'https://i.pravatar.cc/50'}
-	let valid = text !== ''
+	let valid = text !== '' || images.length !== 0
+	const maxImages = 3
+
+	const onPostPress = () => {
+		onSubmit && onSubmit()
+	}
 
 	React.useLayoutEffect(() => {
 		navigation.setOptions({
 			headerRight: () => (
-				<TouchableOpacity >
+				<TouchableOpacity onPress={onPostPress}>
 					<Text color={valid ? '#000' : '#a7a7a7'} mr='17px' fontSize='17px' fontWeight={700} >Post</Text>
 				</TouchableOpacity>
 			),
@@ -54,7 +55,16 @@ export default function PostFormModal({route, navigation}) {
 			),
 			title: title
 		});
-	}, [navigation, valid]);
+	}, [valid]);
+
+	const onSelectImage = image => {
+		console.log(image)
+		setImages([...images, image])
+	}
+
+	const onDeleteImage = image => {
+		setImages(images.filter(img => img.path !== image))
+	}
 
 	return (
 		<Container flex={1}>
@@ -68,17 +78,16 @@ export default function PostFormModal({route, navigation}) {
 					</CContainer>
 				</Container>
 			</Container>
-			<ContainerBotBorder >
+			<ContainerBotBorder>
 				<TextInput value={text} onChangeText={setText} style={{ height:150, textAlignVertical: 'top'}} numberOfLines={10} multiline={true} placeholder={`What's on your mind, ${user.name}?`} />
 			</ContainerBotBorder>
 			<Container p='12px 16px'>
 				<Text fontSize='14px' fontWeight={700}>Choose Photo</Text>
-				<Text color='#BDBDBD' fontSize='14px' >Maximum <Text fontWeight={700} fontSize='13'>3 images</Text> are allowed</Text>
-				<Container mt='10px' flexDirection='row'>
-					<SelectedImage source={{uri: 'https://i.pravatar.cc/50'}}></SelectedImage>
-					<SelectedImage source={{uri: 'https://i.pravatar.cc/50'}}></SelectedImage>
-					<SelectedImage source={{uri: 'https://i.pravatar.cc/50'}}></SelectedImage>
-				</Container>
+				<Text color='#BDBDBD' fontSize='14px' >Maximum <Text fontWeight={700} fontSize='13'>{maxImages} images</Text> are allowed</Text>
+				
+			</Container>
+			<Container pl='16px'>
+				<ImageListPicker onDeleteImage={onDeleteImage} max={3} images={images.map(img => img.path)} onSelectImage={onSelectImage} />
 			</Container>
 		</Container>
 	)

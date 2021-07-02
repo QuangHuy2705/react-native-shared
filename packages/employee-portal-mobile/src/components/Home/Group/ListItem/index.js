@@ -17,13 +17,13 @@ export default function ListItem(props) {
 	const {groupData, navigate = true} = props
 	const navigation = useNavigation()
 	const {name} = groupData
+	console.log(groupData)
 	const onToGroupDetail = groupData => {
 		navigate && navigation.push('GroupDetail', {groupData})
 	}
 
 	return (
 		<Container mb='20px'>
-			<Text mb='12px' fontSize='17px' fontWeight={700}>{name}</Text>
 			<TouchableOpacity onPress={() => onToGroupDetail(groupData)}>
 				<Container flexDirection='row' justifyContent='space-between' alignItems='center' >
 					<Container  flexDirection='row' alignItems='center'>

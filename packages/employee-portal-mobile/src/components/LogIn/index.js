@@ -24,12 +24,13 @@ export default class Login extends React.Component {
 
   onAzureSuccess = async () => {
     this.setState({ mode: null });
+		console.log('success')
     try {
       const { onSignedIn } = this.props;
       const { accessToken, refreshToken } = this.azureInstance.getToken();
       onSignedIn(accessToken, refreshToken);
     } catch (err) {
-      console.log(err);
+      console.log(err, 'error');
     }
   }
 
