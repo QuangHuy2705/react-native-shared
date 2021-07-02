@@ -5,8 +5,9 @@ import userReducer from './user';
 import tasksReducer from './work/tasks';
 import feedReducer from './home/feed';
 import eventsReducer from './home/events';
-import groupReducer from './group/group'
+import groupReducer from './group/group';
 import requestsReducer from './work/requests';
+import notificationReducer from './notification';
 
 const rootReducer = combineReducers({
 	app: appReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
 	events: eventsReducer,
 	groups: groupReducer,
 	requests: requestsReducer,
+	notification: notificationReducer,
 });
 
 export default rootReducer;

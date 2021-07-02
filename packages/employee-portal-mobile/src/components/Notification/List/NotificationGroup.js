@@ -39,12 +39,22 @@ const TEMPLATES = {
   request: RequestNotification
 }
 
+function getTemplate(templateId) {
+  switch (templateId) {
+    case 2:
+      return 'comment';
+    case 3:
+    default:
+      return 'like';
+  }
+}
+
 export default function NotificationGroup({ isLast, name, notifications }) {
   return (
     <Container isLast={isLast}>
       <Bold>{name}</Bold>
       {notifications.map(n => {
-        const Template = TEMPLATES[n.templateId];
+        const Template = TEMPLATES[getTemplate(n.templateId)];
         return Template && <Template key={n.id} notification={n} />
       })}
       {!isLast && <Line />}

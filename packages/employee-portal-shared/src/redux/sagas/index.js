@@ -7,6 +7,7 @@ import user from './user';
 import work from './work';
 import home from './home';
 import group from './group'
+import notification from './notification'
 
 /* ------------- Watchers ------------- */
 export default function* root() {
@@ -17,5 +18,6 @@ export default function* root() {
 		yield fork(work),
 		yield fork(home),
 		yield fork(group),
+		yield fork(notification),
 	]);
 }
